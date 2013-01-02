@@ -12,7 +12,7 @@
     
     <!--  FormActivity -->
     <string name="personal_tab">Personal</string>
-    <string name="event_tab">Event</string>
+    <string name="incident_tab">Incident</string>
     
     <!--  Personal Form Fragment -->
     <string name="first_name_label">First Name</string>
@@ -22,7 +22,19 @@
     <string name="address2_hint">ex: Apt 7</string>
     <string name="city_label">City</string>
     <string name="state_label">State</string>
+    <string name="zipcode_label">Zipcode</string>
+    <string name="email_label">Email</string>
+    <string name="phone_label">Phone</string>
     
+    <!--  Incident Form Fragment -->
+    <string name="agency_label">Agency</string>
+    <string name="agency_hint">What law enforcement agency did you come into contact with? Ex. Police, sheriff, department of public safety, ICE, border patrol.</string>
+    <string name="location_label">Location</string>
+	<string name="date_label">Date and Time</string>  
+	<string name="date_hint">Date</string>  
+	<string name="time_hint">Time</string>  
+	<string name="narrative_label">What Happened?</string>    
+    <string name="narrative_hint">Please tell us about your experience with racial profiling, arrest or detention under SB 1070. </string>
     <!--  Form Errors -->
     <string name="required_field_error">This field is required</string>
 

@@ -1,0 +1,110 @@
+<!--
+  Copyright 2012 Roman Nurik
+  
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+      http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<!--
+     Tag all TextViews whose values should be jsonified. The tag value
+	 will correspond to the json key
+-->
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/WizardPageContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1" >
+
+    <LinearLayout
+        android:id="@+id/form_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical" >
+
+        <!-- Agency -->
+
+        <TextView
+            android:id="@+id/agency_label"
+            style="@style/WizardFormLabel"
+            android:text="@string/first_name_label" />
+
+        <EditText
+            android:id="@+id/agency_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:inputType="textCapWords"
+            android:saveEnabled="false"
+            android:tag="@string/agency_tag" />
+
+        <!-- Incident Location -->
+
+        <TextView
+            android:id="@+id/location_label"
+            style="@style/WizardFormLabel"
+            android:text="@string/location_label" />
+
+        <net.openwatch.acluaz.view.ValidatedEditText
+            android:id="@+id/location_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:inputType="textCapSentences"
+            android:saveEnabled="false"
+            android:tag="@string/location_tag" />
+
+        <!-- Incident Date & Time -->
+
+        <TextView
+            style="@style/WizardFormLabel"
+            android:text="@string/date_label" />
+        
+        <EditText
+            android:id="@+id/date_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="@string/date_hint"
+            android:saveEnabled="false"
+            android:tag="@string/date_tag" />
+        
+        <EditText
+            android:id="@+id/time_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="@string/time_hint"
+            android:saveEnabled="false"
+            android:tag="@string/time_tag" />
+
+        <!-- Narrative -->
+
+        <TextView
+            style="@style/WizardFormLabel"
+            android:text="@string/narrative_label" />
+
+        <EditText
+            android:id="@+id/narrative_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="@string/narrative_hint"
+            android:singleLine="false"
+            android:inputType="textCapSentences|textAutoCorrect"
+            android:saveEnabled="false"
+            android:tag="@string/city_tag" />
+
+    </LinearLayout>
+
+</ScrollView>

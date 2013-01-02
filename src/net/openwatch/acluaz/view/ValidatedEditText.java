@@ -2,6 +2,7 @@ package net.openwatch.acluaz.view;
 
 import net.openwatch.acluaz.R;
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.text.Editable;
@@ -17,6 +18,7 @@ public class ValidatedEditText extends EditText {
 	public class preventBlankListener implements OnFocusChangeListener{
 		private boolean hadFocus = true;
 
+		// TODO: get icon to display
 		@Override
 		public void onFocusChange(View v, boolean hasFocus) {
 			Log.i(TAG, "hadFocus: " + String.valueOf(hadFocus) + " hasFocus: " + String.valueOf(hasFocus));
@@ -26,6 +28,8 @@ public class ValidatedEditText extends EditText {
 					error_icon.setBounds(new Rect(0, 0, error_icon.getIntrinsicWidth(), error_icon.getIntrinsicHeight()));
 					((EditText) v).setError(v.getResources()
 							.getString(R.string.required_field_error), error_icon);
+					
+					//v.setBackgroundColor(Color.RED);
 				}
 			}
 			hadFocus = hasFocus;

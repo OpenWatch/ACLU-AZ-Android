@@ -1,7 +1,8 @@
 package net.openwatch.acluaz;
 
+import net.openwatch.acluaz.fragment.FormFragment;
+
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -11,9 +12,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 
-public class PersonalFormFragment extends Fragment {
+public class PersonalFormFragment extends FormFragment {
 
-	private static final String TAG = "LocalRecordingInfoFragment";
+	private static final String TAG = "PersonalFormFragment";
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,6 +56,7 @@ public class PersonalFormFragment extends Fragment {
 	@Override
 	public void onPause() {
 		super.onPause();
+		toJson(R.id.form_container);
 
 	}
 }

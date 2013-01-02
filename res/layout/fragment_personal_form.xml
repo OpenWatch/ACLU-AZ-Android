@@ -26,6 +26,7 @@
     android:layout_weight="1" >
 
     <LinearLayout
+        android:id="@+id/form_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -114,7 +115,48 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textCapWords"
+            android:layout_marginBottom="16dp"
             android:tag="@string/state_tag" />
+        
+        <!-- Zip -->
+
+        <TextView
+            style="@style/WizardFormLabel"
+            android:text="@string/zipcode_label" />
+
+        <EditText
+            android:id="@+id/zipcode_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLength="5"
+            android:tag="@string/zipcode_tag" />
+        
+        <!-- Email -->
+
+        <TextView
+            style="@style/WizardFormLabel"
+            android:text="@string/email_label" />
+
+        <EditText
+            android:id="@+id/email_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:tag="@string/email_tag" />
+        
+        <!-- Phone -->
+
+        <TextView
+            style="@style/WizardFormLabel"
+            android:text="@string/phone_label" />
+
+        <EditText
+            android:id="@+id/phone_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:tag="@string/phone_tag" />
     </LinearLayout>
 
 </ScrollView>

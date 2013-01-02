@@ -57,11 +57,12 @@ public class FormActivity extends FragmentActivity {
         mTabHost = (TabHost)findViewById(android.R.id.tabhost);
         mTabHost.setup();
         mViewPager = (ViewPager)findViewById(R.id.pager);
-
         mTabsAdapter = new TabsAdapter(this, mTabHost, mViewPager);
         
         inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mTabsAdapter.addTab(mTabHost.newTabSpec(getString(R.string.personal_tab)).setIndicator(getString(R.string.personal_tab)), PersonalFormFragment.class, null);
+        mTabsAdapter.addTab(mTabHost.newTabSpec(getString(R.string.incident_tab)).setIndicator(getString(R.string.incident_tab)), IncidentFormFragment.class, null);
+        
         /*
         mTabsAdapter.addTab(mTabHost.newTabSpec(getString(R.string.personal_tab)).setIndicator(inflateCustomTab(getString(R.string.personal_tab))),
                 PersonalFormFragment.class, null);

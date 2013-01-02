@@ -7,6 +7,15 @@
 	<string name="address2_tag">address2</string>
 	<string name="city_tag">city</string>
 	<string name="state_tag">state</string>
+	<string name="zipcode_tag">zipcode</string>
+	<string name="email_tag">email</string>
+	<string name="phone_tag">phone</string>
+	
+	<!--  View tags corresponding to JSON keys for Incident Form -->
+	<string name="agency_tag">agency</string>
+	<string name="location_tag">location</string>
+	<string name="date_tag">date</string>
+	<string name="time_tag">time</string>
 	
 
 </resources>
