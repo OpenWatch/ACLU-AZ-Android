@@ -38,7 +38,7 @@
             style="@style/WizardFormLabel"
             android:text="@string/first_name_label" />
 
-        <EditText
+        <net.openwatch.acluaz.view.ValidatedEditText
             android:id="@+id/first_name_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
             style="@style/WizardFormLabel"
             android:text="@string/last_name_label" />
 
-        <EditText
+        <net.openwatch.acluaz.view.ValidatedEditText
             android:id="@+id/last_name_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
