@@ -1,0 +1,120 @@
+<!--
+  Copyright 2012 Roman Nurik
+  
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+      http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<!--
+     Tag all TextViews whose values should be jsonified. The tag value
+	 will correspond to the json key
+-->
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/WizardPageContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical" >
+
+        <!-- First Name -->
+
+        <TextView
+            android:id="@+id/first_name_label"
+            style="@style/WizardFormLabel"
+            android:text="@string/first_name_label" />
+
+        <EditText
+            android:id="@+id/first_name_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:inputType="textCapWords"
+            android:saveEnabled="false"
+            android:tag="@string/first_name_tag" />
+
+        <!-- Last Name -->
+
+        <TextView
+            android:id="@+id/last_name_label"
+            style="@style/WizardFormLabel"
+            android:text="@string/last_name_label" />
+
+        <EditText
+            android:id="@+id/last_name_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:inputType="textCapWords"
+            android:saveEnabled="false"
+            android:tag="@string/last_name_tag" />
+
+        <!-- Address -->
+
+        <TextView
+            style="@style/WizardFormLabel"
+            android:text="@string/address_label" />
+
+        <EditText
+            android:id="@+id/address_input1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/address1_hint"
+            android:inputType="textPostalAddress|textCapWords"
+            android:saveEnabled="false"
+            android:tag="@string/address1_tag" />
+
+        <EditText
+            android:id="@+id/address_input2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="@string/address2_hint"
+            android:inputType="textPostalAddress|textCapWords"
+            android:saveEnabled="false"
+            android:tag="@string/address2_tag" />
+
+        <!-- City -->
+
+        <TextView
+            style="@style/WizardFormLabel"
+            android:text="@string/city_label" />
+
+        <EditText
+            android:id="@+id/city_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:inputType="textCapWords"
+            android:saveEnabled="false"
+            android:tag="@string/city_tag" />
+
+        <!-- State -->
+
+        <TextView
+            style="@style/WizardFormLabel"
+            android:text="@string/state_label" />
+
+        <AutoCompleteTextView
+            android:id="@+id/state_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapWords"
+            android:tag="@string/state_tag" />
+    </LinearLayout>
+
+</ScrollView>

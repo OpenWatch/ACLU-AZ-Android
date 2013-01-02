@@ -4,9 +4,23 @@
     <string name="app_name">ACLU AZ</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
-    
+
     <!-- MainActivity -->
     <string name="report_btn">Report</string>
     <string name="rights_btn">Know Your Rights</string>
+    <string name="title_activity_form">FormActivity</string>
+    
+    <!--  FormActivity -->
+    <string name="personal_tab">Personal</string>
+    <string name="event_tab">Event</string>
+    
+    <!--  Personal Form Fragment -->
+    <string name="first_name_label">First Name</string>
+    <string name="last_name_label">Last Name</string>
+    <string name="address_label">Street Address</string>
+    <string name="address1_hint">ex: 12 Main St</string>
+    <string name="address2_hint">ex: Apt 7</string>
+    <string name="city_label">City</string>
+    <string name="state_label">State</string>
 
 </resources>

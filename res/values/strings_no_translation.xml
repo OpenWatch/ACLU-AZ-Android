@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  View tags corresponding to JSON keys for Personal Info Form -->
+	<string name="first_name_tag">first_name</string>
+	<string name="last_name_tag">last_name</string>
+	<string name="address1_tag">address1</string>
+	<string name="address2_tag">address2</string>
+	<string name="city_tag">city</string>
+	<string name="state_tag">state</string>
+	
+
+</resources>
