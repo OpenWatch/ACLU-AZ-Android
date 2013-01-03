@@ -37,6 +37,8 @@ import java.util.ArrayList;
 
 import org.json.JSONObject;
 
+import com.actionbarsherlock.app.SherlockFragmentActivity;
+
 import net.openwatch.acluaz.fragment.FormFragment;
 import net.openwatch.acluaz.fragment.IncidentFormFragment;
 import net.openwatch.acluaz.fragment.PersonalFormFragment;
@@ -48,7 +50,7 @@ import net.openwatch.acluaz.location.DeviceLocation.LocationResult;
  * that switches between tabs and also allows the user to perform horizontal
  * flicks to move between the tabs.
  */
-public class FormActivity extends FragmentActivity {
+public class FormActivity extends SherlockFragmentActivity {
 	private static final String TAG = "FragmentActivity";
     TabHost mTabHost;
     ViewPager  mViewPager;

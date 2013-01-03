@@ -16,6 +16,8 @@
 
 package net.openwatch.acluaz;
 
+import com.actionbarsherlock.app.SherlockFragmentActivity;
+
 import net.openwatch.acluaz.adapter.IncidentAdapter;
 import net.openwatch.acluaz.constants.Constants;
 import net.openwatch.acluaz.constants.DBConstants;
@@ -44,7 +46,7 @@ import android.widget.ListView;
 /**
  * Demonstration of the implementation of a custom Loader.
  */
-public class IncidentFeedFragmentActivity extends FragmentActivity {
+public class IncidentFeedFragmentActivity extends SherlockFragmentActivity {
 	
 	private static final String TAG = "IncidentFeedFragmentActivity";
 
