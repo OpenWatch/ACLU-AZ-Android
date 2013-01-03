@@ -31,7 +31,7 @@ public class IncidentFormFragment extends FormFragment {
 					@Override
 					public void onFocusChange(View v, boolean hasFocus) {
 						if (hasFocus) {
-							DialogFragment newFragment = new DatePickerFragment();
+							DialogFragment newFragment = new DatePickerFragment(R.id.date_input);
 							newFragment.show(fm, "datePicker");
 						}
 					}
@@ -42,7 +42,7 @@ public class IncidentFormFragment extends FormFragment {
 					@Override
 					public void onFocusChange(View v, boolean hasFocus) {
 						if (hasFocus) {
-							DialogFragment newFragment = new TimePickerFragment();
+							DialogFragment newFragment = new TimePickerFragment(R.id.time_input);
 							newFragment.show(fm, "timePicker");
 						}
 					}

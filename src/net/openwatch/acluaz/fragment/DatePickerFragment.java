@@ -1,15 +1,25 @@
 package net.openwatch.acluaz.fragment;
 
 import java.util.Calendar;
+import java.util.GregorianCalendar;
+
+import net.openwatch.acluaz.Constants;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.widget.DatePicker;
+import android.widget.TextView;
 
 public class DatePickerFragment extends DialogFragment implements
 		DatePickerDialog.OnDateSetListener {
+	
+	private int text_field_id = -1;
+	
+	public DatePickerFragment(int text_field_id){
+		this.text_field_id = text_field_id;
+	}
 
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -24,6 +34,11 @@ public class DatePickerFragment extends DialogFragment implements
 	}
 
 	public void onDateSet(DatePicker view, int year, int month, int day) {
-		// Do something with the date chosen by the user
+		if(text_field_id == -1)
+			return;
+		
+		Calendar c = Calendar.getInstance();
+		GregorianCalendar gc = new GregorianCalendar(year, month,day);
+		((TextView) this.getActivity().findViewById(text_field_id)).setText(Constants.date_formatter.format(gc.getTime()));
 	}
 }

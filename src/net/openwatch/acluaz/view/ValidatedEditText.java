@@ -16,13 +16,10 @@ public class ValidatedEditText extends EditText {
 	private static final String TAG = "ValidatedEditText";
 	
 	public class preventBlankListener implements OnFocusChangeListener{
-		private boolean hadFocus = true;
-
 		// TODO: get icon to display
 		@Override
 		public void onFocusChange(View v, boolean hasFocus) {
-			Log.i(TAG, "hadFocus: " + String.valueOf(hadFocus) + " hasFocus: " + String.valueOf(hasFocus));
-			if (hadFocus && !hasFocus) {
+			if (!hasFocus) {
 				if(((EditText) v).getText().toString().trim().length() == 0){
 					Drawable error_icon = getResources().getDrawable(R.drawable.indicator_input_error);
 					error_icon.setBounds(new Rect(0, 0, error_icon.getIntrinsicWidth(), error_icon.getIntrinsicHeight()));
@@ -32,7 +29,6 @@ public class ValidatedEditText extends EditText {
 					//v.setBackgroundColor(Color.RED);
 				}
 			}
-			hadFocus = hasFocus;
 		}
 	};
 
