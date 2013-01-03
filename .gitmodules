@@ -1,3 +1,6 @@
 [submodule "androrm"]
 	path = androrm
 	url = git@github.com:OnlyInAmerica/androrm.git
+[submodule "ActionBarSherlock"]
+	path = ActionBarSherlock
+	url = https://github.com/JakeWharton/ActionBarSherlock
