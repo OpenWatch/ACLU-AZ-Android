@@ -14,9 +14,13 @@
 	<!--  View tags corresponding to JSON keys for Incident Form -->
 	<string name="agency_tag">agency</string>
 	<string name="location_tag">location</string>
+	<string name="device_location_tag">device_location</string>
+	<string name="device_lon">lon</string>
+	<string name="device_lat">lat</string>
 	<string name="date_tag">date</string>
 	<string name="time_tag">time</string>
 	<string name="narrative_tag">narrative</string>
+	
 	
 
 </resources>

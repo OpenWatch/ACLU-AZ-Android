@@ -23,6 +23,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,6 +46,7 @@ import net.openwatch.acluaz.location.DeviceLocation.LocationResult;
  * flicks to move between the tabs.
  */
 public class FormActivity extends FragmentActivity {
+	private static final String TAG = "FragmentActivity";
     TabHost mTabHost;
     ViewPager  mViewPager;
     TabsAdapter mTabsAdapter;
@@ -85,7 +87,8 @@ public class FormActivity extends FragmentActivity {
 
 			@Override
 			public void gotLocation(Location location) {
-				FormActivity.this.findViewById(R.id.location_input).setTag(R.id.view_tag, location);
+				FormActivity.this.findViewById(R.id.gps_toggle).setTag(R.id.view_tag, location);
+				Log.i(TAG, "Tagged location_input with : " + FormActivity.this.findViewById(R.id.gps_toggle).getTag(R.id.view_tag).toString());
 			}
         	
         }, true);

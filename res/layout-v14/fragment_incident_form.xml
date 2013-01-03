@@ -29,8 +29,8 @@
         android:id="@+id/form_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
         android:layout_marginTop="5dp"
+        android:layout_marginBottom="16dp"
         android:orientation="vertical" >
 
         <!-- Agency -->
@@ -63,7 +63,7 @@
             android:saveEnabled="false"
             android:tag="@string/location_tag" />
 
-        <ToggleButton
+        <Switch
             android:id="@+id/gps_toggle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -71,8 +71,10 @@
             android:checked="true"
             android:gravity="center"
             android:tag="@string/device_location_tag"
-            android:textOff="@string/gps_off_label"
-            android:textOn="@string/gps_on_label" />
+            android:textColor="@color/text_light"
+            android:text="@string/gps_label"
+            android:textOff="@string/off"
+            android:textOn="@string/on" />
 
         <!-- Incident Date & Time -->
 

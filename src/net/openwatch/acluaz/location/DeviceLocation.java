@@ -24,7 +24,8 @@ public class DeviceLocation {
     private static final float ACCURATE_LOCATION_THRESHOLD_METERS = 20;
     
     /**
-     * 
+     * This method will call gotLocation each time a new location is received that is more accurate
+     * than the last available
      * @param context
      * @param result
      * @param waitForGpsFix even if a network location is gotten, wait for a gps fix
@@ -52,19 +53,24 @@ public class DeviceLocation {
         if(network_enabled)
             lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListenerNetwork);
         timer1=new Timer();
-        timer1.schedule(new GetBestLocation(), 20000);
+        timer1.schedule(new GetBestLocation(), 10000);
         return true;
     }
 
     LocationListener locationListenerGps = new LocationListener() {
         public void onLocationChanged(Location location) {
+        	boolean sentLocation = false;
         	Log.i(TAG, "got GPS loc accurate to " + String.valueOf(location.getAccuracy()) + "m");
-        	if(bestLocation == null || bestLocation.getAccuracy() > location.getAccuracy())
+        	if(bestLocation == null || bestLocation.getAccuracy() > location.getAccuracy()){
             	bestLocation = location;
+            	locationResult.gotLocation(bestLocation);
+            	sentLocation = true;
+        	}
         	
         	if(!waitForGpsFix || bestLocation.getAccuracy() < ACCURATE_LOCATION_THRESHOLD_METERS){
         		timer1.cancel();
-                locationResult.gotLocation(bestLocation);
+        		if(!sentLocation)
+        			locationResult.gotLocation(bestLocation);
                 lm.removeUpdates(this);
                 lm.removeUpdates(locationListenerNetwork);
         	}
@@ -77,13 +83,18 @@ public class DeviceLocation {
 
     LocationListener locationListenerNetwork = new LocationListener() {
         public void onLocationChanged(Location location) {
+        	boolean sentLocation = false;
         	Log.i(TAG, "got network loc accurate to " + String.valueOf(location.getAccuracy()) + "m");
-        	if(bestLocation == null || bestLocation.getAccuracy() > location.getAccuracy())
+        	if(bestLocation == null || bestLocation.getAccuracy() > location.getAccuracy()){
             	bestLocation = location;
+            	locationResult.gotLocation(bestLocation);
+            	sentLocation = true;
+        	}
         	
         	if(!waitForGpsFix || bestLocation.getAccuracy() < ACCURATE_LOCATION_THRESHOLD_METERS){
         		timer1.cancel();
-                locationResult.gotLocation(bestLocation);
+        		if(!sentLocation)
+        			locationResult.gotLocation(bestLocation);
                 lm.removeUpdates(this);
                 lm.removeUpdates(locationListenerGps);
         	}

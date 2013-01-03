@@ -30,6 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:layout_marginBottom="16dp"
         android:orientation="vertical" >
 
         <!-- First Name -->
@@ -43,7 +44,6 @@
             android:id="@+id/first_name_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
             android:inputType="textCapWords"
             android:saveEnabled="false"
             android:tag="@string/first_name_tag" />
@@ -59,7 +59,6 @@
             android:id="@+id/last_name_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
             android:inputType="textCapWords"
             android:saveEnabled="false"
             android:tag="@string/last_name_tag" />
@@ -83,7 +82,6 @@
             android:id="@+id/address_input2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
             android:hint="@string/address2_hint"
             android:inputType="textPostalAddress|textCapWords"
             android:saveEnabled="false"
@@ -99,7 +97,6 @@
             android:id="@+id/city_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
             android:inputType="textCapWords"
             android:saveEnabled="false"
             android:tag="@string/city_tag" />
@@ -115,7 +112,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textCapWords"
-            android:layout_marginBottom="16dp"
             android:tag="@string/state_tag" />
         
         <!-- Zip -->
@@ -156,8 +152,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="phone"
-            android:tag="@string/phone_tag"
-            android:layout_marginBottom="16dp" />
+            android:tag="@string/phone_tag" />
     </LinearLayout>
 
 </ScrollView>
