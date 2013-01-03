@@ -35,6 +35,9 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import org.json.JSONObject;
+
+import net.openwatch.acluaz.fragment.FormFragment;
 import net.openwatch.acluaz.fragment.IncidentFormFragment;
 import net.openwatch.acluaz.fragment.PersonalFormFragment;
 import net.openwatch.acluaz.location.DeviceLocation;
@@ -92,6 +95,25 @@ public class FormActivity extends FragmentActivity {
 			}
         	
         }, true);
+    }
+    
+    @Override
+    public void onPause(){
+    	// Create a JSONObject representing all form fragments in this activity,
+    	// and save this to the database as an Incident
+    	/*
+    	JSONObject form_json = null;
+    	for(int x=0; x< mTabsAdapter.getCount(); x++){
+    		//TESTING
+    		FormFragment fm = ((FormFragment)mTabsAdapter.getItem(x));
+    		View fm_view = fm.getView();
+    		ViewGroup container = (ViewGroup) fm_view.findViewById(R.id.form_container);
+    		JSONObject json_test = fm.toJson(container, null);
+    		// END TESTING
+    		form_json = ((FormFragment)mTabsAdapter.getItem(x)).toJson( (ViewGroup) mTabsAdapter.getItem(x).getView().findViewById(R.id.form_container), form_json );
+    	}
+    	FormFragment.jsonToDatabase(this.getApplicationContext(), form_json);
+    	*/
     }
 
     @Override

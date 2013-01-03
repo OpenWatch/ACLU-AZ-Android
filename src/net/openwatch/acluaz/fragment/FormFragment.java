@@ -1,15 +1,21 @@
 package net.openwatch.acluaz.fragment;
 
+import java.text.ParseException;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
 
-import net.openwatch.acluaz.Constants;
 import net.openwatch.acluaz.R;
+import net.openwatch.acluaz.constants.Constants;
+import net.openwatch.acluaz.constants.DBConstants;
+import net.openwatch.acluaz.model.Incident;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.location.Location;
 import android.os.AsyncTask;
@@ -31,9 +37,10 @@ import android.widget.EditText;
 public class FormFragment extends Fragment {
 	private static final String TAG = "FormFragment";
 
-	protected JSONObject toJson(ViewGroup container) {
-
-		JSONObject json = new JSONObject();
+	public JSONObject toJson(ViewGroup container, JSONObject json) {
+		
+		if(json == null)
+			json = new JSONObject();
 		View view;
 		for (int x = 0; x < container.getChildCount(); x++) {
 			view = container.getChildAt(x);
@@ -66,10 +73,71 @@ public class FormFragment extends Fragment {
 					
 				}
 			}
+			
+			// combine date and time fields into a single datetime
+			if(json.has(getString(R.string.date_tag)) && json.has(getString(R.string.time_tag))){
+				try {
+					json.put(getString(R.string.datetime), combineDateAndTime(json.getString(getString(R.string.date_tag)), json.getString(getString(R.string.time_tag))));
+					json.remove(getString(R.string.date_tag));
+					json.remove(getString(R.string.time_tag));
+				} catch (JSONException e) {
+					Log.e(TAG, "Error creating json datetime field from date and time");
+					e.printStackTrace();
+				}
+			}
+			
 		}
 		Log.i(TAG, "toJson: " + json.toString());
 		return json;
 
+	}
+	
+	/**
+	 * Converts user-facing datetime to machine format
+	 * 
+	 * @param date
+	 * @param time
+	 * @return
+	 */
+	private String combineDateAndTime(String date, String time){
+		try {
+			return Constants.datetime_formatter.format(Constants.user_datetime_formatter.parse(date + " " + time));
+		} catch (ParseException e) {
+			Log.e(TAG, "Error formatting user facing date");
+			e.printStackTrace();
+			return "";	
+		}
+	}
+	
+	/**
+	 * maps json fields to orm object fields
+	 * @param json
+	 */
+	public static void jsonToDatabase(Context c, JSONObject json){
+		Incident incident = new Incident();
+		try {
+			incident.first_name.set(json.getString(c.getString(R.string.first_name_tag)));
+			incident.last_name.set(json.getString(c.getString(R.string.last_name_tag)));
+			incident.address1.set(json.getString(c.getString(R.string.address1_tag)));
+			incident.address2.set(json.getString(c.getString(R.string.address2_tag)));
+			incident.city.set(json.getString(c.getString(R.string.city_tag)));
+			incident.state.set(json.getString(c.getString(R.string.state_tag)));
+			incident.zipcode.set(json.getInt(c.getString(R.string.zipcode_tag)));
+			incident.phone.set(json.getInt(c.getString(R.string.phone_tag)));
+			incident.agency.set(json.getString(c.getString(R.string.agency_tag)));
+			incident.location.set(json.getString(c.getString(R.string.location_tag)));
+			incident.datetime.set(json.getString(c.getString(R.string.datetime))); 
+			incident.narrative.set(json.getString(c.getString(R.string.narrative_tag)));
+			if(json.has(c.getString(R.string.device_location_tag))){
+				incident.device_lat.set(json.getDouble(c.getString(R.string.device_lat)));
+				incident.device_lon.set(json.getDouble(c.getString(R.string.device_lon)));
+			}
+			
+			incident.save(c);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	protected void writeJsonToPrefs(final String prefs_name,
@@ -130,26 +198,71 @@ public class FormFragment extends Fragment {
 			View form_input;
 			for (Map.Entry<String, ?> entry : keys.entrySet()) {
 				form_input = container.findViewWithTag(entry.getKey());
-				if (form_input != null && entry.getValue() != null) {
-					if(EditText.class.isInstance(form_input))
-						((EditText)form_input).setText(entry.getValue().toString());
-					else if(CompoundButton.class.isInstance(form_input))
-						((CompoundButton)form_input).setChecked(Boolean.parseBoolean(entry.getValue().toString()));
-					Log.d(TAG, "map values: " + entry.getKey() + ": "
-							+ entry.getValue().toString());
-				} else {
-					if (form_input == null)
-						Log.d(TAG,
-								"Could not find view with tag: "
-										+ entry.getKey());
-					if (entry.getValue() == null)
-						Log.d(TAG,
-								"No value for prefs with key: "
-										+ entry.getKey());
-				}
+				setFormFieldValue(form_input, entry);
 			}
 			return;
 		}
+	}
+	
+	private void setFormFieldValue(View form_field, Entry map_entry){
+		if (form_field != null && map_entry.getValue() != null) {
+			if(EditText.class.isInstance(form_field))
+				((EditText)form_field).setText(map_entry.getValue().toString());
+			else if(CompoundButton.class.isInstance(form_field))
+				((CompoundButton)form_field).setChecked(Boolean.parseBoolean(map_entry.getValue().toString()));
+			Log.d(TAG, "map values: " + map_entry.getKey() + ": "
+					+ map_entry.getValue().toString());
+		} else {
+			if (form_field == null)
+				Log.d(TAG,
+						"Could not find view with tag: "
+								+ map_entry.getKey());
+			if (map_entry.getValue() == null)
+				Log.d(TAG,
+						"No value for prefs with key: "
+								+ map_entry.getKey());
+		}
+	}
+	
+	/**
+	 * Populate form given the db_id of an Incident in the database
+	 * This currently assumes that the database columns are equal to the view_tags (json keys)
+	 * @param container
+	 * @param db_id
+	 */
+	protected void fillFormFromDatabase(ViewGroup container, int db_id){
+		Incident incident = Incident.objects(this.getActivity().getApplicationContext()).get(db_id);
+		if(incident == null)
+			return;
+		ContentValues values = new ContentValues();
+		try {
+			incident.collectData(getActivity().getApplicationContext(), values, Incident.class);
+		} catch (IllegalArgumentException e) {
+			Log.e(TAG, "Unable to collect ContentValues from Incident");
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			Log.e(TAG, "Unable to collect ContentValues from Incident");
+			e.printStackTrace();
+		}
+		
+		View form_input;
+		for(Entry<String, ?> entry : values.valueSet()){
+			
+			if(entry.getKey().compareTo(getString(R.string.device_lat)) == 0 || entry.getKey().compareTo(getString(R.string.device_lon)) == 0){
+				// Combine lat and lon into a Location and tag the gps toggle
+				form_input = container.findViewById(R.id.gps_toggle);
+				Location loc = new Location("db");
+				loc.setLatitude(values.getAsDouble(DBConstants.DEVICE_LAT));
+				loc.setLongitude(values.getAsDouble(DBConstants.DEVICE_LON));
+				form_input.setTag(R.id.view_tag, loc);
+			} else{
+				// If the column value is simply bound to the view
+				// with tag equal to column name...
+				form_input = container.findViewWithTag(entry.getKey());
+				setFormFieldValue(form_input, entry);
+			}
+		}
+		
 	}
 
 }

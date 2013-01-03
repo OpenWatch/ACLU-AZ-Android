@@ -1,4 +1,4 @@
-package net.openwatch.acluaz;
+package net.openwatch.acluaz.constants;
 
 import java.text.SimpleDateFormat;
 import java.util.Locale;
@@ -6,6 +6,14 @@ import java.util.TimeZone;
 
 public class Constants {
 
+	// App preferences
+	public static final String APP_PREFS = "APP_PREFS";
+	public static final String DB_READY = "db_ready";
+	
+	// Intent Extras keys
+	public static final String INTERNAL_DB_ID = "db_id";
+	
+	// User preferences
 	public static final String PERSONAL_PREFS = "PERSONAL_PREFS";
 	public static final String INCIDENT_PREFS = "INCIDENT_PREFS";
 
@@ -26,6 +34,7 @@ public class Constants {
 	// Human facing:
 	public static SimpleDateFormat time_formatter = new SimpleDateFormat("kk:mm a", Locale.US);
 	public static SimpleDateFormat date_formatter = new SimpleDateFormat("MMM dd, yyyy", Locale.US);
+	public static SimpleDateFormat user_datetime_formatter = new SimpleDateFormat("MMM dd, yyyy kk:mm a", Locale.US);
 
 	static{
 		datetime_formatter.setTimeZone(TimeZone.getTimeZone("UTC"));

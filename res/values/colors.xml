@@ -21,6 +21,9 @@
     <color name="step_pager_next_tab_color">#10000000</color>
 
     <color name="review_green">#ff669900</color>
+    
+    <color name="submitted">#5cd662</color>
+    <color name="not_submitted">#d65c5c</color>
 
     <color name="text_light">#66000000</color>
 </resources>

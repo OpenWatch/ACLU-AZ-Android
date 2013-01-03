@@ -3,7 +3,7 @@ package net.openwatch.acluaz.fragment;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-import net.openwatch.acluaz.Constants;
+import net.openwatch.acluaz.constants.Constants;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;

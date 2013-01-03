@@ -1,10 +1,12 @@
 package net.openwatch.acluaz.fragment;
 
-import net.openwatch.acluaz.Constants;
 import net.openwatch.acluaz.R;
 import net.openwatch.acluaz.R.id;
 import net.openwatch.acluaz.R.layout;
+import net.openwatch.acluaz.constants.Constants;
+import net.openwatch.acluaz.fragment.FormFragment.fillFormFromPrefsTask;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,7 +24,7 @@ public class PersonalFormFragment extends FormFragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-
+		
 		View v = inflater.inflate(R.layout.fragment_personal_form,
 				container, false);
 		
@@ -38,7 +40,14 @@ public class PersonalFormFragment extends FormFragment {
 	public void onResume() {
 		super.onResume();
 		Log.i(TAG, "onResume");
-		new fillFormFromPrefsTask((ViewGroup) (ViewGroup) this.getView().findViewById(R.id.form_container)).execute(Constants.PERSONAL_PREFS);
+		// Pre-populate the form from preferences or database 
+		// depending on intent
+		Intent i = this.getActivity().getIntent();
+		if(i.hasExtra(Constants.INTERNAL_DB_ID) ){
+			this.fillFormFromDatabase((ViewGroup) this.getView().findViewById(R.id.form_container), i.getExtras().getInt(Constants.INTERNAL_DB_ID));
+		}
+		else
+			new fillFormFromPrefsTask((ViewGroup) this.getView().findViewById(R.id.form_container)).execute(Constants.PERSONAL_PREFS);
 	}
 
 	@Override
@@ -60,6 +69,6 @@ public class PersonalFormFragment extends FormFragment {
 	public void onPause() {
 		super.onPause();
 		
-		writeJsonToPrefs(Constants.PERSONAL_PREFS, toJson((ViewGroup) this.getView().findViewById(R.id.form_container)));
+		writeJsonToPrefs(Constants.PERSONAL_PREFS, toJson((ViewGroup) this.getView().findViewById(R.id.form_container), null));
 	}
 }

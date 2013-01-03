@@ -15,12 +15,14 @@
 	<string name="agency_tag">agency</string>
 	<string name="location_tag">location</string>
 	<string name="device_location_tag">device_location</string>
-	<string name="device_lon">lon</string>
-	<string name="device_lat">lat</string>
+		<!-- JSON keys to use for device_location JSONObject -->
+		<string name="device_lon">lon</string>
+		<string name="device_lat">lat</string>
 	<string name="date_tag">date</string>
 	<string name="time_tag">time</string>
 	<string name="narrative_tag">narrative</string>
 	
-	
+	<!-- JSON Keys for web transmission -->
+	<string name="datetime">date</string>
 
 </resources>
