@@ -1,8 +1,10 @@
-package net.openwatch.acluaz;
+package net.openwatch.acluaz.fragment;
 
-import net.openwatch.acluaz.fragment.DatePickerFragment;
-import net.openwatch.acluaz.fragment.FormFragment;
-import net.openwatch.acluaz.fragment.TimePickerFragment;
+import net.openwatch.acluaz.Constants;
+import net.openwatch.acluaz.R;
+import net.openwatch.acluaz.R.id;
+import net.openwatch.acluaz.R.layout;
+import net.openwatch.acluaz.fragment.FormFragment.fillFormFromPrefsTask;
 
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
@@ -55,7 +57,8 @@ public class IncidentFormFragment extends FormFragment {
 	public void onResume() {
 		super.onResume();
 		Log.i(TAG, "onResume");
-		// populateViews(recording, getActivity().getApplicationContext());
+		
+		new fillFormFromPrefsTask((ViewGroup) this.getView().findViewById(R.id.form_container)).execute(Constants.INCIDENT_PREFS);
 	}
 
 	@Override
@@ -76,7 +79,7 @@ public class IncidentFormFragment extends FormFragment {
 	@Override
 	public void onPause() {
 		super.onPause();
-		toJson(R.id.form_container);
+		writeJsonToPrefs(Constants.INCIDENT_PREFS, toJson((ViewGroup) this.getView().findViewById(R.id.form_container)));
 
 	}
 }

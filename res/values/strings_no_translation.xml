@@ -16,6 +16,7 @@
 	<string name="location_tag">location</string>
 	<string name="date_tag">date</string>
 	<string name="time_tag">time</string>
+	<string name="narrative_tag">narrative</string>
 	
 
 </resources>

@@ -1,6 +1,9 @@
-package net.openwatch.acluaz;
+package net.openwatch.acluaz.fragment;
 
-import net.openwatch.acluaz.fragment.FormFragment;
+import net.openwatch.acluaz.Constants;
+import net.openwatch.acluaz.R;
+import net.openwatch.acluaz.R.id;
+import net.openwatch.acluaz.R.layout;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -35,7 +38,7 @@ public class PersonalFormFragment extends FormFragment {
 	public void onResume() {
 		super.onResume();
 		Log.i(TAG, "onResume");
-		// populateViews(recording, getActivity().getApplicationContext());
+		new fillFormFromPrefsTask((ViewGroup) (ViewGroup) this.getView().findViewById(R.id.form_container)).execute(Constants.PERSONAL_PREFS);
 	}
 
 	@Override
@@ -56,7 +59,7 @@ public class PersonalFormFragment extends FormFragment {
 	@Override
 	public void onPause() {
 		super.onPause();
-		toJson(R.id.form_container);
-
+		
+		writeJsonToPrefs(Constants.PERSONAL_PREFS, toJson((ViewGroup) this.getView().findViewById(R.id.form_container)));
 	}
 }

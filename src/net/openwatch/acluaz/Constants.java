@@ -7,6 +7,7 @@ import java.util.TimeZone;
 public class Constants {
 
 	public static final String PERSONAL_PREFS = "PERSONAL_PREFS";
+	public static final String INCIDENT_PREFS = "INCIDENT_PREFS";
 
 	public static final String[] US_STATES = { "Alabama", "Alaska", "Arizona",
 			"Arkansas", "California", "Colorado", "Connecticut", "Delaware",

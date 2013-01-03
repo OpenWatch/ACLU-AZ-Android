@@ -17,6 +17,7 @@ package net.openwatch.acluaz;
  */
 
 import android.content.Context;
+import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -32,6 +33,11 @@ import android.widget.TabWidget;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import net.openwatch.acluaz.fragment.IncidentFormFragment;
+import net.openwatch.acluaz.fragment.PersonalFormFragment;
+import net.openwatch.acluaz.location.DeviceLocation;
+import net.openwatch.acluaz.location.DeviceLocation.LocationResult;
 
 /**
  * Demonstrates combining a TabHost with a ViewPager to implement a tab UI
@@ -73,6 +79,16 @@ public class FormActivity extends FragmentActivity {
         if (savedInstanceState != null) {
             mTabHost.setCurrentTabByTag(savedInstanceState.getString("tab"));
         }
+        
+        DeviceLocation location = new DeviceLocation();
+        location.getLocation(getApplicationContext(), new LocationResult(){
+
+			@Override
+			public void gotLocation(Location location) {
+				FormActivity.this.findViewById(R.id.location_input).setTag(R.id.view_tag, location);
+			}
+        	
+        }, true);
     }
 
     @Override

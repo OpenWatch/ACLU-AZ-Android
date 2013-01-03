@@ -37,7 +37,7 @@
         <TextView
             android:id="@+id/agency_label"
             style="@style/WizardFormLabel"
-            android:text="@string/first_name_label" />
+            android:text="@string/agency_label" />
 
         <EditText
             android:id="@+id/agency_input"
@@ -59,17 +59,26 @@
             android:id="@+id/location_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
             android:inputType="textCapSentences"
             android:saveEnabled="false"
             android:tag="@string/location_tag" />
+
+        <ToggleButton
+            android:id="@+id/gps_toggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textOff="@string/gps_off_label"
+            android:textOn="@string/gps_on_label" />
 
         <!-- Incident Date & Time -->
 
         <TextView
             style="@style/WizardFormLabel"
+            android:layout_marginTop="16dp"
             android:text="@string/date_label" />
-        
+
         <EditText
             android:id="@+id/date_input"
             android:layout_width="match_parent"
@@ -78,7 +87,7 @@
             android:hint="@string/date_hint"
             android:saveEnabled="false"
             android:tag="@string/date_tag" />
-        
+
         <EditText
             android:id="@+id/time_input"
             android:layout_width="match_parent"
@@ -100,11 +109,10 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:hint="@string/narrative_hint"
-            android:singleLine="false"
             android:inputType="textCapSentences|textAutoCorrect"
             android:saveEnabled="false"
-            android:tag="@string/city_tag" />
-
+            android:singleLine="false"
+            android:tag="@string/narrative_tag" />
     </LinearLayout>
 
 </ScrollView>

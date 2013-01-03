@@ -35,6 +35,10 @@
 	<string name="time_hint">Time</string>  
 	<string name="narrative_label">What Happened?</string>    
     <string name="narrative_hint">Please tell us about your experience with racial profiling, arrest or detention under SB 1070. </string>
+    <string name="gps_label">Send current location</string>  
+	<string name="gps_on_label">Send current location</string>  
+	<string name="gps_off_label">Withold current location</string>  
+    
     <!--  Form Errors -->
     <string name="required_field_error">This field is required</string>
 
