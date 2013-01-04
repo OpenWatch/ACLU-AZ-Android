@@ -23,6 +23,7 @@
     <!-- ActionBar Menu -->
     <string name="menu_clear_personal">Clear Personal Info</string>
     <string name="menu_submit_form">Submit</string>
+    <string name="menu_amend_form">Amend</string>
 
     <!-- Personal Form Fragment -->
     <string name="first_name_label">First Name</string>

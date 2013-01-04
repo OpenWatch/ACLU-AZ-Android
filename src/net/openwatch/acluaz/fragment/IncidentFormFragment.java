@@ -85,10 +85,15 @@ public class IncidentFormFragment extends FormFragment {
 			this.fillFormFromDatabase(
 					(ViewGroup) this.getActivity().findViewById(R.id.incident_form_container),
 					i.getExtras().getInt(Constants.INTERNAL_DB_ID));
+					presentFormAsExistingReport();
 		} else
 			new fillFormFromPrefsTask(
 					(ViewGroup) this.getActivity().findViewById(R.id.incident_form_container))
 					.execute(Constants.INCIDENT_PREFS);
+	}
+	
+	private void presentFormAsExistingReport(){
+		this.getView().findViewById(R.id.gps_toggle).setVisibility(View.GONE);
 	}
 
 	@Override

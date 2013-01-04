@@ -62,7 +62,7 @@ import net.openwatch.acluaz.sharedpreferences.SharedPreferencesManager;
  * flicks to move between the tabs.
  */
 public class FormFragmentActivity extends SherlockFragmentActivity {
-	private static final String TAG = "FragmentActivity";
+	private static final String TAG = "FormFragmentActivity";
     TabHost mTabHost;
     ViewPager  mViewPager;
     TabsAdapter mTabsAdapter;
@@ -121,6 +121,18 @@ public class FormFragmentActivity extends SherlockFragmentActivity {
 		getSupportMenuInflater().inflate(R.menu.activity_form, menu);
 		return true;
 	}
+    
+    @Override
+    public boolean onPrepareOptionsMenu (Menu menu){
+    	
+		if (this.getIntent().hasExtra(Constants.INTERNAL_DB_ID)) {
+	    	//menu.removeItem(R.id.menu_clear_personal);
+			if(menu.findItem(R.id.menu_submit_form) != null)
+				menu.findItem(R.id.menu_submit_form).setTitle(R.string.menu_amend_form);
+		}
+		return true;
+    }
+    
     
     @Override
     public boolean onOptionsItemSelected (MenuItem item){
