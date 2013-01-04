@@ -53,6 +53,7 @@ import net.openwatch.acluaz.constants.Constants;
 import net.openwatch.acluaz.fragment.FormFragment;
 import net.openwatch.acluaz.fragment.IncidentFormFragment;
 import net.openwatch.acluaz.fragment.PersonalFormFragment;
+import net.openwatch.acluaz.http.OWServiceRequests;
 import net.openwatch.acluaz.location.DeviceLocation;
 import net.openwatch.acluaz.location.DeviceLocation.LocationResult;
 import net.openwatch.acluaz.sharedpreferences.SharedPreferencesManager;
@@ -172,10 +173,15 @@ public class FormFragmentActivity extends SherlockFragmentActivity {
 					json.put(getString(R.string.user_tag), user_json);
 					json.put(getString(R.string.report_tag), report_json);
 					Log.i(TAG, "pre json to Database: " + json.toString());
-		    		if (this.getIntent().hasExtra(Constants.INTERNAL_DB_ID))
+		    		if (this.getIntent().hasExtra(Constants.INTERNAL_DB_ID)){
 		    			FormFragment.updateIncidentInDatabase(getApplicationContext(), json, this.getIntent().getExtras().getInt(Constants.INTERNAL_DB_ID));
-		    		else
-		    			FormFragment.insertIncidentInDatabase(getApplicationContext(), json);
+		    			json = FormFragment.addUuidToJson(getApplicationContext(), json, this.getIntent().getExtras().getInt(Constants.INTERNAL_DB_ID));
+		    			OWServiceRequests.postReport(getApplicationContext(), json, this.getIntent().getExtras().getInt(Constants.INTERNAL_DB_ID));
+		    		}else{
+		    			int db_id = FormFragment.insertIncidentInDatabase(getApplicationContext(), json);
+		    			json = FormFragment.addUuidToJson(getApplicationContext(), json, db_id);
+		    			OWServiceRequests.postReport(getApplicationContext(), json, db_id);
+		    		}
 		    		did_submit = true;
 		    		Intent i = new Intent(this, MainActivity.class);
 		    		startActivity(i);

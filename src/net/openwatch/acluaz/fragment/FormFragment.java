@@ -1,6 +1,7 @@
 package net.openwatch.acluaz.fragment;
 
 import java.text.ParseException;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -89,8 +90,8 @@ public class FormFragment extends SherlockFragment {
 				Log.i(TAG, "found date and time tag, let's smush 'em");
 				try {
 					//TESTING
-					String datetime = combineDateAndTime(json.getString(getString(R.string.date_tag)), json.getString(getString(R.string.time_tag)));
-					Log.i(TAG,"datetime: " + datetime);
+					//String datetime = combineDateAndTime(json.getString(getString(R.string.date_tag)), json.getString(getString(R.string.time_tag)));
+					//Log.i(TAG,"datetime: " + datetime);
 					json.put(getString(R.string.datetime), combineDateAndTime(json.getString(getString(R.string.date_tag)), json.getString(getString(R.string.time_tag))));
 					Log.i(TAG, json.toString());
 					//json.remove(getString(R.string.date_tag));
@@ -116,6 +117,9 @@ public class FormFragment extends SherlockFragment {
 	 */
 	private String combineDateAndTime(String date, String time){
 		try {
+			String datetime = date + " " + time;
+			Date date_obj = Constants.user_datetime_formatter.parse(datetime);
+			String output_date = Constants.datetime_formatter.format(date_obj);
 			return Constants.datetime_formatter.format(Constants.user_datetime_formatter.parse(date + " " + time));
 		} catch (ParseException e) {
 			Log.e(TAG, "Error formatting user facing date");
@@ -124,19 +128,19 @@ public class FormFragment extends SherlockFragment {
 		}
 	}
 	
-	public static void insertIncidentInDatabase(Context c, JSONObject json){
-		jsonToDatabase(c, json, -1);
+	public static int insertIncidentInDatabase(Context c, JSONObject json){
+		return jsonToDatabase(c, json, -1);
 	}
 	
-	public static void updateIncidentInDatabase(Context c, JSONObject json, int existing_db_id){
-		jsonToDatabase(c, json, existing_db_id);
+	public static int updateIncidentInDatabase(Context c, JSONObject json, int existing_db_id){
+		return jsonToDatabase(c, json, existing_db_id);
 	}
 	
 	/**
 	 * maps json fields to orm object fields
 	 * @param json
 	 */
-	private static void jsonToDatabase(Context c, JSONObject json, int existing_db_id){
+	private static int jsonToDatabase(Context c, JSONObject json, int existing_db_id){
 		String TAG = "FormFragment-jsonToDatabase";
 		Incident incident = null;
 		
@@ -193,10 +197,23 @@ public class FormFragment extends SherlockFragment {
 			}
 			
 			incident.save(c);
+			return incident.getId();
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return -1;
+	}
+	
+	public static JSONObject addUuidToJson(Context c, JSONObject json, int db_id){
+		
+		try {
+			json.put(c.getString(R.string.uuid_tag), Incident.objects(c).get(db_id).uuid.get());
+		} catch (Exception e) {
+			Log.e("addUuidToJson", "Error adding uuid");
+			e.printStackTrace();
+		}
+		return json;
 	}
 
 	public void writeJsonToPrefs(final String prefs_name,

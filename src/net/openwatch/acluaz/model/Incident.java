@@ -30,6 +30,7 @@ public class Incident extends Model {
 	public DoubleField device_lat = new DoubleField();
 	public DoubleField device_lon = new DoubleField();
 	public CharField uuid = new CharField();
+	public IntegerField server_id = new IntegerField();
 	public BooleanField submitted = new BooleanField();
 
 	public Incident() {
