@@ -63,4 +63,13 @@
     <string name="incident_not_submitted">Not Submitted</string>
     <string name="title_activity_rights">RightsActivity</string>
 
+    <!-- Rights Activity -->
+    <string name="language">Language</string>
+    <string name="english">English</string>
+    <string name="spanish">Spanish</string>
+    <string name="sb1070_infographic">SB 1070 Quick Reference</string>
+    <string name="sb1070_kyr">SB 1070 Overview</string>
+    <string name="bust_card">Police Contact Quick Reference</string>
+    <string name="title_activity_pdfview">PDFViewActivity</string>
+
 </resources>

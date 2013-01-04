@@ -12,6 +12,7 @@ public class Constants {
 	
 	// Intent Extras keys
 	public static final String INTERNAL_DB_ID = "db_id";
+	public static final String ASSET_PATH = "asset";
 	
 	// User preferences
 	public static final String PERSONAL_PREFS = "PERSONAL_PREFS";
@@ -36,6 +37,12 @@ public class Constants {
 	public static SimpleDateFormat date_formatter = new SimpleDateFormat("MMM dd, yyyy", Locale.US);
 	public static SimpleDateFormat user_datetime_formatter = new SimpleDateFormat("MMM dd, yyyy kk:mm a", Locale.US);
 
+	//Asset filenames
+	public static final String PDF_ASSETS_DIR = "sb1070";
+	public static final String BUST_CARD = "bust_card.pdf";
+	public static final String SB1070_INFOGRAPHIC = "SB1070_infographic.pdf";
+	public static final String SB1070_KYR = "SB1070_kyr.pdf";
+	
 	static{
 		datetime_formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
 	}

@@ -11,6 +11,16 @@
         android:layout_marginBottom="18dp"
         android:gravity="center" >
 
+        <Switch
+            android:id="@+id/language_toggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/language_label"
+            android:checked="true"
+            android:textOff="@string/spanish"
+            android:textOn="@string/english"
+            android:textSize="20sp" />
+
         <TextView
             android:id="@+id/language_label"
             android:layout_width="wrap_content"
@@ -19,16 +29,6 @@
             android:layout_marginRight="10dp"
             android:gravity="center_vertical"
             android:text="@string/language"
-            android:textSize="20sp" />
-
-        <ToggleButton
-            android:id="@+id/language_toggle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/language_label"
-            android:checked="true"
-            android:textOff="@string/spanish"
-            android:textOn="@string/english"
             android:textSize="20sp" />
     </RelativeLayout>
 
