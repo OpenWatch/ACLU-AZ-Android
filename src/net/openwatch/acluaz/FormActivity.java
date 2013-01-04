@@ -20,6 +20,7 @@ import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.DialogInterface.OnClickListener;
 import android.location.Location;
 import android.os.Bundle;
@@ -149,13 +150,9 @@ public class FormActivity extends SherlockFragmentActivity {
 	    		attached_fragments.get(1).toJson((ViewGroup) this.findViewById(R.id.incident_form_container), json);
 	    		Log.i(TAG, "pre json to Database");
 	    		FormFragment.jsonToDatabase(getApplicationContext(), json);
-	    		/*
-	    		for(int x=0; x< mTabsAdapter.getCount(); x++){
-	    			this.getFragmentManager().
-	    			((FormFragment)mTabsAdapter.getItem(0)).toJson((ViewGroup) this.findViewById(R.id.personal_form_container), json);
-	    		}
-	    		FormFragment.jsonToDatabase(getApplicationContext(), json);
-	    		*/
+	    		SharedPreferencesManager.clearPrefs(getApplicationContext(), Constants.INCIDENT_PREFS);
+	    		Intent i = new Intent(this, MainActivity.class);
+	    		startActivity(i);
 	    		break;
     	}
     	return true;
