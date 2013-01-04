@@ -23,6 +23,6 @@
 	<string name="narrative_tag">narrative</string>
 	
 	<!-- JSON Keys for web transmission -->
-	<string name="datetime">date</string>
+	<string name="datetime">datetime</string>
 
 </resources>

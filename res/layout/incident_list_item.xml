@@ -9,10 +9,8 @@
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:ellipsize="marquee"
         android:singleLine="true"
-        android:text="2012-06-21 4:20:00"
         android:textSize="18dp" />
 
     <TextView
@@ -23,16 +21,16 @@
         android:layout_below="@id/date"
         android:ellipsize="marquee"
         android:singleLine="true"
-        android:text="Near 4th street"
         android:visibility="gone"
         android:textSize="18dp" />
 
     <TextView
         android:id="@+id/submitted"
+        style="@style/WizardFormLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/location"
-        android:textColor="@color/submitted"
-        android:text="@string/incident_submitted" />
+        android:textColor="@color/not_submitted"
+        android:text="@string/incident_not_submitted" />
 
 </RelativeLayout>

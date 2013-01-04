@@ -1,9 +1,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
-        android:id="@+id/menu_settings"
+        android:id="@+id/menu_clear_personal"
         android:orderInCategory="100"
-        android:showAsAction="never"
-        android:title="@string/menu_settings"/>
+        android:showAsAction="always"
+        android:title="@string/menu_clear_personal"/>
+    
+    <item
+        android:id="@+id/menu_submit_form"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:title="@string/menu_submit_form"/>
 
 </menu>

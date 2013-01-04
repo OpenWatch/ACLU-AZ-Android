@@ -21,7 +21,7 @@ public class Incident extends Model {
 	public CharField state = new CharField();
 	public IntegerField zipcode = new IntegerField(99999);
 	public CharField email = new CharField();
-	public IntegerField phone = new IntegerField();
+	public CharField phone = new CharField();
 	
 	public CharField agency = new CharField();
 	public CharField location = new CharField();

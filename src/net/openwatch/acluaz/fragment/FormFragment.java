@@ -19,7 +19,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.location.Location;
 import android.os.AsyncTask;
-import android.support.v4.app.Fragment;
+import com.actionbarsherlock.app.SherlockFragment;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,10 +34,14 @@ import android.widget.EditText;
  * @author davidbrodsky
  * 
  */
-public class FormFragment extends Fragment {
+public class FormFragment extends SherlockFragment {
 	private static final String TAG = "FormFragment";
 
 	public JSONObject toJson(ViewGroup container, JSONObject json) {
+		if(container == null){
+			Log.e(TAG, "null container passed to toJson");
+			return new JSONObject();
+		}
 		
 		if(json == null)
 			json = new JSONObject();
@@ -47,9 +51,16 @@ public class FormFragment extends Fragment {
 			
 			if (EditText.class.isInstance(view)){
 				if (view.getTag() != null) {
+					if( ((EditText)view).getText().toString().compareTo("") == 0)
+						continue; // skip blank input
 					try {
-						json.put(view.getTag().toString(), ((EditText)view).getText()
-								.toString());
+						Log.i(TAG, "Mapping: " + view.getTag().toString() + " value: " + ((EditText)view).getText().toString());
+						if(view.getTag().toString().compareTo(getString(R.string.zipcode_tag)) == 0 )
+							json.put(view.getTag().toString(), Integer.parseInt(((EditText)view).getText()
+										.toString()));
+						else
+							json.put(view.getTag().toString(), ((EditText)view).getText()
+									.toString());
 					} catch (JSONException e) {
 						Log.e(TAG, "Error jsonifying text input");
 						e.printStackTrace();
@@ -76,8 +87,13 @@ public class FormFragment extends Fragment {
 			
 			// combine date and time fields into a single datetime
 			if(json.has(getString(R.string.date_tag)) && json.has(getString(R.string.time_tag))){
+				Log.i(TAG, "found date and time tag, let's smush 'em");
 				try {
+					//TESTING
+					String datetime = combineDateAndTime(json.getString(getString(R.string.date_tag)), json.getString(getString(R.string.time_tag)));
+					Log.i(TAG,"datetime: " + datetime);
 					json.put(getString(R.string.datetime), combineDateAndTime(json.getString(getString(R.string.date_tag)), json.getString(getString(R.string.time_tag))));
+					Log.i(TAG, json.toString());
 					json.remove(getString(R.string.date_tag));
 					json.remove(getString(R.string.time_tag));
 				} catch (JSONException e) {
@@ -116,21 +132,33 @@ public class FormFragment extends Fragment {
 	public static void jsonToDatabase(Context c, JSONObject json){
 		Incident incident = new Incident();
 		try {
-			incident.first_name.set(json.getString(c.getString(R.string.first_name_tag)));
-			incident.last_name.set(json.getString(c.getString(R.string.last_name_tag)));
-			incident.address1.set(json.getString(c.getString(R.string.address1_tag)));
-			incident.address2.set(json.getString(c.getString(R.string.address2_tag)));
-			incident.city.set(json.getString(c.getString(R.string.city_tag)));
-			incident.state.set(json.getString(c.getString(R.string.state_tag)));
-			incident.zipcode.set(json.getInt(c.getString(R.string.zipcode_tag)));
-			incident.phone.set(json.getInt(c.getString(R.string.phone_tag)));
-			incident.agency.set(json.getString(c.getString(R.string.agency_tag)));
-			incident.location.set(json.getString(c.getString(R.string.location_tag)));
-			incident.datetime.set(json.getString(c.getString(R.string.datetime))); 
-			incident.narrative.set(json.getString(c.getString(R.string.narrative_tag)));
+			if(json.has(c.getString(R.string.first_name_tag)))
+				incident.first_name.set(json.getString(c.getString(R.string.first_name_tag)));
+			if(json.has(c.getString(R.string.last_name_tag)))
+				incident.last_name.set(json.getString(c.getString(R.string.last_name_tag)));
+			if(json.has(c.getString(R.string.address1_tag)))
+				incident.address1.set(json.getString(c.getString(R.string.address1_tag)));
+			if(json.has(c.getString(R.string.address2_tag)))
+				incident.address2.set(json.getString(c.getString(R.string.address2_tag)));
+			if(json.has(c.getString(R.string.city_tag)))
+				incident.city.set(json.getString(c.getString(R.string.city_tag)));
+			if(json.has(c.getString(R.string.state_tag)))
+				incident.state.set(json.getString(c.getString(R.string.state_tag)));
+			if(json.has(c.getString(R.string.zipcode_tag)))
+				incident.zipcode.set(json.getInt(c.getString(R.string.zipcode_tag)));
+			if(json.has(c.getString(R.string.phone_tag)))
+				incident.phone.set(json.getString(c.getString(R.string.phone_tag)));
+			if(json.has(c.getString(R.string.agency_tag)))
+				incident.agency.set(json.getString(c.getString(R.string.agency_tag)));
+			if(json.has(c.getString(R.string.location_tag)))
+				incident.location.set(json.getString(c.getString(R.string.location_tag)));
+			if(json.has(c.getString(R.string.datetime)))
+				incident.datetime.set(json.getString(c.getString(R.string.datetime))); 
+			if(json.has(c.getString(R.string.narrative_tag)))
+				incident.narrative.set(json.getString(c.getString(R.string.narrative_tag)));
 			if(json.has(c.getString(R.string.device_location_tag))){
-				incident.device_lat.set(json.getDouble(c.getString(R.string.device_lat)));
-				incident.device_lon.set(json.getDouble(c.getString(R.string.device_lon)));
+				incident.device_lat.set(json.getJSONObject(c.getString(R.string.device_location_tag)).getDouble(c.getString(R.string.device_lat)));
+				incident.device_lon.set(json.getJSONObject(c.getString(R.string.device_location_tag)).getDouble(c.getString(R.string.device_lon)));
 			}
 			
 			incident.save(c);
@@ -140,7 +168,7 @@ public class FormFragment extends Fragment {
 		}
 	}
 
-	protected void writeJsonToPrefs(final String prefs_name,
+	public void writeJsonToPrefs(final String prefs_name,
 			final JSONObject json) {
 		final Context c = this.getActivity();
 		new Thread(new Runnable() {
@@ -168,13 +196,26 @@ public class FormFragment extends Fragment {
 
 		}).start();
 	}
+	
+	public void clearForm(ViewGroup container){
+		View view;
+		for (int x = 0; x < container.getChildCount(); x++) {
+			view = container.getChildAt(x);
+			
+			if (EditText.class.isInstance(view)){
+				if (view.getTag() != null) {
+					((EditText)view).setText("");
+				}
+			}
+		}
+	}
 
-	protected class fillFormFromPrefsTask extends
+	public class fillFormFromPrefsTask extends
 			AsyncTask<String, Void, SharedPreferences> {
 		private static final String TAG = "fillFormFromPrefsTask";
 		private ViewGroup container;
 
-		fillFormFromPrefsTask(ViewGroup container) {
+		public fillFormFromPrefsTask(ViewGroup container) {
 			this.container = container;
 		}
 
@@ -193,6 +234,9 @@ public class FormFragment extends Fragment {
 		}
 
 		protected void onPostExecute(SharedPreferences prefs) {
+			if(prefs == null)
+				return;
+			
 			Map<String, ?> keys = prefs.getAll();
 
 			View form_input;

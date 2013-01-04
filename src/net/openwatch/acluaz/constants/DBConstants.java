@@ -2,7 +2,7 @@ package net.openwatch.acluaz.constants;
 
 public class DBConstants {
 	public static final String DB_NAME = "ACLUAZ-DB";
-	public static final String INCIDENT_TABLENAME = "sb1070incident";
+	public static final String INCIDENT_TABLENAME = "incident";
 	
 	public static final String ID = "_id";
 	public static final String DATE = "datetime";

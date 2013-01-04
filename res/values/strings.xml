@@ -9,10 +9,20 @@
     <string name="report_btn">Report</string>
     <string name="rights_btn">Know Your Rights</string>
     <string name="title_activity_form">FormActivity</string>
+    	<!-- ActionBar Menu -->
+    <string name="menu_view_reports">Reports</string>
     
     <!--  FormActivity -->
     <string name="personal_tab">Personal</string>
     <string name="incident_tab">Incident</string>
+    	<!--  Clear Personal Info Dialog -->
+    	<string name="clear_personal_info_dialog_title">Clear Personal Info?</string>
+    	<string name="clear_personal_info_dialog_msg">This will delete all personal info saved for use on this form. You\'ll have to re-enter the personal info form the next time you file a report.</string>
+    	<string name="clear_personal_info_ok_btn">Clear Personal Info</string>
+    	<string name="clear_personal_info_cancel_btn">Cancel</string>
+    	<!-- ActionBar Menu -->
+    <string name="menu_clear_personal">Clear Personal Info</string>
+    <string name="menu_submit_form">Submit</string>
     
     <!--  Personal Form Fragment -->
     <string name="first_name_label">First Name</string>

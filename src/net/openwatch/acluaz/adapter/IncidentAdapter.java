@@ -11,9 +11,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class IncidentAdapter extends SimpleCursorAdapter {
+	private Context c;
 
 	public IncidentAdapter(Context context, Cursor c) {
 		super(context, R.layout.incident_list_item, c, new String[]{}, new int[]{},0);
+		this.c = context;
 	}
 	
 	@Override
@@ -36,6 +38,13 @@ public class IncidentAdapter extends SimpleCursorAdapter {
         
         view_cache.date.setText(cursor.getString(view_cache.date_col));
         view_cache.location.setText(cursor.getString(view_cache.location_col));
+        if(cursor.getInt(view_cache.submitted_col) == 1){
+        	view_cache.submitted.setTextColor(c.getResources().getColor(R.color.submitted));
+        	view_cache.submitted.setText(R.string.incident_submitted);
+        }else{
+        	view_cache.submitted.setTextColor(c.getResources().getColor(R.color.not_submitted));
+        	view_cache.submitted.setText(R.string.incident_not_submitted);
+        }
         //Log.i("OWLocalRecordingAdapter", "got id: " + String.valueOf(cursor.getInt(view_cache._id_col)));
         view.setTag(R.id.list_item_model, cursor.getInt(view_cache._id_col));
 	}

@@ -1,5 +1,8 @@
 package net.openwatch.acluaz.fragment;
 
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+
 import net.openwatch.acluaz.R;
 import net.openwatch.acluaz.R.id;
 import net.openwatch.acluaz.R.layout;
@@ -10,8 +13,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -44,10 +45,10 @@ public class PersonalFormFragment extends FormFragment {
 		// depending on intent
 		Intent i = this.getActivity().getIntent();
 		if(i.hasExtra(Constants.INTERNAL_DB_ID) ){
-			this.fillFormFromDatabase((ViewGroup) this.getView().findViewById(R.id.form_container), i.getExtras().getInt(Constants.INTERNAL_DB_ID));
+			this.fillFormFromDatabase((ViewGroup) this.getView().findViewById(R.id.personal_form_container), i.getExtras().getInt(Constants.INTERNAL_DB_ID));
 		}
 		else
-			new fillFormFromPrefsTask((ViewGroup) this.getView().findViewById(R.id.form_container)).execute(Constants.PERSONAL_PREFS);
+			new fillFormFromPrefsTask((ViewGroup) this.getView().findViewById(R.id.personal_form_container)).execute(Constants.PERSONAL_PREFS);
 	}
 
 	@Override
@@ -67,8 +68,8 @@ public class PersonalFormFragment extends FormFragment {
 
 	@Override
 	public void onPause() {
+		Log.i("PersonalFrag", "onPause");
+		writeJsonToPrefs(Constants.PERSONAL_PREFS, toJson((ViewGroup) this.getView().findViewById(R.id.personal_form_container), null));
 		super.onPause();
-		
-		writeJsonToPrefs(Constants.PERSONAL_PREFS, toJson((ViewGroup) this.getView().findViewById(R.id.form_container), null));
 	}
 }

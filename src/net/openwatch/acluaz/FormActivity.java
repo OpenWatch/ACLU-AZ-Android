@@ -16,7 +16,11 @@ package net.openwatch.acluaz;
  * limitations under the License.
  */
 
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -34,16 +38,21 @@ import android.widget.TabWidget;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.json.JSONObject;
 
 import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
 
+import net.openwatch.acluaz.constants.Constants;
 import net.openwatch.acluaz.fragment.FormFragment;
 import net.openwatch.acluaz.fragment.IncidentFormFragment;
 import net.openwatch.acluaz.fragment.PersonalFormFragment;
 import net.openwatch.acluaz.location.DeviceLocation;
 import net.openwatch.acluaz.location.DeviceLocation.LocationResult;
+import net.openwatch.acluaz.sharedpreferences.SharedPreferencesManager;
 
 /**
  * Demonstrates combining a TabHost with a ViewPager to implement a tab UI
@@ -59,13 +68,14 @@ public class FormActivity extends SherlockFragmentActivity {
     LayoutInflater inflater;
     
     public static int display_width = -1;
+    
+    private ArrayList<FormFragment> attached_fragments = new ArrayList<FormFragment>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.fragment_tabs_pager);
-        
         getDisplayWidth();
         mTabHost = (TabHost)findViewById(android.R.id.tabhost);
         mTabHost.setup();
@@ -92,30 +102,89 @@ public class FormActivity extends SherlockFragmentActivity {
 
 			@Override
 			public void gotLocation(Location location) {
-				FormActivity.this.findViewById(R.id.gps_toggle).setTag(R.id.view_tag, location);
-				Log.i(TAG, "Tagged location_input with : " + FormActivity.this.findViewById(R.id.gps_toggle).getTag(R.id.view_tag).toString());
+				if(FormActivity.this != null && FormActivity.this.findViewById(R.id.gps_toggle) != null){
+					FormActivity.this.findViewById(R.id.gps_toggle).setTag(R.id.view_tag, location);
+					Log.i(TAG, "Tagged location_input with : " + FormActivity.this.findViewById(R.id.gps_toggle).getTag(R.id.view_tag).toString());
+				}
 			}
         	
         }, true);
     }
     
     @Override
-    public void onPause(){
-    	// Create a JSONObject representing all form fragments in this activity,
-    	// and save this to the database as an Incident
-    	/*
-    	JSONObject form_json = null;
-    	for(int x=0; x< mTabsAdapter.getCount(); x++){
-    		//TESTING
-    		FormFragment fm = ((FormFragment)mTabsAdapter.getItem(x));
-    		View fm_view = fm.getView();
-    		ViewGroup container = (ViewGroup) fm_view.findViewById(R.id.form_container);
-    		JSONObject json_test = fm.toJson(container, null);
-    		// END TESTING
-    		form_json = ((FormFragment)mTabsAdapter.getItem(x)).toJson( (ViewGroup) mTabsAdapter.getItem(x).getView().findViewById(R.id.form_container), form_json );
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getSupportMenuInflater().inflate(R.menu.activity_form, menu);
+		return true;
+	}
+    
+    @Override
+    public boolean onOptionsItemSelected (MenuItem item){
+    	switch(item.getItemId()){
+	    	case R.id.menu_clear_personal:
+	    		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+	    		builder.setTitle(getString(R.string.clear_personal_info_dialog_title))
+	    		.setMessage(getString(R.string.clear_personal_info_dialog_msg))
+	    		.setPositiveButton(getString(R.string.clear_personal_info_ok_btn), new OnClickListener(){
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						SharedPreferencesManager.clearPrefsAndForm(FormActivity.this, getPersonalFormFragment(), Constants.PERSONAL_PREFS);
+						dialog.dismiss();
+					}
+	    			
+	    		}).setNegativeButton(getString(R.string.clear_personal_info_cancel_btn), new OnClickListener(){
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.dismiss();
+					}
+	    			
+	    		}).show();
+	    		
+	    		break;
+	    	case R.id.menu_submit_form:
+	    		JSONObject json = new JSONObject();
+	    		attached_fragments.get(0).toJson((ViewGroup) this.findViewById(R.id.personal_form_container), json);
+	    		attached_fragments.get(1).toJson((ViewGroup) this.findViewById(R.id.incident_form_container), json);
+	    		Log.i(TAG, "pre json to Database");
+	    		FormFragment.jsonToDatabase(getApplicationContext(), json);
+	    		/*
+	    		for(int x=0; x< mTabsAdapter.getCount(); x++){
+	    			this.getFragmentManager().
+	    			((FormFragment)mTabsAdapter.getItem(0)).toJson((ViewGroup) this.findViewById(R.id.personal_form_container), json);
+	    		}
+	    		FormFragment.jsonToDatabase(getApplicationContext(), json);
+	    		*/
+	    		break;
     	}
-    	FormFragment.jsonToDatabase(this.getApplicationContext(), form_json);
-    	*/
+    	return true;
+    }
+    
+    private FormFragment getPersonalFormFragment(){
+    	//TODO: Do this better
+    	if(attached_fragments.size() == 2)
+    		return attached_fragments.get(0);
+    	return null;
+    }
+    
+    private FormFragment getIncidentFormFragment(){
+    	//TODO: Do this better
+    	if(attached_fragments.size() == 2)
+    		return attached_fragments.get(1);
+    	return null;
+    }
+    
+    public void onAttachFragment (Fragment fragment){
+    	if(FormFragment.class.isInstance(fragment))
+    		attached_fragments.add((FormFragment)fragment);
+    }
+    
+    @Override
+    public void onPause(){
+    	Log.i(TAG, "onPause");
+    	super.onPause();
+
     }
 
     @Override
