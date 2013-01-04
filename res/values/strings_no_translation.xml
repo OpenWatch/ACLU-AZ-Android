@@ -3,26 +3,29 @@
     <!--  View tags corresponding to JSON keys for Personal Info Form -->
 	<string name="first_name_tag">first_name</string>
 	<string name="last_name_tag">last_name</string>
-	<string name="address1_tag">address1</string>
-	<string name="address2_tag">address2</string>
+	<string name="address1_tag">address_1</string>
+	<string name="address2_tag">address_2</string>
 	<string name="city_tag">city</string>
 	<string name="state_tag">state</string>
-	<string name="zipcode_tag">zipcode</string>
+	<string name="zipcode_tag">zip</string>
 	<string name="email_tag">email</string>
 	<string name="phone_tag">phone</string>
 	
 	<!--  View tags corresponding to JSON keys for Incident Form -->
 	<string name="agency_tag">agency</string>
 	<string name="location_tag">location</string>
-	<string name="device_location_tag">device_location</string>
-		<!-- JSON keys to use for device_location JSONObject -->
-		<string name="device_lon">lon</string>
-		<string name="device_lat">lat</string>
+	<string name="device_location_tag">device_location</string> <!-- This is not used in JSON -->
+	<string name="device_lon">longitude</string>
+	<string name="device_lat">latitude</string>
 	<string name="date_tag">date</string>
 	<string name="time_tag">time</string>
-	<string name="narrative_tag">narrative</string>
+	<string name="narrative_tag">description</string>
+	<string name="uuid_tag">uuid</string>
 	
-	<!-- JSON Keys for web transmission -->
-	<string name="datetime">datetime</string>
+	<!-- JSON Keys exclsuive to db / transmission -->
+	<string name="datetime">date</string>	
 	
+	<!-- JSON Keys exclsuive to transmission -->
+	<string name="report_tag">report</string>	
+	<string name="user_tag">user</string>	
 </resources>

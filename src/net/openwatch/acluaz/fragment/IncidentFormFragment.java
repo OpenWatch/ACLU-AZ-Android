@@ -103,7 +103,7 @@ public class IncidentFormFragment extends FormFragment {
 	@Override
 	public void onPause() {
 		Log.i("IncidentFrag", "onPause");
-		writeJsonToPrefs(Constants.INCIDENT_PREFS, toJson((ViewGroup) this.getView().findViewById(R.id.incident_form_container), null));
+		//writeJsonToPrefs(Constants.INCIDENT_PREFS, toJson((ViewGroup) this.getView().findViewById(R.id.incident_form_container), null));
 		super.onPause();
 	}
 }

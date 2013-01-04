@@ -42,6 +42,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.actionbarsherlock.app.SherlockFragmentActivity;
@@ -70,6 +71,8 @@ public class FormFragmentActivity extends SherlockFragmentActivity {
     LayoutInflater inflater;
     
     public static int display_width = -1;
+    
+    private boolean did_submit = false; // if this is false, save incident data to prefs
     
     private ArrayList<FormFragment> attached_fragments = new ArrayList<FormFragment>();
 
@@ -161,13 +164,27 @@ public class FormFragmentActivity extends SherlockFragmentActivity {
 	    		break;
 	    	case R.id.menu_submit_form:
 	    		JSONObject json = new JSONObject();
-	    		attached_fragments.get(0).toJson((ViewGroup) this.findViewById(R.id.personal_form_container), json);
-	    		attached_fragments.get(1).toJson((ViewGroup) this.findViewById(R.id.incident_form_container), json);
-	    		Log.i(TAG, "pre json to Database");
-	    		FormFragment.jsonToDatabase(getApplicationContext(), json);
-	    		SharedPreferencesManager.clearPrefs(getApplicationContext(), Constants.INCIDENT_PREFS);
-	    		Intent i = new Intent(this, MainActivity.class);
-	    		startActivity(i);
+	    		JSONObject user_json = new JSONObject();
+	    		JSONObject report_json = new JSONObject();
+	    		attached_fragments.get(0).toJson((ViewGroup) this.findViewById(R.id.personal_form_container), user_json);
+	    		attached_fragments.get(1).toJson((ViewGroup) this.findViewById(R.id.incident_form_container), report_json);
+				try {
+					json.put(getString(R.string.user_tag), user_json);
+					json.put(getString(R.string.report_tag), report_json);
+					Log.i(TAG, "pre json to Database: " + json.toString());
+		    		if (this.getIntent().hasExtra(Constants.INTERNAL_DB_ID))
+		    			FormFragment.updateIncidentInDatabase(getApplicationContext(), json, this.getIntent().getExtras().getInt(Constants.INTERNAL_DB_ID));
+		    		else
+		    			FormFragment.insertIncidentInDatabase(getApplicationContext(), json);
+		    		did_submit = true;
+		    		Intent i = new Intent(this, MainActivity.class);
+		    		startActivity(i);
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	    		
+	    		
 	    		break;
 	    	case android.R.id.home:
     			NavUtils.navigateUpFromSameTask(this);
@@ -198,8 +215,15 @@ public class FormFragmentActivity extends SherlockFragmentActivity {
     @Override
     public void onPause(){
     	Log.i(TAG, "onPause");
+    	if(!did_submit){
+    		// save incident prefs
+    		FormFragment incidentFrag = this.getIncidentFormFragment();
+    		incidentFrag.writeJsonToPrefs(Constants.INCIDENT_PREFS, incidentFrag.toJson((ViewGroup) incidentFrag.getView().findViewById(R.id.incident_form_container), null));
+    	}else{ // if report was submitted, clear incident prefs
+    		SharedPreferencesManager.clearPrefs(getApplicationContext(), Constants.INCIDENT_PREFS);
+    	}
     	super.onPause();
-
+    
     }
 
     @Override

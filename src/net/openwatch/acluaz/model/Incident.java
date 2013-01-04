@@ -15,20 +15,21 @@ public class Incident extends Model {
 
 	public CharField first_name = new CharField();
 	public CharField last_name = new CharField();
-	public CharField address1 = new CharField();
-	public CharField address2 = new CharField();
+	public CharField address_1 = new CharField();
+	public CharField address_2 = new CharField();
 	public CharField city = new CharField();
 	public CharField state = new CharField();
-	public IntegerField zipcode = new IntegerField(99999);
+	public IntegerField zip = new IntegerField(99999);
 	public CharField email = new CharField();
 	public CharField phone = new CharField();
 	
 	public CharField agency = new CharField();
 	public CharField location = new CharField();
 	public CharField datetime = new CharField();
-	public CharField narrative = new CharField();
+	public CharField description = new CharField();
 	public DoubleField device_lat = new DoubleField();
 	public DoubleField device_lon = new DoubleField();
+	public CharField uuid = new CharField();
 	public BooleanField submitted = new BooleanField();
 
 	public Incident() {

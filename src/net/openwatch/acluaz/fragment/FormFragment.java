@@ -38,6 +38,7 @@ public class FormFragment extends SherlockFragment {
 	private static final String TAG = "FormFragment";
 
 	public JSONObject toJson(ViewGroup container, JSONObject json) {
+		String TAG = "FormFragment-ToJSON";
 		if(container == null){
 			Log.e(TAG, "null container passed to toJson");
 			return new JSONObject();
@@ -54,7 +55,7 @@ public class FormFragment extends SherlockFragment {
 					if( ((EditText)view).getText().toString().compareTo("") == 0)
 						continue; // skip blank input
 					try {
-						Log.i(TAG, "Mapping: " + view.getTag().toString() + " value: " + ((EditText)view).getText().toString());
+						//Log.i(TAG, "Mapping: " + view.getTag().toString() + " value: " + ((EditText)view).getText().toString());
 						if(view.getTag().toString().compareTo(getString(R.string.zipcode_tag)) == 0 )
 							json.put(view.getTag().toString(), Integer.parseInt(((EditText)view).getText()
 										.toString()));
@@ -72,10 +73,8 @@ public class FormFragment extends SherlockFragment {
 					// if location toggle, bundle location
 					if( ((String)view.getTag()).compareTo(getString(R.string.device_location_tag)) == 0 && view.getTag(R.id.view_tag) != null){
 						try {
-							JSONObject location = new JSONObject();
-							location.put(getString(R.string.device_lat), ((Location)view.getTag(R.id.view_tag)).getLatitude());
-							location.put(getString(R.string.device_lon), ((Location)view.getTag(R.id.view_tag)).getLongitude());
-							json.put(view.getTag().toString(), location);
+							json.put(getString(R.string.device_lat), ((Location)view.getTag(R.id.view_tag)).getLatitude());
+							json.put(getString(R.string.device_lon), ((Location)view.getTag(R.id.view_tag)).getLongitude());
 						} catch (JSONException e) {
 							Log.e(TAG, "Error jsonifying toggle input");
 							e.printStackTrace();
@@ -94,7 +93,7 @@ public class FormFragment extends SherlockFragment {
 					Log.i(TAG,"datetime: " + datetime);
 					json.put(getString(R.string.datetime), combineDateAndTime(json.getString(getString(R.string.date_tag)), json.getString(getString(R.string.time_tag))));
 					Log.i(TAG, json.toString());
-					json.remove(getString(R.string.date_tag));
+					//json.remove(getString(R.string.date_tag));
 					json.remove(getString(R.string.time_tag));
 				} catch (JSONException e) {
 					Log.e(TAG, "Error creating json datetime field from date and time");
@@ -125,40 +124,72 @@ public class FormFragment extends SherlockFragment {
 		}
 	}
 	
+	public static void insertIncidentInDatabase(Context c, JSONObject json){
+		jsonToDatabase(c, json, -1);
+	}
+	
+	public static void updateIncidentInDatabase(Context c, JSONObject json, int existing_db_id){
+		jsonToDatabase(c, json, existing_db_id);
+	}
+	
 	/**
 	 * maps json fields to orm object fields
 	 * @param json
 	 */
-	public static void jsonToDatabase(Context c, JSONObject json){
-		Incident incident = new Incident();
+	private static void jsonToDatabase(Context c, JSONObject json, int existing_db_id){
+		String TAG = "FormFragment-jsonToDatabase";
+		Incident incident = null;
+		
+		if(existing_db_id == -1){
+			incident = new Incident();
+			incident.uuid.set(Constants.generateUUID());
+		}else
+			incident = Incident.objects(c).get(existing_db_id);
+		
 		try {
-			if(json.has(c.getString(R.string.first_name_tag)))
-				incident.first_name.set(json.getString(c.getString(R.string.first_name_tag)));
-			if(json.has(c.getString(R.string.last_name_tag)))
-				incident.last_name.set(json.getString(c.getString(R.string.last_name_tag)));
-			if(json.has(c.getString(R.string.address1_tag)))
-				incident.address1.set(json.getString(c.getString(R.string.address1_tag)));
-			if(json.has(c.getString(R.string.address2_tag)))
-				incident.address2.set(json.getString(c.getString(R.string.address2_tag)));
-			if(json.has(c.getString(R.string.city_tag)))
-				incident.city.set(json.getString(c.getString(R.string.city_tag)));
-			if(json.has(c.getString(R.string.state_tag)))
-				incident.state.set(json.getString(c.getString(R.string.state_tag)));
-			if(json.has(c.getString(R.string.zipcode_tag)))
-				incident.zipcode.set(json.getInt(c.getString(R.string.zipcode_tag)));
-			if(json.has(c.getString(R.string.phone_tag)))
-				incident.phone.set(json.getString(c.getString(R.string.phone_tag)));
-			if(json.has(c.getString(R.string.agency_tag)))
-				incident.agency.set(json.getString(c.getString(R.string.agency_tag)));
-			if(json.has(c.getString(R.string.location_tag)))
-				incident.location.set(json.getString(c.getString(R.string.location_tag)));
-			if(json.has(c.getString(R.string.datetime)))
-				incident.datetime.set(json.getString(c.getString(R.string.datetime))); 
-			if(json.has(c.getString(R.string.narrative_tag)))
-				incident.narrative.set(json.getString(c.getString(R.string.narrative_tag)));
-			if(json.has(c.getString(R.string.device_location_tag))){
-				incident.device_lat.set(json.getJSONObject(c.getString(R.string.device_location_tag)).getDouble(c.getString(R.string.device_lat)));
-				incident.device_lon.set(json.getJSONObject(c.getString(R.string.device_location_tag)).getDouble(c.getString(R.string.device_lon)));
+			JSONObject user_json;
+			if(json.has(c.getString(R.string.user_tag))){
+				user_json = json.getJSONObject(c.getString(R.string.user_tag));
+			
+				if(user_json.has(c.getString(R.string.first_name_tag)))
+					incident.first_name.set(user_json.getString(c.getString(R.string.first_name_tag)));
+				if(user_json.has(c.getString(R.string.last_name_tag)))
+					incident.last_name.set(user_json.getString(c.getString(R.string.last_name_tag)));
+				if(user_json.has(c.getString(R.string.address1_tag)))
+					incident.address_1.set(user_json.getString(c.getString(R.string.address1_tag)));
+				if(user_json.has(c.getString(R.string.address2_tag)))
+					incident.address_2.set(user_json.getString(c.getString(R.string.address2_tag)));
+				if(user_json.has(c.getString(R.string.city_tag)))
+					incident.city.set(user_json.getString(c.getString(R.string.city_tag)));
+				if(user_json.has(c.getString(R.string.state_tag)))
+					incident.state.set(user_json.getString(c.getString(R.string.state_tag)));
+				if(user_json.has(c.getString(R.string.zipcode_tag)))
+					incident.zip.set(user_json.getInt(c.getString(R.string.zipcode_tag)));
+				if(user_json.has(c.getString(R.string.phone_tag)))
+					incident.phone.set(user_json.getString(c.getString(R.string.phone_tag)));
+				if(user_json.has(c.getString(R.string.email_tag)))
+					incident.email.set(user_json.getString(c.getString(R.string.email_tag)));
+			} else{
+				Log.e(TAG, "no user object present");
+			}
+			JSONObject report_json;
+			if(json.has(c.getString(R.string.report_tag))){
+				report_json = json.getJSONObject(c.getString(R.string.report_tag));
+			
+				if(report_json.has(c.getString(R.string.agency_tag)))
+					incident.agency.set(report_json.getString(c.getString(R.string.agency_tag)));
+				if(report_json.has(c.getString(R.string.location_tag)))
+					incident.location.set(report_json.getString(c.getString(R.string.location_tag)));
+				if(report_json.has(c.getString(R.string.datetime)))
+					incident.datetime.set(report_json.getString(c.getString(R.string.datetime))); 
+				if(report_json.has(c.getString(R.string.narrative_tag)))
+					incident.description.set(report_json.getString(c.getString(R.string.narrative_tag)));
+				if(report_json.has(c.getString(R.string.device_location_tag))){
+					incident.device_lat.set(report_json.getDouble(c.getString(R.string.device_lat)));
+					incident.device_lon.set(report_json.getDouble(c.getString(R.string.device_lon)));
+				}
+			}else{
+				Log.e(TAG, "no report object present");
 			}
 			
 			incident.save(c);
@@ -212,7 +243,7 @@ public class FormFragment extends SherlockFragment {
 
 	public class fillFormFromPrefsTask extends
 			AsyncTask<String, Void, SharedPreferences> {
-		private static final String TAG = "fillFormFromPrefsTask";
+		private static final String TAG = "FormFragment-fillFormFromPrefsTask";
 		private ViewGroup container;
 
 		public fillFormFromPrefsTask(ViewGroup container) {
@@ -275,6 +306,7 @@ public class FormFragment extends SherlockFragment {
 	 * @param db_id
 	 */
 	protected void fillFormFromDatabase(ViewGroup container, int db_id){
+		String TAG = "FormFragment-fillFormFromDatabase";
 		Incident incident = Incident.objects(this.getActivity().getApplicationContext()).get(db_id);
 		if(incident == null)
 			return;

@@ -3,6 +3,7 @@ package net.openwatch.acluaz.constants;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 import java.util.TimeZone;
+import java.util.UUID;
 
 public class Constants {
 
@@ -42,6 +43,11 @@ public class Constants {
 	public static final String BUST_CARD = "bust_card.pdf";
 	public static final String SB1070_INFOGRAPHIC = "SB1070_infographic.pdf";
 	public static final String SB1070_KYR = "SB1070_kyr.pdf";
+	
+	public static String generateUUID()
+	{
+		return UUID.randomUUID().toString();
+	}
 	
 	static{
 		datetime_formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
