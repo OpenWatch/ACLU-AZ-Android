@@ -108,12 +108,12 @@ public class ACLUAZContentProvider extends ContentProvider {
 		Log.i(TAG, adapter.getDatabaseName());
 		switch(uriType){
 			case INCIDENTS:
-				Log.i(TAG, select + " FROM " + DBConstants.INCIDENT_TABLENAME + where + sortby);
-				result = adapter.open().query(select + " FROM " + DBConstants.INCIDENT_TABLENAME + where + sortby);
+				Log.i(TAG, select + " FROM " + DBConstants.INCIDENT_TABLENAME + " " + where + " " + sortby);
+				result = adapter.open().query(select + " FROM " + DBConstants.INCIDENT_TABLENAME + " " + where + " ORDER BY " + sortby);
 				break;
 			case INCIDENT_ID:
 				Log.i(TAG, select + " FROM " + DBConstants.INCIDENT_TABLENAME + "WHERE mID="+uri.getLastPathSegment());
-				result = adapter.open().query(select + " FROM " + DBConstants.INCIDENT_TABLENAME + "WHERE _id="+uri.getLastPathSegment());
+				result = adapter.open().query(select + " FROM " + DBConstants.INCIDENT_TABLENAME + " WHERE _id="+uri.getLastPathSegment());
 				break;
 			
 		}
