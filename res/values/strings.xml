@@ -9,22 +9,22 @@
     <string name="report_btn">Report</string>
     <string name="rights_btn">Know Your Rights</string>
     <string name="title_activity_form">FormActivity</string>
-    	<!-- ActionBar Menu -->
+    <!-- ActionBar Menu -->
     <string name="menu_view_reports">Reports</string>
-    
-    <!--  FormActivity -->
+
+    <!-- FormActivity -->
     <string name="personal_tab">Personal</string>
     <string name="incident_tab">Incident</string>
-    	<!--  Clear Personal Info Dialog -->
-    	<string name="clear_personal_info_dialog_title">Clear Personal Info?</string>
-    	<string name="clear_personal_info_dialog_msg">This will delete all personal info saved for use on this form. You\'ll have to re-enter the personal info form the next time you file a report.</string>
-    	<string name="clear_personal_info_ok_btn">Clear Personal Info</string>
-    	<string name="clear_personal_info_cancel_btn">Cancel</string>
-    	<!-- ActionBar Menu -->
+    <!-- Clear Personal Info Dialog -->
+    <string name="clear_personal_info_dialog_title">Clear Personal Info?</string>
+    <string name="clear_personal_info_dialog_msg">This will delete all personal info saved for use on this form. You\'ll have to re-enter the personal info form the next time you file a report.</string>
+    <string name="clear_personal_info_ok_btn">Clear Personal Info</string>
+    <string name="clear_personal_info_cancel_btn">Cancel</string>
+    <!-- ActionBar Menu -->
     <string name="menu_clear_personal">Clear Personal Info</string>
     <string name="menu_submit_form">Submit</string>
-    
-    <!--  Personal Form Fragment -->
+
+    <!-- Personal Form Fragment -->
     <string name="first_name_label">First Name</string>
     <string name="last_name_label">Last Name</string>
     <string name="address_label">Street Address</string>
@@ -35,30 +35,31 @@
     <string name="zipcode_label">Zipcode</string>
     <string name="email_label">Email</string>
     <string name="phone_label">Phone</string>
-    
-    <!--  Incident Form Fragment -->
+
+    <!-- Incident Form Fragment -->
     <string name="agency_label">Agency</string>
     <string name="agency_hint">What law enforcement agency did you come into contact with? Ex. Police, sheriff, department of public safety, ICE, border patrol.</string>
     <string name="location_label">Location</string>
-	<string name="date_label">Date and Time</string>  
-	<string name="date_hint">Date</string>  
-	<string name="time_hint">Time</string>  
-	<string name="narrative_label">What Happened?</string>    
+    <string name="date_label">Date and Time</string>
+    <string name="date_hint">Date</string>
+    <string name="time_hint">Time</string>
+    <string name="narrative_label">What Happened?</string>
     <string name="narrative_hint">Please tell us about your experience with racial profiling, arrest or detention under SB 1070. </string>
     <!-- Location Toggle Button for API < 14 -->
-    <string name="gps_label">Send current location</string>  
-	<string name="gps_on_label">Current location will be sent</string>  
-	<string name="gps_off_label">Current location will not be sent</string>  
+    <string name="gps_label">Send current location</string>
+    <string name="gps_on_label">Current location will be sent</string>
+    <string name="gps_off_label">Current location will not be sent</string>
     <!-- Location Switch for API 14+ -->
     <string name="on">On</string>
     <string name="off">Off</string>
-    <!--  Form Errors -->
+    <!-- Form Errors -->
     <string name="required_field_error">This field is required</string>
 
-    
-    <!--  Incident ListView -->
+    <!-- Incident ListView -->
     <string name="loading_incidents">Loading Incidents</string>
     <string name="no_incidents">No Incidents Saved</string>
     <string name="incident_submitted">Submitted</string>
     <string name="incident_not_submitted">Not Submitted</string>
+    <string name="title_activity_rights">RightsActivity</string>
+
 </resources>

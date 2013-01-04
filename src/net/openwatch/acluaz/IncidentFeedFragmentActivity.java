@@ -123,7 +123,7 @@ public class IncidentFeedFragmentActivity extends SherlockFragmentActivity {
         }
 
         @Override public void onListItemClick(ListView l, View v, int position, long id) {
-        	Intent i = new Intent(this.getActivity(), FormActivity.class);
+        	Intent i = new Intent(this.getActivity(), FormFragmentActivity.class);
         	try{
         		i.putExtra(Constants.INTERNAL_DB_ID, (Integer)v.getTag(R.id.list_item_model));
         	}catch(Exception e){

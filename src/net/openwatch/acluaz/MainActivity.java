@@ -36,12 +36,13 @@ public class MainActivity extends SherlockActivity {
 	}
 	
 	public void onReportBtnClicked(View v){
-		Intent i = new Intent(this, FormActivity.class);
+		Intent i = new Intent(this, FormFragmentActivity.class);
 		startActivity(i);
 	}
 	
 	public void onRightsBtnClicked(View v){
-		
+		Intent i = new Intent(this, RightsActivity.class);
+		startActivity(i);
 	}
 	
 	@Override

@@ -27,6 +27,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.Display;
@@ -60,7 +61,7 @@ import net.openwatch.acluaz.sharedpreferences.SharedPreferencesManager;
  * that switches between tabs and also allows the user to perform horizontal
  * flicks to move between the tabs.
  */
-public class FormActivity extends SherlockFragmentActivity {
+public class FormFragmentActivity extends SherlockFragmentActivity {
 	private static final String TAG = "FragmentActivity";
     TabHost mTabHost;
     ViewPager  mViewPager;
@@ -77,6 +78,8 @@ public class FormActivity extends SherlockFragmentActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.fragment_tabs_pager);
+		// Show the Up button in the action bar.
+		this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getDisplayWidth();
         mTabHost = (TabHost)findViewById(android.R.id.tabhost);
         mTabHost.setup();
@@ -103,9 +106,9 @@ public class FormActivity extends SherlockFragmentActivity {
 
 			@Override
 			public void gotLocation(Location location) {
-				if(FormActivity.this != null && FormActivity.this.findViewById(R.id.gps_toggle) != null){
-					FormActivity.this.findViewById(R.id.gps_toggle).setTag(R.id.view_tag, location);
-					Log.i(TAG, "Tagged location_input with : " + FormActivity.this.findViewById(R.id.gps_toggle).getTag(R.id.view_tag).toString());
+				if(FormFragmentActivity.this != null && FormFragmentActivity.this.findViewById(R.id.gps_toggle) != null){
+					FormFragmentActivity.this.findViewById(R.id.gps_toggle).setTag(R.id.view_tag, location);
+					Log.i(TAG, "Tagged location_input with : " + FormFragmentActivity.this.findViewById(R.id.gps_toggle).getTag(R.id.view_tag).toString());
 				}
 			}
         	
@@ -130,7 +133,7 @@ public class FormActivity extends SherlockFragmentActivity {
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						SharedPreferencesManager.clearPrefsAndForm(FormActivity.this, getPersonalFormFragment(), Constants.PERSONAL_PREFS);
+						SharedPreferencesManager.clearPrefsAndForm(FormFragmentActivity.this, getPersonalFormFragment(), Constants.PERSONAL_PREFS);
 						dialog.dismiss();
 					}
 	    			
@@ -154,6 +157,9 @@ public class FormActivity extends SherlockFragmentActivity {
 	    		Intent i = new Intent(this, MainActivity.class);
 	    		startActivity(i);
 	    		break;
+	    	case android.R.id.home:
+    			NavUtils.navigateUpFromSameTask(this);
+    			break;
     	}
     	return true;
     }
