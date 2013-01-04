@@ -108,7 +108,7 @@ public class FormFragmentActivity extends SherlockFragmentActivity {
 			public void gotLocation(Location location) {
 				if(FormFragmentActivity.this != null && FormFragmentActivity.this.findViewById(R.id.gps_toggle) != null){
 					FormFragmentActivity.this.findViewById(R.id.gps_toggle).setTag(R.id.view_tag, location);
-					Log.i(TAG, "Tagged location_input with : " + FormFragmentActivity.this.findViewById(R.id.gps_toggle).getTag(R.id.view_tag).toString());
+					//Log.i(TAG, "Tagged location_input with : " + FormFragmentActivity.this.findViewById(R.id.gps_toggle).getTag(R.id.view_tag).toString());
 				}
 			}
         	

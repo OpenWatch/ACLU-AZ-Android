@@ -30,7 +30,7 @@ public class PersonalFormFragment extends FormFragment {
 				container, false);
 		
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_dropdown_item_1line, Constants.US_STATES);
+                R.layout.autocomplete_item, Constants.US_STATES);
 		AutoCompleteTextView actv = ((AutoCompleteTextView) v.findViewById(R.id.state_input));
 		actv.setThreshold(1);
 		actv.setAdapter(adapter);
