@@ -6,38 +6,40 @@
     android:layout_margin="0dp" >
 
     <TextView
+        android:id="@+id/submitted"
+        style="@style/WizardFormLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:gravity="center_vertical"
+        android:text="@string/incident_not_submitted"
+        android:textColor="@color/not_submitted" />
+
+    <TextView
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="10dp"
-        android:textColor="@android:color/white"
+        android:layout_toLeftOf="@id/submitted"
         android:ellipsize="marquee"
         android:singleLine="true"
+        android:textColor="@android:color/white"
         android:textSize="18dp" />
 
     <TextView
         android:id="@+id/location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
         android:layout_below="@id/date"
-        android:textColor="@color/off_white"
+        android:layout_marginLeft="10dp"
+        android:layout_toLeftOf="@id/submitted"
+        android:layout_alignParentLeft="true"
         android:ellipsize="marquee"
         android:singleLine="true"
+        android:textColor="@color/off_white"
         android:textSize="18dp"
         android:visibility="gone" />
-
-    <TextView
-        android:id="@+id/submitted"
-        style="@style/WizardFormLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/location"
-        android:layout_marginTop="0dp"
-        android:layout_marginLeft="10dp"
-        android:layout_alignWithParentIfMissing="true"
-        android:text="@string/incident_not_submitted"
-        android:textColor="@color/not_submitted" />
 
 </RelativeLayout>
