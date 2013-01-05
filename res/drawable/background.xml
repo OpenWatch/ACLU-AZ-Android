@@ -1,10 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Thanks! http://android.onyou.ch/2011/01/25/simple-custom-button-using-a-selector-xml-layout/ -->
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <gradient
-        android:angle="270"
-        android:endColor="#e7eefa"
-        android:startColor="#fff" />
-
-</shape>
+<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+    android:src="@drawable/body_bg" 
+    android:tileMode="repeat" />

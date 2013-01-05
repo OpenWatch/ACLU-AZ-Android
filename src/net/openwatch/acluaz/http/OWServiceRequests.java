@@ -3,6 +3,7 @@ package net.openwatch.acluaz.http;
 import java.io.UnsupportedEncodingException;
 import net.openwatch.acluaz.constants.Constants;
 import net.openwatch.acluaz.model.Incident;
+import net.openwatch.acluaz.sharedpreferences.SharedPreferencesManager;
 
 import org.apache.http.entity.StringEntity;
 import org.json.JSONException;
@@ -42,6 +43,7 @@ public class OWServiceRequests {
 							incident.server_id.set(response.getInt(Constants.API_REPORT_ID));
 						}
 						incident.save(app_context);
+						SharedPreferencesManager.clearPrefs(app_context, Constants.INCIDENT_PREFS);
 					}
 				} catch (JSONException e) {
 					Log.e(TAG, "Error parsing json response");

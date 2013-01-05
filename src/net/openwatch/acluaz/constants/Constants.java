@@ -38,9 +38,9 @@ public class Constants {
 	// Machine-readable:
 	public static SimpleDateFormat datetime_formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
 	// Human facing:
-	public static SimpleDateFormat time_formatter = new SimpleDateFormat("kk:mm a", Locale.US);
+	public static SimpleDateFormat time_formatter = new SimpleDateFormat("hh:mm a", Locale.US);
 	public static SimpleDateFormat date_formatter = new SimpleDateFormat("MMM dd, yyyy", Locale.US);
-	public static SimpleDateFormat user_datetime_formatter = new SimpleDateFormat("MMM dd, yyyy kk:mm a", Locale.US);
+	public static SimpleDateFormat user_datetime_formatter = new SimpleDateFormat("MMM dd, yyyy hh:mm a", Locale.US);
 
 	//Asset filenames
 	public static final String PDF_ASSETS_DIR = "sb1070";
@@ -55,5 +55,6 @@ public class Constants {
 	
 	static{
 		datetime_formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
+		user_datetime_formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
 	}
 }

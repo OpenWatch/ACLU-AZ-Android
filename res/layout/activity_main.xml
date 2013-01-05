@@ -10,33 +10,43 @@
     tools:context=".MainActivity" >
 
     <ImageView
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="0dp"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
         android:layout_weight="0.3"
         android:src="@drawable/logo" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.15" />
+
     <Button
         android:id="@+id/report_btn"
+        style="@style/MainButtonTextStyle"
         android:layout_width="250dp"
         android:layout_height="0dp"
         android:layout_margin="10dp"
-        android:layout_weight="0.3"
-        android:background="@drawable/main_btn_bg"
-        android:text="@string/report_btn"
+        android:layout_weight="0.2"
+        android:background="@drawable/green_btn_bg"
         android:onClick="onReportBtnClicked"
-        android:textSize="20sp" />
+        android:text="@string/report_btn" />
 
     <Button
         android:id="@+id/rights_btn"
+        style="@style/MainButtonTextStyle"
         android:layout_width="250dp"
         android:layout_height="0dp"
         android:layout_margin="10dp"
-        android:layout_weight="0.3"
-        android:background="@drawable/main_btn_bg"
-        android:text="@string/rights_btn"
+        android:layout_weight="0.2"
+        android:background="@drawable/blue_btn_bg"
         android:onClick="onRightsBtnClicked"
-        android:textSize="20sp" />
+        android:text="@string/rights_btn" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.15" />
 
 </LinearLayout>

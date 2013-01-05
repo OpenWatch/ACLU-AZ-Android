@@ -74,7 +74,7 @@ public class FormFragmentActivity extends SherlockFragmentActivity {
     public static int display_width = -1;
     
     private boolean did_submit = false; // if this is false, save incident data to prefs
-    
+        
     private ArrayList<FormFragment> attached_fragments = new ArrayList<FormFragment>();
 
     @Override
@@ -83,7 +83,7 @@ public class FormFragmentActivity extends SherlockFragmentActivity {
 
         setContentView(R.layout.fragment_tabs_pager);
 		// Show the Up button in the action bar.
-		this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);		
         getDisplayWidth();
         mTabHost = (TabHost)findViewById(android.R.id.tabhost);
         mTabHost.setup();
@@ -91,8 +91,8 @@ public class FormFragmentActivity extends SherlockFragmentActivity {
         mTabsAdapter = new TabsAdapter(this, mTabHost, mViewPager);
         
         inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        mTabsAdapter.addTab(mTabHost.newTabSpec(getString(R.string.personal_tab)).setIndicator(getString(R.string.personal_tab)), PersonalFormFragment.class, null);
-        mTabsAdapter.addTab(mTabHost.newTabSpec(getString(R.string.incident_tab)).setIndicator(getString(R.string.incident_tab)), IncidentFormFragment.class, null);
+        mTabsAdapter.addTab(mTabHost.newTabSpec(getString(R.string.personal_tab)).setIndicator(inflateCustomTab(getString(R.string.personal_tab))), PersonalFormFragment.class, null);
+        mTabsAdapter.addTab(mTabHost.newTabSpec(getString(R.string.incident_tab)).setIndicator(inflateCustomTab(getString(R.string.incident_tab))), IncidentFormFragment.class, null);
         
         /*
         mTabsAdapter.addTab(mTabHost.newTabSpec(getString(R.string.personal_tab)).setIndicator(inflateCustomTab(getString(R.string.personal_tab))),
@@ -136,6 +136,8 @@ public class FormFragmentActivity extends SherlockFragmentActivity {
 		}
 		return true;
     }
+    
+    
     
     
     @Override
@@ -260,6 +262,12 @@ public class FormFragmentActivity extends SherlockFragmentActivity {
     	super.onPause();
     
     }
+    
+    private View inflateCustomTab(String tab_title){
+    	LinearLayout tab = (LinearLayout) inflater.inflate(R.layout.tab_indicator, (ViewGroup) this.findViewById(android.R.id.tabs), false);
+		((TextView)tab.findViewById(R.id.title)).setText(tab_title);
+		return tab;
+	}
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -324,7 +332,7 @@ public class FormFragmentActivity extends SherlockFragmentActivity {
         }
 
         public void addTab(TabHost.TabSpec tabSpec, Class<?> clss, Bundle args) {
-            tabSpec.setContent(new DummyTabFactory(mContext));
+        	tabSpec.setContent(new DummyTabFactory(mContext));
             String tag = tabSpec.getTag();
 
             TabInfo info = new TabInfo(tag, clss, args);
@@ -372,12 +380,6 @@ public class FormFragmentActivity extends SherlockFragmentActivity {
         public void onPageScrollStateChanged(int state) {
         }
     }
-    
-    private View inflateCustomTab(String tab_title){
-    	LinearLayout tab = (LinearLayout) inflater.inflate(R.layout.tab_indicator, (ViewGroup) findViewById(android.R.id.tabs), false);
-		((TextView)tab.findViewById(R.id.title)).setText(tab_title);
-		return tab;
-	}
     
     /**
      * Measure display width so the view pager can implement its 
