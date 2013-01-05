@@ -26,4 +26,11 @@
     <color name="not_submitted">#d65c5c</color>
 
     <color name="text_light">#66000000</color>
+    <color name="off_white">#e5e5e6</color>
+    <color name="altercolor1">#293446</color>
+    
+    <drawable name="transparent">#00ffffff</drawable>
+    <drawable name="altercolor1">#293446</drawable>
+    <drawable name="altercolor2">#1d283d</drawable>
+    
 </resources>

@@ -37,7 +37,9 @@ import android.support.v4.app.NavUtils;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.SearchViewCompat.OnQueryTextListenerCompat;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListView;
 
 /**
@@ -89,7 +91,7 @@ public class IncidentFeedFragmentActivity extends SherlockFragmentActivity {
 
             // Give some text to display if there is no data.  In a real
             // application this would come from a resource.
-            setEmptyText(getString(R.string.loading_incidents));
+            //setEmptyText(getString(R.string.loading_incidents));
 
             // We have a menu item to show in action bar.
             setHasOptionsMenu(true);
@@ -99,7 +101,7 @@ public class IncidentFeedFragmentActivity extends SherlockFragmentActivity {
             setListAdapter(mAdapter);
 
             // Start out with a progress indicator.
-            setListShown(false);
+            //setListShown(false);
 
             // Prepare the loader.  Either re-connect with an existing one,
             // or start a new one.
@@ -118,6 +120,10 @@ public class IncidentFeedFragmentActivity extends SherlockFragmentActivity {
         	startActivity(i);
         	
         }
+        
+        public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        	return inflater.inflate(R.layout.report_feed, container, false);
+        }
 
         
 		@Override
@@ -125,13 +131,13 @@ public class IncidentFeedFragmentActivity extends SherlockFragmentActivity {
 			mAdapter.swapCursor(cursor);
 			// The list should now be shown.
             if (isResumed()) {
-                setListShown(true);
+                //setListShown(true);
             } else {
-                setListShownNoAnimation(true);
+                //setListShownNoAnimation(true);
             }
             
            if(cursor != null && cursor.getCount() == 0){
-        		setEmptyText(getString(R.string.no_incidents));
+        		//setEmptyText(getString(R.string.no_incidents));
            }
 			
 		}

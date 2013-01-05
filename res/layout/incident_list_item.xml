@@ -3,7 +3,7 @@
     android:id="@+id/container"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp" >
+    android:layout_margin="0dp" >
 
     <TextView
         android:id="@+id/date"
@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="10dp"
+        android:textColor="@android:color/white"
         android:ellipsize="marquee"
         android:singleLine="true"
         android:textSize="18dp" />
@@ -21,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_below="@id/date"
-        android:textColor="@color/text_light"
+        android:textColor="@color/off_white"
         android:ellipsize="marquee"
         android:singleLine="true"
         android:textSize="18dp"
