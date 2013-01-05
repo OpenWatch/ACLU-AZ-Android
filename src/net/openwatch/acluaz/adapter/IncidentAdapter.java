@@ -37,7 +37,12 @@ public class IncidentAdapter extends SimpleCursorAdapter {
         }
         
         view_cache.date.setText(cursor.getString(view_cache.date_col));
-        view_cache.location.setText(cursor.getString(view_cache.location_col));
+        if(cursor.getString(view_cache.location_col).compareTo("") != 0){
+        	view_cache.location.setText(cursor.getString(view_cache.location_col));
+        	view_cache.location.setVisibility(View.VISIBLE);
+        } else{
+        	view_cache.location.setVisibility(View.GONE);
+        }
         if(cursor.getInt(view_cache.submitted_col) == 1){
         	view_cache.submitted.setTextColor(c.getResources().getColor(R.color.submitted));
         	view_cache.submitted.setText(R.string.incident_submitted);

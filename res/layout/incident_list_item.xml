@@ -9,6 +9,8 @@
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
         android:ellipsize="marquee"
         android:singleLine="true"
         android:textSize="18dp" />
@@ -17,12 +19,13 @@
         android:id="@+id/location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
         android:layout_below="@id/date"
+        android:textColor="@color/text_light"
         android:ellipsize="marquee"
         android:singleLine="true"
-        android:visibility="gone"
-        android:textSize="18dp" />
+        android:textSize="18dp"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/submitted"
@@ -30,7 +33,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/location"
-        android:textColor="@color/not_submitted"
-        android:text="@string/incident_not_submitted" />
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="10dp"
+        android:layout_alignWithParentIfMissing="true"
+        android:text="@string/incident_not_submitted"
+        android:textColor="@color/not_submitted" />
 
 </RelativeLayout>
