@@ -6,7 +6,9 @@
     <string name="menu_settings">Settings</string>
 
     <!-- Generic Dialog -->
+    <string name="dialog_submit">Submit</string>
     <string name="dialog_ok">OK!</string>
+    <string name="dialog_cancel">Cancel</string>
 
     <!-- MainActivity -->
     <string name="report_btn">Report</string>
@@ -22,7 +24,7 @@
     <string name="clear_personal_info_dialog_title">Clear Personal Info?</string>
     <string name="clear_personal_info_dialog_msg">This will delete all personal info saved for use on this form. You\'ll have to re-enter the personal info form the next time you file a report.</string>
     <string name="clear_personal_info_ok_btn">Clear Personal Info</string>
-    <string name="clear_personal_info_cancel_btn">Cancel</string>
+    
     <!-- Form Incomplete Dialog -->
     <string name="form_incomplete_dialog_title">Form Incomplete</string>
     <string name="form_incomplete_dialog_msg">Please check the form for highligted fields. At a minimum we need your full name, the incident location, date, and description.</string>
@@ -63,6 +65,9 @@
     <!-- Form Errors -->
     <string name="required_field_error">This field is required</string>
 
+    <!--  Form Disclaimer -->
+    <string name="form_disclaimer">We respect your privacy and will only use the contact information you provide to contact you regarding the complaint you submit today. Other than that, we will never send unsolicited email, or share personal information you submit. For further information, see our privacy statement.</string>
+    
     <!-- Incident ListView -->
     <string name="loading_incidents">Loading Incidents</string>
     <string name="no_incidents">No Incidents Saved</string>

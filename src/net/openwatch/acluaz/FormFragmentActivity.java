@@ -172,38 +172,58 @@ public class FormFragmentActivity extends SherlockFragmentActivity {
 	    			showFormIncompleteDialog();
 	    			break;
 	    		}
+	    		
+	    		AlertDialog.Builder builder = new AlertDialog.Builder(FormFragmentActivity.this);
+	    		builder.setMessage(getString(R.string.form_disclaimer))
+	    		.setPositiveButton(getString(R.string.dialog_submit), new OnClickListener(){
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						FormFragmentActivity.this.saveAndSendForm();
+					}
 	    			
-	    		JSONObject json = new JSONObject();
-	    		JSONObject user_json = new JSONObject();
-	    		JSONObject report_json = new JSONObject();
-	    		attached_fragments.get(0).toJson((ViewGroup) this.findViewById(R.id.personal_form_container), user_json);
-	    		attached_fragments.get(1).toJson((ViewGroup) this.findViewById(R.id.incident_form_container), report_json);
-				try {
-					json.put(getString(R.string.user_tag), user_json);
-					json.put(getString(R.string.report_tag), report_json);
-					Log.i(TAG, "pre json to Database: " + json.toString());
-		    		if (this.getIntent().hasExtra(Constants.INTERNAL_DB_ID)){
-		    			FormFragment.updateIncidentInDatabase(getApplicationContext(), json, this.getIntent().getExtras().getInt(Constants.INTERNAL_DB_ID));
-		    			json = FormFragment.addUuidToJson(getApplicationContext(), json, this.getIntent().getExtras().getInt(Constants.INTERNAL_DB_ID));
-		    			OWServiceRequests.postReport(getApplicationContext(), json, this.getIntent().getExtras().getInt(Constants.INTERNAL_DB_ID));
-		    		}else{
-		    			int db_id = FormFragment.insertIncidentInDatabase(getApplicationContext(), json);
-		    			json = FormFragment.addUuidToJson(getApplicationContext(), json, db_id);
-		    			OWServiceRequests.postReport(getApplicationContext(), json, db_id);
-		    		}
-		    		did_submit = true;
-		    		Intent i = new Intent(this, MainActivity.class);
-		    		startActivity(i);
-				} catch (JSONException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+	    		}).setNegativeButton(getString(R.string.dialog_cancel), new OnClickListener(){
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.dismiss();
+					}
+	    			
+	    		}).show();
 	    		break;
 	    	case android.R.id.home:
     			NavUtils.navigateUpFromSameTask(this);
     			break;
     	}
     	return true;
+    }
+    
+    private void saveAndSendForm(){
+    	JSONObject json = new JSONObject();
+		JSONObject user_json = new JSONObject();
+		JSONObject report_json = new JSONObject();
+		attached_fragments.get(0).toJson((ViewGroup) this.findViewById(R.id.personal_form_container), user_json);
+		attached_fragments.get(1).toJson((ViewGroup) this.findViewById(R.id.incident_form_container), report_json);
+		try {
+			json.put(getString(R.string.user_tag), user_json);
+			json.put(getString(R.string.report_tag), report_json);
+			Log.i(TAG, "pre json to Database: " + json.toString());
+    		if (this.getIntent().hasExtra(Constants.INTERNAL_DB_ID)){
+    			FormFragment.updateIncidentInDatabase(getApplicationContext(), json, this.getIntent().getExtras().getInt(Constants.INTERNAL_DB_ID));
+    			json = FormFragment.addUuidToJson(getApplicationContext(), json, this.getIntent().getExtras().getInt(Constants.INTERNAL_DB_ID));
+    			OWServiceRequests.postReport(getApplicationContext(), json, this.getIntent().getExtras().getInt(Constants.INTERNAL_DB_ID));
+    		}else{
+    			int db_id = FormFragment.insertIncidentInDatabase(getApplicationContext(), json);
+    			json = FormFragment.addUuidToJson(getApplicationContext(), json, db_id);
+    			OWServiceRequests.postReport(getApplicationContext(), json, db_id);
+    		}
+    		did_submit = true;
+    		Intent i = new Intent(this, MainActivity.class);
+    		startActivity(i);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
     
     private boolean validateFormFragments(){
