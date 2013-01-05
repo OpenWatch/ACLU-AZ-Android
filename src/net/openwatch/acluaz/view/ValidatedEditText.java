@@ -21,12 +21,17 @@ public class ValidatedEditText extends EditText {
 		public void onFocusChange(View v, boolean hasFocus) {
 			if (!hasFocus) {
 				if(((EditText) v).getText().toString().trim().length() == 0){
-					Drawable error_icon = getResources().getDrawable(R.drawable.indicator_input_error);
-					error_icon.setBounds(new Rect(0, 0, error_icon.getIntrinsicWidth(), error_icon.getIntrinsicHeight()));
+					//Drawable error_icon = getResources().getDrawable(R.drawable.indicator_input_error);
+					//error_icon.setBounds(new Rect(0, 0, error_icon.getIntrinsicWidth(), error_icon.getIntrinsicHeight()));
 					((EditText) v).setError(v.getResources()
-							.getString(R.string.required_field_error), error_icon);
+							.getString(R.string.required_field_error));
 					
+					//v.setBackgroundColor(getResources().getColor(R.color.not_submitted));
 					//v.setBackgroundColor(Color.RED);
+				}else{
+					((EditText) v).setError(null);
+					//v.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+					
 				}
 			}
 		}

@@ -4,6 +4,9 @@
     <string name="app_name">ACLU AZ</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
+    
+    <!-- Generic Dialog -->
+    <string name="dialog_ok">OK!</string>
 
     <!-- MainActivity -->
     <string name="report_btn">Report</string>
@@ -20,6 +23,9 @@
     <string name="clear_personal_info_dialog_msg">This will delete all personal info saved for use on this form. You\'ll have to re-enter the personal info form the next time you file a report.</string>
     <string name="clear_personal_info_ok_btn">Clear Personal Info</string>
     <string name="clear_personal_info_cancel_btn">Cancel</string>
+    <!-- Form Incomplete Dialog -->
+    <string name="form_incomplete_dialog_title">Form Incomplete</string>
+    <string name="form_incomplete_dialog_msg">Please check the form for highligted fields. At a minimum we need your full name, the incident location, date, and description.</string>
     <!-- ActionBar Menu -->
     <string name="menu_clear_personal">Clear Personal Info</string>
     <string name="menu_submit_form">Submit</string>

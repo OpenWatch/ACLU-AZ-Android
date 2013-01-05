@@ -5,10 +5,13 @@
         android:orderInCategory="100"
         android:showAsAction="always"
         android:title="@string/menu_view_reports"/>
+
+    <!--
     <item
         android:id="@+id/menu_clear_personal"
         android:orderInCategory="100"
         android:showAsAction="never"
         android:title="@string/menu_clear_personal"/>
+    -->
 
 </menu>

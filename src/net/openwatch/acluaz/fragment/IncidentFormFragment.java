@@ -83,13 +83,11 @@ public class IncidentFormFragment extends FormFragment {
 		Intent i = this.getActivity().getIntent();
 		if (i.hasExtra(Constants.INTERNAL_DB_ID)) {
 			this.fillFormFromDatabase(
-					(ViewGroup) this.getActivity().findViewById(R.id.incident_form_container),
+					getFormContainer(),
 					i.getExtras().getInt(Constants.INTERNAL_DB_ID));
 					presentFormAsExistingReport();
 		} else
-			new fillFormFromPrefsTask(
-					(ViewGroup) this.getActivity().findViewById(R.id.incident_form_container))
-					.execute(Constants.INCIDENT_PREFS);
+			new fillFormFromPrefsTask(getFormContainer()).execute(Constants.INCIDENT_PREFS);
 	}
 	
 	private void presentFormAsExistingReport(){
@@ -105,5 +103,10 @@ public class IncidentFormFragment extends FormFragment {
 		Log.i("IncidentFrag", "onPause");
 		//writeJsonToPrefs(Constants.INCIDENT_PREFS, toJson((ViewGroup) this.getView().findViewById(R.id.incident_form_container), null));
 		super.onPause();
+	}
+	
+	@Override
+	public ViewGroup getFormContainer(){
+		return (ViewGroup)this.getView().findViewById(R.id.incident_form_container);
 	}
 }

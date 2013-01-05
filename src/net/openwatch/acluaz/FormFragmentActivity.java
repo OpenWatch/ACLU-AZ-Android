@@ -141,6 +141,7 @@ public class FormFragmentActivity extends SherlockFragmentActivity {
     @Override
     public boolean onOptionsItemSelected (MenuItem item){
     	switch(item.getItemId()){
+    	/*
 	    	case R.id.menu_clear_personal:
 	    		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 	    		builder.setTitle(getString(R.string.clear_personal_info_dialog_title))
@@ -163,7 +164,13 @@ public class FormFragmentActivity extends SherlockFragmentActivity {
 	    		}).show();
 	    		
 	    		break;
+	    */
 	    	case R.id.menu_submit_form:
+	    		if(!validateFormFragments()){
+	    			showFormIncompleteDialog();
+	    			break;
+	    		}
+	    			
 	    		JSONObject json = new JSONObject();
 	    		JSONObject user_json = new JSONObject();
 	    		JSONObject report_json = new JSONObject();
@@ -189,12 +196,18 @@ public class FormFragmentActivity extends SherlockFragmentActivity {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-	    		
-	    		
 	    		break;
 	    	case android.R.id.home:
     			NavUtils.navigateUpFromSameTask(this);
     			break;
+    	}
+    	return true;
+    }
+    
+    private boolean validateFormFragments(){
+    	for(int x=0; x<attached_fragments.size(); x++){
+    		if(!attached_fragments.get(x).validateForm(attached_fragments.get(x).getFormContainer()) )
+    			return false;
     	}
     	return true;
     }
@@ -216,6 +229,22 @@ public class FormFragmentActivity extends SherlockFragmentActivity {
     public void onAttachFragment (Fragment fragment){
     	if(FormFragment.class.isInstance(fragment))
     		attached_fragments.add((FormFragment)fragment);
+    }
+    
+    private void showFormIncompleteDialog(){
+    	
+    	AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle(getString(R.string.form_incomplete_dialog_title))
+		.setMessage(getString(R.string.form_incomplete_dialog_msg))
+		.setPositiveButton(getString(R.string.dialog_ok), new OnClickListener(){
+
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.dismiss();
+			}
+			
+		}).show();
+    	
     }
     
     @Override

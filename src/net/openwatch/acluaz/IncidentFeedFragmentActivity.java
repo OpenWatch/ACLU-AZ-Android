@@ -17,6 +17,9 @@
 package net.openwatch.acluaz;
 
 import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
 
 import net.openwatch.acluaz.adapter.IncidentAdapter;
 import net.openwatch.acluaz.constants.Constants;
@@ -30,11 +33,10 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.ListFragment;
 import android.support.v4.app.LoaderManager;
+import android.support.v4.app.NavUtils;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.SearchViewCompat.OnQueryTextListenerCompat;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.widget.ListView;
 
@@ -48,7 +50,8 @@ public class IncidentFeedFragmentActivity extends SherlockFragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        // Show the Up button in the action bar.
+     	this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         FragmentManager fm = getSupportFragmentManager();
 
         // Create the list fragment and add it as our sole content.
@@ -57,6 +60,17 @@ public class IncidentFeedFragmentActivity extends SherlockFragmentActivity {
             fm.beginTransaction().add(android.R.id.content, list).commit();
         }
     }
+  
+    @Override
+    public boolean onOptionsItemSelected (MenuItem item){
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			NavUtils.navigateUpFromSameTask(this);
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	} 
+	
 
 
     public static class LocalRecordingsListFragment extends ListFragment
@@ -92,32 +106,8 @@ public class IncidentFeedFragmentActivity extends SherlockFragmentActivity {
             getLoaderManager().initLoader(0, null, this);
         }
 
-        @Override public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-            // Place an action bar item for searching.
-        	/*
-            MenuItem item = menu.add("Search");
-            item.setIcon(android.R.drawable.ic_menu_search);
-            MenuItemCompat.setShowAsAction(item, MenuItemCompat.SHOW_AS_ACTION_IF_ROOM
-                    | MenuItemCompat.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
-            View searchView = SearchViewCompat.newSearchView(getActivity());
-            if (searchView != null) {
-                SearchViewCompat.setOnQueryTextListener(searchView,
-                        new OnQueryTextListenerCompat() {
-                    @Override
-                    public boolean onQueryTextChange(String newText) {
-                        // Called when the action bar search text has changed.  Since this
-                        // is a simple array adapter, we can just have it do the filtering.
-                        mCurFilter = !TextUtils.isEmpty(newText) ? newText : null;
-                        mAdapter.getFilter().filter(mCurFilter);
-                        return true;
-                    }
-                });
-                MenuItemCompat.setActionView(item, searchView);
-            }
-            */
-        }
-
-        @Override public void onListItemClick(ListView l, View v, int position, long id) {
+        @Override 
+        public void onListItemClick(ListView l, View v, int position, long id) {
         	Intent i = new Intent(this.getActivity(), FormFragmentActivity.class);
         	try{
         		i.putExtra(Constants.INTERNAL_DB_ID, (Integer)v.getTag(R.id.list_item_model));

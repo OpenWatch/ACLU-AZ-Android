@@ -10,6 +10,7 @@ import net.openwatch.acluaz.R;
 import net.openwatch.acluaz.constants.Constants;
 import net.openwatch.acluaz.constants.DBConstants;
 import net.openwatch.acluaz.model.Incident;
+import net.openwatch.acluaz.view.ValidatedEditText;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -73,12 +74,14 @@ public class FormFragment extends SherlockFragment {
 				if (view.getTag() != null){
 					// if location toggle, bundle location
 					if( ((String)view.getTag()).compareTo(getString(R.string.device_location_tag)) == 0 && view.getTag(R.id.view_tag) != null){
-						try {
-							json.put(getString(R.string.device_lat), ((Location)view.getTag(R.id.view_tag)).getLatitude());
-							json.put(getString(R.string.device_lon), ((Location)view.getTag(R.id.view_tag)).getLongitude());
-						} catch (JSONException e) {
-							Log.e(TAG, "Error jsonifying toggle input");
-							e.printStackTrace();
+						if( ((CompoundButton)view).isChecked() ){
+							try {
+								json.put(getString(R.string.device_lat), ((Location)view.getTag(R.id.view_tag)).getLatitude());
+								json.put(getString(R.string.device_lon), ((Location)view.getTag(R.id.view_tag)).getLongitude());
+							} catch (JSONException e) {
+								Log.e(TAG, "Error jsonifying toggle input");
+								e.printStackTrace();
+							}
 						}
 					}
 					
@@ -117,9 +120,9 @@ public class FormFragment extends SherlockFragment {
 	 */
 	private String combineDateAndTime(String date, String time){
 		try {
-			String datetime = date + " " + time;
-			Date date_obj = Constants.user_datetime_formatter.parse(datetime);
-			String output_date = Constants.datetime_formatter.format(date_obj);
+			//String datetime = date + " " + time;
+			//Date date_obj = Constants.user_datetime_formatter.parse(datetime);
+			//String output_date = Constants.datetime_formatter.format(date_obj);
 			return Constants.datetime_formatter.format(Constants.user_datetime_formatter.parse(date + " " + time));
 		} catch (ParseException e) {
 			Log.e(TAG, "Error formatting user facing date");
@@ -208,7 +211,9 @@ public class FormFragment extends SherlockFragment {
 	public static JSONObject addUuidToJson(Context c, JSONObject json, int db_id){
 		
 		try {
-			json.put(c.getString(R.string.uuid_tag), Incident.objects(c).get(db_id).uuid.get());
+			if(json.has(c.getString(R.string.report_tag))){
+				json.getJSONObject(c.getString(R.string.report_tag)).put(c.getString(R.string.uuid_tag), Incident.objects(c).get(db_id).uuid.get());
+			}
 		} catch (Exception e) {
 			Log.e("addUuidToJson", "Error adding uuid");
 			e.printStackTrace();
@@ -356,6 +361,29 @@ public class FormFragment extends SherlockFragment {
 			}
 		}
 		
+	}
+	
+	public boolean validateForm(ViewGroup container){
+		View view;
+		for (int x = 0; x < container.getChildCount(); x++) {
+			view = container.getChildAt(x);
+			
+			if (ValidatedEditText.class.isInstance(view)){
+				if( ((EditText)view).getText().toString().compareTo("") == 0){
+					view.requestFocus();
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+	
+	/**
+	 * Override this method to return form container
+	 * @return
+	 */
+	public ViewGroup getFormContainer(){
+		return null;
 	}
 
 }

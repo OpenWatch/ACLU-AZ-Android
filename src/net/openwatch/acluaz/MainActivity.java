@@ -48,6 +48,7 @@ public class MainActivity extends SherlockActivity {
 	@Override
     public boolean onOptionsItemSelected (MenuItem item){
     	switch(item.getItemId()){
+    	/*
 	    	case R.id.menu_clear_personal:
 	    		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 	    		builder.setTitle(getString(R.string.clear_personal_info_dialog_title))
@@ -70,6 +71,7 @@ public class MainActivity extends SherlockActivity {
 	    		}).show();
 	    		
 	    		break;
+	    	*/
 	    	case R.id.menu_reports:
 	    		Intent i = new Intent(this, IncidentFeedFragmentActivity.class);
 	    		startActivity(i);

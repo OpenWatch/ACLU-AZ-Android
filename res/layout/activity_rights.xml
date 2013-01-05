@@ -1,70 +1,79 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="20dp"
+    android:background="@drawable/background"
     tools:context=".RightsActivity" >
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="18dp"
-        android:gravity="center" >
+        android:layout_height="match_parent"
+        android:layout_margin="20dp" >
 
-        <TextView
-            android:id="@+id/language_label"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="18dp"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/language_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:gravity="center_vertical"
+                android:text="@string/language"
+                android:textSize="20sp" />
+
+            <ToggleButton
+                android:id="@+id/language_toggle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/language_label"
+                android:checked="true"
+                android:textOff="@string/spanish"
+                android:textOn="@string/english"
+                android:textSize="20sp" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/sb1070_kyr_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
-            android:gravity="center_vertical"
-            android:text="@string/language"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/main_btn_bg"
+            android:minHeight="80dp"
+            android:onClick="onSb1070KyrClicked"
+            android:text="@string/sb1070_kyr"
             android:textSize="20sp" />
 
-        <ToggleButton
-            android:id="@+id/language_toggle"
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/sb1070_infographic_btn"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/language_label"
-            android:checked="true"
-            android:textOff="@string/spanish"
-            android:textOn="@string/english"
+            android:layout_above="@id/sb1070_kyr_btn"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/main_btn_bg"
+            android:minHeight="80dp"
+            android:onClick="onSb1070InfoClicked"
+            android:text="@string/sb1070_infographic"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/bust_card_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sb1070_kyr_btn"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/main_btn_bg"
+            android:minHeight="80dp"
+            android:onClick="onBustCardClicked"
+            android:text="@string/bust_card"
             android:textSize="20sp" />
     </RelativeLayout>
 
-    <Button
-        android:id="@+id/sb1070_kyr_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginBottom="16dp"
-        android:minHeight="80dp"
-        android:onClick="onSb1070KyrClicked"
-        android:text="@string/sb1070_kyr"
-        android:textSize="20sp" />
-
-    <Button
-        android:id="@+id/sb1070_infographic_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/sb1070_kyr_btn"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="16dp"
-        android:minHeight="80dp"
-        android:onClick="onSb1070InfoClicked"
-        android:text="@string/sb1070_infographic"
-        android:textSize="20sp" />
-
-    <Button
-        android:id="@+id/bust_card_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/sb1070_kyr_btn"
-        android:layout_centerHorizontal="true"
-        android:minHeight="80dp"
-        android:onClick="onBustCardClicked"
-        android:text="@string/bust_card"
-        android:textSize="20sp" />
-
-</RelativeLayout>
+</LinearLayout>
