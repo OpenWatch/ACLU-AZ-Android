@@ -1,24 +1,15 @@
 package net.openwatch.acluaz;
 
-import org.json.JSONObject;
-
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 
 import net.openwatch.acluaz.constants.Constants;
 import net.openwatch.acluaz.database.DatabaseManager;
-import net.openwatch.acluaz.fragment.FormFragment;
-import net.openwatch.acluaz.sharedpreferences.SharedPreferencesManager;
 import android.os.Bundle;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.DialogInterface.OnClickListener;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 
 public class MainActivity extends SherlockActivity {
 
@@ -75,6 +66,10 @@ public class MainActivity extends SherlockActivity {
 	    	case R.id.menu_reports:
 	    		Intent i = new Intent(this, IncidentFeedFragmentActivity.class);
 	    		startActivity(i);
+	    		break;
+	    	case R.id.menu_about:
+	    		Intent i2 = new Intent(this, AboutActivity.class);
+	    		startActivity(i2);
 	    		break;
     	}
     	return true;

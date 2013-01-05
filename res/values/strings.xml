@@ -4,7 +4,7 @@
     <string name="app_name">ACLU AZ</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
-    
+
     <!-- Generic Dialog -->
     <string name="dialog_ok">OK!</string>
 
@@ -30,6 +30,7 @@
     <string name="menu_clear_personal">Clear Personal Info</string>
     <string name="menu_submit_form">Submit</string>
     <string name="menu_amend_form">Amend</string>
+    <string name="menu_about">About</string>
 
     <!-- Personal Form Fragment -->
     <string name="first_name_label">First Name</string>
@@ -77,5 +78,10 @@
     <string name="sb1070_kyr">SB 1070 Overview</string>
     <string name="bust_card">Police Contact Quick Reference</string>
     <string name="title_activity_pdfview">PDFViewActivity</string>
+    <string name="title_activity_about">AboutActivity</string>
+
+    <!-- About Activity -->
+    <string name="powered_by">Powered By</string>
+    <string name="about_text">SB 1070 requires the police to ask someone they have already stopped about their immigration status, if they think the person may be undocumented. However, even under SB 1070, it is illegal for the police to stop someone because of their race, ethnicity or the language they speak or to detain someone for a long time if it is only to investigate their immigration status.\n\nIt\'s important to remember that everyone has basic rights — including the right not to be profiled or discriminated against by the police — whether you have papers or not.\n\nWe can fight SB 1070 by collecting examples of people who were stopped and detained by law enforcement because of their race and cases where the detention was extended in order to check immigration status. If you\'ve experienced either, please tell us your story.</string>
 
 </resources>

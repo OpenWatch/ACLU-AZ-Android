@@ -5,6 +5,11 @@
         android:orderInCategory="100"
         android:showAsAction="always"
         android:title="@string/menu_view_reports"/>
+    <item
+        android:id="@+id/menu_about"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:title="@string/menu_about"/>
 
     <!--
     <item

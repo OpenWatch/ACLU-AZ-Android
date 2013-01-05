@@ -39,7 +39,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="net.openwatch.acluaz.MainActivity" />
         </activity>
-        <activity android:name="net.openwatch.acluaz.IncidentFeedFragmentActivity"
+        <activity
+            android:name="net.openwatch.acluaz.IncidentFeedFragmentActivity"
             android:parentActivityName="net.openwatch.acluaz.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -59,6 +60,14 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="net.openwatch.acluaz.RightsActivity" />
+        </activity>
+        <activity
+            android:name="net.openwatch.acluaz.AboutActivity"
+            android:label="@string/title_activity_about"
+            android:parentActivityName="net.openwatch.acluaz.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="net.openwatch.acluaz.MainActivity" />
         </activity>
     </application>
 

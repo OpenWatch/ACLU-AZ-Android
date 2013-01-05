@@ -138,7 +138,7 @@
     <style name="MainButtonTextStyle">
         <item name="android:shadowColor">#383838</item>
         <item name="android:textColor">#ffffff</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">24sp</item>
         <item name="android:shadowRadius">2</item>
         <item name="android:shadowDx">0</item>
         <item name="android:shadowDy">-2</item>
