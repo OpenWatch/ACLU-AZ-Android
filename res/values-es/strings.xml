@@ -1,0 +1,80 @@
+<resources>
+
+    <string name="app_name">"ACLU AZ"</string>
+    <string name="hello_world">"Hola mundo!"</string>
+    <string name="menu_settings">"Ajustes"</string>
+    
+    <!-- Generic Dialog -->
+    <string name="dialog_ok">"¡OK!"</string>
+
+    <!-- MainActivity -->
+    <string name="report_btn">"Informe"</string>
+    <string name="rights_btn">"Conozca sus derechos"</string>
+    <string name="title_activity_form">"FormActivity"</string>
+    <!-- ActionBar Menu -->
+    <string name="menu_view_reports">"Informes"</string>
+
+    <!-- FormActivity -->
+    <string name="personal_tab">"Personal"</string>
+    <string name="incident_tab">"Incidente"</string>
+    <!-- Clear Personal Info Dialog -->
+    <string name="clear_personal_info_dialog_title">"Información Personal Clear?"</string>
+    <string name="clear_personal_info_dialog_msg">"Esto borrará toda la información personal guardada para su uso en este formulario. Vas a tener que volver a entrar en el formulario de información personal la próxima vez que se presente un informe."</string>
+    <string name="clear_personal_info_ok_btn">"Información Personal Clear"</string>
+    <string name="clear_personal_info_cancel_btn">"Cancelar"</string>
+    <!-- Form Incomplete Dialog -->
+    <string name="form_incomplete_dialog_title">"De forma incompleta,"</string>
+    <string name="form_incomplete_dialog_msg">"Por favor, revise el formulario para campos highligted. Como mínimo, necesitamos su nombre completo, el lugar del incidente, la fecha y la descripción."</string>
+    <!-- ActionBar Menu -->
+    <string name="menu_clear_personal">"Información Personal Clear"</string>
+    <string name="menu_submit_form">"Enviar"</string>
+    <string name="menu_amend_form">"Enmienda"</string>
+
+    <!-- Personal Form Fragment -->
+    <string name="first_name_label">"Primer Nombre"</string>
+    <string name="last_name_label">"Apellido"</string>
+    <string name="address_label">"Dirección (calle y número)"</string>
+    <string name="address1_hint">"ex: 12 Main St"</string>
+    <string name="address2_hint">"ex: Apt 7"</string>
+    <string name="city_label">"Ciudad"</string>
+    <string name="state_label">"Estado"</string>
+    <string name="zipcode_label">"Codigo Postal"</string>
+    <string name="email_label">"Email"</string>
+    <string name="phone_label">"Teléfono"</string>
+
+    <!-- Incident Form Fragment -->
+    <string name="agency_label">"Agencia"</string>
+    <string name="agency_hint">"¿Qué agencia policial se entra en contacto con? Ex. La policía, sheriff, departamento de la seguridad pública, el ICE, la patrulla fronteriza."</string>
+    <string name="location_label">"Ubicación"</string>
+    <string name="date_label">"Fecha y hora"</string>
+    <string name="date_hint">"Fecha"</string>
+    <string name="time_hint">"Tiempo"</string>
+    <string name="narrative_label">"¿Qué ha pasado?"</string>
+    <string name="narrative_hint">"Por favor, cuéntenos sobre su experiencia con la discriminación racial arresto o detención bajo la ley SB 1070. "</string>
+    <!-- Location Toggle Button for API < 14 -->
+    <string name="gps_label">"Enviar ubicación actual"</string>
+    <string name="gps_on_label">"Ubicación actual se enviará"</string>
+    <string name="gps_off_label">"Ubicación actual no se enviará"</string>
+    <!-- Location Switch for API 14+ -->
+    <string name="on">"encendido"</string>
+    <string name="off">"Apagado"</string>
+    <!-- Form Errors -->
+    <string name="required_field_error">"Este campo es obligatorio"</string>
+
+    <!-- Incident ListView -->
+    <string name="loading_incidents">"Incidentes Loading"</string>
+    <string name="no_incidents">"No se produjeron incidentes Guardado"</string>
+    <string name="incident_submitted">"Enviada"</string>
+    <string name="incident_not_submitted">"No Enviado"</string>
+    <string name="title_activity_rights">"RightsActivity"</string>
+
+    <!-- Rights Activity -->
+    <string name="language">"Idioma"</string>
+    <string name="english">"Inglés"</string>
+    <string name="spanish">"Español"</string>
+    <string name="sb1070_infographic">"SB 1070 Referencia Rápida"</string>
+    <string name="sb1070_kyr">"SB 1070 Resumen"</string>
+    <string name="bust_card">"Policía de Contacto Referencia Rápida"</string>
+    <string name="title_activity_pdfview">"PDFViewActivity"</string>
+
+</resources>
