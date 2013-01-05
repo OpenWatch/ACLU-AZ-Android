@@ -264,7 +264,7 @@ public class FormFragmentActivity extends SherlockFragmentActivity {
     }
     
     private View inflateCustomTab(String tab_title){
-    	LinearLayout tab = (LinearLayout) inflater.inflate(R.layout.tab_indicator, (ViewGroup) this.findViewById(android.R.id.tabs), false);
+    	ViewGroup tab = (ViewGroup) inflater.inflate(R.layout.tab_indicator, (ViewGroup) this.findViewById(android.R.id.tabs), false);
 		((TextView)tab.findViewById(R.id.title)).setText(tab_title);
 		return tab;
 	}
