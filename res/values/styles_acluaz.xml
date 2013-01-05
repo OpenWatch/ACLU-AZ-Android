@@ -45,7 +45,11 @@
         <item name="backgroundStacked">@drawable/ab_stacked_solid_acluaz</item>
         <item name="backgroundSplit">@drawable/ab_bottom_solid_acluaz</item>
         <item name="progressBarStyle">@style/acluaz_ProgressBar</item>
-
+		<item name="titleTextStyle">@style/Theme.acluaz.NoTitleText</item>
+        <item name="android:subtitleTextStyle">@style/Theme.acluaz.NoTitleText</item>
+		
+		<item name="android:titleTextStyle">@style/Theme.acluaz.NoTitleText</item>
+        <item name="android:subtitleTextStyle">@style/Theme.acluaz.NoTitleText</item>
         <item name="android:background">@drawable/ab_solid_acluaz</item>
         <item name="android:backgroundStacked">@drawable/ab_stacked_solid_acluaz</item>
         <item name="android:backgroundSplit">@drawable/ab_bottom_solid_acluaz</item>

@@ -17,6 +17,7 @@ public class MainActivity extends SherlockActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		this.getSupportActionBar().setDisplayShowHomeEnabled(false);
 	}
 
 	@Override
