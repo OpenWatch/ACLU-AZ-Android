@@ -165,9 +165,10 @@
     <style name="KnowYourRightsContentText">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:textColor">#fff</item>
+       <!-- <item name="android:textColor">#fff</item> --> 
         <item name="android:layout_marginBottom">5dp</item>
         <item name="android:textSize">18sp</item>
+        <item name="android:autoLink">all</item>
     </style>
     
 

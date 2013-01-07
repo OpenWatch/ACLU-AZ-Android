@@ -17,6 +17,10 @@ public class RightsActivity extends SherlockActivity implements ViewSwitcher.Vie
 
 	TextSwitcher rights_content;
 	
+	enum STATE { NONE, GENERAL, CAR, STREET, HOME, JAIL };
+	
+	STATE state = STATE.NONE;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -49,23 +53,38 @@ public class RightsActivity extends SherlockActivity implements ViewSwitcher.Vie
 	}
 
 	public void generalClicked(View v) {
-		rights_content.setText(Html.fromHtml(getString(R.string.general_rights)));
+		if(state != STATE.GENERAL){
+			rights_content.setText(Html.fromHtml(getString(R.string.general_rights)));
+			state = STATE.GENERAL;
+		}
 	}
 
 	public void carClicked(View v) {
-		rights_content.setText(Html.fromHtml(getString(R.string.car_rights)));
+		if(state != STATE.CAR){
+			rights_content.setText(Html.fromHtml(getString(R.string.car_rights)));
+			state = STATE.CAR;
+		}
 	}
 
 	public void streetClicked(View v) {
-		rights_content.setText(Html.fromHtml(getString(R.string.street_rights)));
+		if(state != STATE.STREET){
+			rights_content.setText(Html.fromHtml(getString(R.string.street_rights)));
+			state = STATE.STREET;
+		}
 	}
 
 	public void homeClicked(View v) {
-		rights_content.setText(Html.fromHtml(getString(R.string.home_rights)));
+		if(state != STATE.HOME){
+			rights_content.setText(Html.fromHtml(getString(R.string.home_rights)));
+			state = STATE.HOME;
+		}
 	}
 
 	public void jailClicked(View v) {
-		rights_content.setText(Html.fromHtml(getString(R.string.jail_rights)));
+		if(state != STATE.JAIL){
+			rights_content.setText(Html.fromHtml(getString(R.string.jail_rights)));
+			state = STATE.JAIL;
+		}
 	}
 
 	@Override
