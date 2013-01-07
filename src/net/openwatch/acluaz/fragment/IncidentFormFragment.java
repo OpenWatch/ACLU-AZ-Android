@@ -7,6 +7,7 @@ import com.actionbarsherlock.view.MenuInflater;
 
 import net.openwatch.acluaz.R;
 import net.openwatch.acluaz.constants.Constants;
+import net.openwatch.acluaz.sharedpreferences.SharedPreferencesManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
@@ -101,7 +102,6 @@ public class IncidentFormFragment extends FormFragment {
 	@Override
 	public void onPause() {
 		Log.i("IncidentFrag", "onPause");
-		//writeJsonToPrefs(Constants.INCIDENT_PREFS, toJson((ViewGroup) this.getView().findViewById(R.id.incident_form_container), null));
 		super.onPause();
 	}
 	

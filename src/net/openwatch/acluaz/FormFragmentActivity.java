@@ -272,13 +272,14 @@ public class FormFragmentActivity extends SherlockFragmentActivity {
     @Override
     public void onPause(){
     	Log.i(TAG, "onPause");
-    	if(!did_submit){
-    		// save incident prefs
+    	Intent i = this.getIntent();
+    	// If we did not submit the form AND this is a new report (not saved in database)
+    	// save the incident form to prefs
+		if (!did_submit && !i.hasExtra(Constants.INTERNAL_DB_ID)) {
+			// save incident prefs
     		FormFragment incidentFrag = this.getIncidentFormFragment();
     		incidentFrag.writeJsonToPrefs(Constants.INCIDENT_PREFS, incidentFrag.toJson((ViewGroup) incidentFrag.getView().findViewById(R.id.incident_form_container), null));
-    	}else{ // if report was submitted, clear incident prefs
-    		SharedPreferencesManager.clearPrefs(getApplicationContext(), Constants.INCIDENT_PREFS);
-    	}
+		}
     	super.onPause();
     
     }
