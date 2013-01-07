@@ -2,78 +2,130 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:orientation="vertical"
+    android:weightSum="1.0"
     tools:context=".RightsActivity" >
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="20dp" >
+        android:layout_height="0dp"
+        android:layout_weight=".2"
+        android:background="@color/off_white"
+        android:orientation="horizontal"
+        android:weightSum="1.0" >
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="18dp"
-            android:gravity="center" >
+        <!-- General -->
+
+        <LinearLayout
+            style="@style/KnowYourRightsHeaderImage"
+            android:orientation="vertical"
+            android:onClick="generalClicked"
+            android:weightSum="1.0" >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight=".8"
+                android:src="@drawable/stickman" />
 
             <TextView
-                android:id="@+id/language_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
-                android:gravity="center_vertical"
-                android:text="@string/language"
-                android:textSize="20sp" />
+                style="@style/KnowYourRightsHeaderText"
+                android:text="@string/always" />
+        </LinearLayout>
 
-            <ToggleButton
-                android:id="@+id/language_toggle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/language_label"
-                android:checked="true"
-                android:textOff="@string/spanish"
-                android:textOn="@string/english"
-                android:textSize="20sp" />
-        </RelativeLayout>
+        <!-- Car -->
 
-        <Button
-            android:id="@+id/sb1070_kyr_btn"
+        <LinearLayout
+            style="@style/KnowYourRightsHeaderImage"
+            android:orientation="vertical"
+            android:onClick="carClicked"
+            android:weightSum="1.0" >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight=".8"
+                android:src="@drawable/driving" />
+
+            <TextView
+                style="@style/KnowYourRightsHeaderText"
+                android:text="@string/car" />
+        </LinearLayout>
+
+        <!-- Street -->
+
+        <LinearLayout
+            style="@style/KnowYourRightsHeaderImage"
+            android:orientation="vertical"
+            android:onClick="streetClicked"
+            android:weightSum="1.0" >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight=".8"
+                android:src="@drawable/street" />
+
+            <TextView
+                style="@style/KnowYourRightsHeaderText"
+                android:text="@string/street" />
+        </LinearLayout>
+
+        <!-- Home -->
+
+        <LinearLayout
+            style="@style/KnowYourRightsHeaderImage"
+            android:orientation="vertical"
+            android:onClick="homeClicked"
+            android:weightSum="1.0" >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight=".8"
+                android:src="@drawable/home" />
+
+            <TextView
+                style="@style/KnowYourRightsHeaderText"
+                android:text="@string/home" />
+        </LinearLayout>
+
+        <!-- Jail -->
+
+        <LinearLayout
+            style="@style/KnowYourRightsHeaderImage"
+            android:orientation="vertical"
+            android:onClick="jailClicked"
+            android:weightSum="1.0" >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight=".8"
+                android:src="@drawable/jail" />
+
+            <TextView
+                style="@style/KnowYourRightsHeaderText"
+                android:text="@string/jail" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/list_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".8" >
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/green_btn_bg"
-            android:minHeight="80dp"
-            android:onClick="onSb1070KyrClicked"
-            android:text="@string/sb1070_kyr"
-            android:textSize="20sp" />
+            android:layout_height="match_parent"
+            android:padding="5dp"
+            android:orientation="vertical" >
 
-        <Button
-            android:id="@+id/sb1070_infographic_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@id/sb1070_kyr_btn"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/green_btn_bg"
-            android:minHeight="80dp"
-            android:onClick="onSb1070InfoClicked"
-            android:text="@string/sb1070_infographic"
-            android:textSize="20sp" />
-
-        <Button
-            android:id="@+id/bust_card_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/sb1070_kyr_btn"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/green_btn_bg"
-            android:minHeight="80dp"
-            android:onClick="onBustCardClicked"
-            android:text="@string/bust_card"
-            android:textSize="20sp" />
-    </RelativeLayout>
+            <TextView 
+                android:id="@+id/rights_content"
+                style="@style/KnowYourRightsContentText" />
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

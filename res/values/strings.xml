@@ -24,7 +24,7 @@
     <string name="clear_personal_info_dialog_title">Clear Personal Info?</string>
     <string name="clear_personal_info_dialog_msg">This will delete all personal info saved for use on this form. You\'ll have to re-enter the personal info form the next time you file a report.</string>
     <string name="clear_personal_info_ok_btn">Clear Personal Info</string>
-    
+
     <!-- Form Incomplete Dialog -->
     <string name="form_incomplete_dialog_title">Form Incomplete</string>
     <string name="form_incomplete_dialog_msg">Please check the form for highligted fields. At a minimum we need your full name, the incident location, date, and description.</string>
@@ -65,9 +65,9 @@
     <!-- Form Errors -->
     <string name="required_field_error">This field is required</string>
 
-    <!--  Form Disclaimer -->
+    <!-- Form Disclaimer -->
     <string name="form_disclaimer">We respect your privacy and will only use the contact information you provide to contact you regarding the complaint you submit today. Other than that, we will never send unsolicited email, or share personal information you submit. For further information, see our privacy statement.</string>
-    
+
     <!-- Incident ListView -->
     <string name="loading_incidents">Loading Incidents</string>
     <string name="no_incidents">No Incidents Saved</string>
@@ -79,12 +79,44 @@
     <string name="language">Language</string>
     <string name="english">English</string>
     <string name="spanish">Spanish</string>
-    <string name="sb1070_infographic">SB 1070 Quick Reference</string>
-    <string name="sb1070_kyr">SB 1070 Overview</string>
-    <string name="bust_card">Police Contact Quick Reference</string>
+    <string name="always">Always</string>
+    <string name="car">Car</string>
+    <string name="home">Home</string>
+    <string name="street">Street</string>
+    <string name="jail">Jail</string>
     <string name="title_activity_pdfview">PDFViewActivity</string>
     <string name="title_activity_about">AboutActivity</string>
-
+    <string name="general_rights">SB1070 \n\n Section 2(B) \n \n What is it? \n\n
+			Section 2(B)requires the police to ask someone they have already stopped about their immigration status if they think the person may be undocumented. However, even under SB 1070, it is illegal for the police to stop someone, or to detain them for a long time, if it\'s only to investigate their immigration status.\n\n 
+    		Never provide fake documents or state that you are a U.S citizen if you are not. \n\n
+			If you are detained or arrested, you always have the right to remain silent and the right to speak to an attorney.\n\n
+			You do not have to give information about where you were born, how you entered the U.S or how long you have been here.\n\n
+			Create an action plan in case you are arrested that includes the phone number of an attorney. Have that number with you at all times.\n\n
+    </string>
+    <string name="car_rights">
+        As a Driver: \n\n
+        If you do not have a license, you may be asked to provide your name and date of birth or some other form of identification.\n\n
+		The police can give you a citation and release you if you fail to provide a license but it discretionary, which means they can still arrest you. \n\n
+		It is best not to show documents from another country. If you have a valid license or immigration document, show it. \n\n
+		
+		As a Passenger: \n\n
+		It is not a crime for a passenger to be without identification. \n\n
+		The police can ask you for identification or other questions unrelated to the stop but they cannot stop you for a long time to do so OR require you to comply unless they suspect you have committed a crime.
+	</string>
+	<string name="street_rights">Police can ask for identification if they encounter you on the street but they can\'t require it unless they suspect you have committed a crime. \n\n
+		If you are not arrested, you can ask whether you are free to leave, and if not, you should ask to speak to an attorney and remain silent.   
+	</string>
+	<string name="home_rights">Police must have a warrant to enter your home. \n\n
+		The warrant should have a description of the person or items they are searching for. \n\n
+		If you don\'t want the police to enter, you do not have to open your door until they show you a warrant, which they can do by slipping it under the door. \n\n
+		If you open the door and allow the police to come into the house, this could be considered giving permission to enter. Even if the police enter your home, everyone inside still has the right to remain silent. \n\n
+	</string>
+	<string name="jail_rights">If you are arrested and taken to jail you may be asked questions about where you were born, how you entered the U.S. or how long you\'ve been here. You do not have to answer these questions. This information can be used to detain and deport you.
+	</string>
+	<string name="driver_passenger_common_rights">Once a citation is given and the driver\'s license has been returned, the officer may not continue to detain the driver or question a passenger unless they suspect some other crime.</string>
+	<string name="passenger_street_common_rights">Arizona law only requires that you give the police your "true full name", not date of birth, address, social security number or other information.</string>
+	
+	
     <!-- About Activity -->
     <string name="powered_by">Powered By</string>
     <string name="about_text">SB 1070 requires the police to ask someone they have already stopped about their immigration status, if they think the person may be undocumented. However, even under SB 1070, it is illegal for the police to stop someone because of their race, ethnicity or the language they speak or to detain someone for a long time if it is only to investigate their immigration status.\n\nIt\'s important to remember that everyone has basic rights — including the right not to be profiled or discriminated against by the police — whether you have papers or not.\n\nWe can fight SB 1070 by collecting examples of people who were stopped and detained by law enforcement because of their race and cases where the detention was extended in order to check immigration status. If you\'ve experienced either, please tell us your story.</string>

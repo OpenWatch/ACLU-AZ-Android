@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- File created by the Android Action Bar Style Generator
+<!--
+     File created by the Android Action Bar Style Generator
 
      Copyright (C) 2012 readyState Software Ltd
 
@@ -25,7 +26,6 @@
         <item name="actionBarTabStyle">@style/acluaz_ActionBarTabStyle</item>
         <item name="actionDropDownStyle">@style/acluaz_DropDownNav</item>
         <item name="actionBarStyle">@style/acluaz_solid_ActionBar</item>
-
         <item name="android:actionBarItemBackground">@drawable/selectable_background_acluaz</item>
         <item name="android:popupMenuStyle">@style/acluaz_PopupMenu</item>
         <item name="android:dropDownListViewStyle">@style/acluaz_DropDownListView</item>
@@ -33,11 +33,10 @@
         <item name="android:actionDropDownStyle">@style/acluaz_DropDownNav</item>
         <item name="android:actionBarStyle">@style/acluaz_solid_ActionBar</item>
         <item name="android:panelBackground">@drawable/menu_hardkey_panel_acluaz</item>
-        
-                <!-- Light.DarkActionBar specific -->
+
+        <!-- Light.DarkActionBar specific -->
         <item name="actionBarWidgetTheme">@style/Theme.acluaz.widget</item>
         <item name="android:actionBarWidgetTheme">@style/Theme.acluaz.widget</item>
-
     </style>
 
     <style name="acluaz_solid_ActionBar" parent="@style/Widget.Sherlock.Light.ActionBar.Solid.Inverse">
@@ -45,10 +44,9 @@
         <item name="backgroundStacked">@drawable/ab_stacked_solid_acluaz</item>
         <item name="backgroundSplit">@drawable/ab_bottom_solid_acluaz</item>
         <item name="progressBarStyle">@style/acluaz_ProgressBar</item>
-		<item name="titleTextStyle">@style/Theme.acluaz.NoTitleText</item>
+        <item name="titleTextStyle">@style/Theme.acluaz.NoTitleText</item>
         <item name="android:subtitleTextStyle">@style/Theme.acluaz.NoTitleText</item>
-		
-		<item name="android:titleTextStyle">@style/Theme.acluaz.NoTitleText</item>
+        <item name="android:titleTextStyle">@style/Theme.acluaz.NoTitleText</item>
         <item name="android:subtitleTextStyle">@style/Theme.acluaz.NoTitleText</item>
         <item name="android:background">@drawable/ab_solid_acluaz</item>
         <item name="android:backgroundStacked">@drawable/ab_stacked_solid_acluaz</item>
@@ -59,15 +57,14 @@
     <style name="acluaz_transparent_ActionBar" parent="@style/Widget.Sherlock.ActionBar">
         <item name="background">@drawable/ab_transparent_acluaz</item>
         <item name="progressBarStyle">@style/acluaz_ProgressBar</item>
-        
         <item name="android:background">@drawable/ab_transparent_acluaz</item>
         <item name="android:progressBarStyle">@style/acluaz_ProgressBar</item>
     </style>
-	
-    <style name="acluaz_PopupMenu" parent="@style/Widget.Sherlock.ListPopupWindow">	
-        <item name="android:popupBackground">@drawable/menu_dropdown_panel_acluaz</item>	
+
+    <style name="acluaz_PopupMenu" parent="@style/Widget.Sherlock.ListPopupWindow">
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_acluaz</item>
     </style>
-	
+
     <style name="acluaz_DropDownListView" parent="@style/Widget.Sherlock.ListView.DropDown">
         <item name="android:listSelector">@drawable/selectable_background_acluaz</item>
     </style>
@@ -76,37 +73,35 @@
         <item name="background">@drawable/tab_indicator_ab_acluaz</item>
         <item name="android:background">@drawable/tab_indicator_ab_acluaz</item>
     </style>
-	
+
     <style name="acluaz_DropDownNav" parent="@style/Widget.Sherlock.Spinner.DropDown.ActionBar">
         <item name="background">@drawable/spinner_background_ab_acluaz</item>
-
         <item name="android:background">@drawable/spinner_background_ab_acluaz</item>
         <item name="android:popupBackground">@drawable/menu_dropdown_panel_acluaz</item>
         <item name="android:dropDownSelector">@drawable/selectable_background_acluaz</item>
     </style>
-    
+
     <style name="acluaz_ProgressBar" parent="@style/Widget.Sherlock.ProgressBar.Horizontal">
         <item name="android:progressDrawable">@drawable/progress_horizontal_acluaz</item>
     </style>
-    
+
     <!-- this style is only referenced in a Light.DarkActionBar based theme -->
     <style name="Theme.acluaz.widget" parent="@style/Theme.Sherlock">
         <item name="popupMenuStyle">@style/acluaz_PopupMenu</item>
         <item name="dropDownListViewStyle">@style/acluaz_DropDownListView</item>
-        
         <item name="android:popupMenuStyle">@style/acluaz_PopupMenu</item>
         <item name="android:dropDownListViewStyle">@style/acluaz_DropDownListView</item>
     </style>
-    
+
     <style name="Theme.acluaz.NoTitleText">
         <item name="android:textSize">0sp</item>
         <item name="android:textColor">#00000000</item>
     </style>
-    
+
     <style name="Theme.acluaz.TabText" parent="@style/Widget.Sherlock.ActionBar.TabText">
         <item name="android:maxWidth">180dip</item>
     </style>
-    
+
     <style name="WizardPageContainer">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
@@ -120,7 +115,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginBottom">8dp</item>
-        <!-- <item name="android:paddingLeft">?android:attr/listPreferredItemPaddingLeft</item>  -->
+        <!-- <item name="android:paddingLeft">?android:attr/listPreferredItemPaddingLeft</item> -->
         <item name="android:textSize">36sp</item>
         <item name="android:textColor">#ff0099cc</item>
         <item name="android:fontFamily">sans-serif-thin</item>
@@ -138,7 +133,7 @@
         <item name="android:paddingLeft">12dp</item>
         <item name="android:paddingRight">12dp</item>
     </style>
-    
+
     <style name="MainButtonTextStyle">
         <item name="android:shadowColor">#383838</item>
         <item name="android:textColor">#ffffff</item>
@@ -146,6 +141,31 @@
         <item name="android:shadowRadius">2</item>
         <item name="android:shadowDx">0</item>
         <item name="android:shadowDy">-2</item>
+    </style>
+
+    <style name="KnowYourRightsHeaderImage">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">.2</item>
+        <item name="android:padding">2dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+    </style>
+    
+    <style name="KnowYourRightsHeaderText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">.2</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+    
+    <style name="KnowYourRightsContentText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:textSize">16sp</item>
     </style>
     
 
