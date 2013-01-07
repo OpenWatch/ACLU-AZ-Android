@@ -17,6 +17,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 import android.support.v4.app.NavUtils;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -55,19 +56,19 @@ public class RightsActivity extends SherlockActivity {
 	}
 
 	public void generalClicked(View v) {
-		rights_content.setText(R.string.general_rights);
+		rights_content.setText(Html.fromHtml(getString(R.string.general_rights)));
 	}
 
 	public void carClicked(View v) {
-		rights_content.setText(R.string.car_rights);
+		rights_content.setText(Html.fromHtml(getString(R.string.car_rights)));
 	}
 
 	public void streetClicked(View v) {
-		rights_content.setText(R.string.street_rights);
+		rights_content.setText(Html.fromHtml(getString(R.string.street_rights)));
 	}
 
 	public void homeClicked(View v) {
-		rights_content.setText(R.string.home_rights);
+		rights_content.setText(Html.fromHtml(getString(R.string.home_rights)));
 	}
 
 	public void jailClicked(View v) {

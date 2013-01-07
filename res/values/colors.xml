@@ -27,6 +27,7 @@
 
     <color name="text_light">#66000000</color>
     <color name="off_white">#e5e5e6</color>
+    <color name="off_white_pressed">#c0c0c1</color>
     <color name="altercolor1">#293446</color>
     
     <drawable name="transparent">#00ffffff</drawable>

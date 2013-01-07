@@ -17,7 +17,7 @@
      limitations under the License.
 -->
 
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <style name="Theme.acluaz" parent="@style/Theme.Sherlock.Light.DarkActionBar">
         <item name="actionBarItemBackground">@drawable/selectable_background_acluaz</item>
@@ -146,6 +146,7 @@
     <style name="KnowYourRightsHeaderImage">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@drawable/rights_btn</item>
         <item name="android:layout_weight">.2</item>
         <item name="android:padding">2dp</item>
         <item name="android:layout_marginLeft">5dp</item>
@@ -164,8 +165,9 @@
     <style name="KnowYourRightsContentText">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
+        <item name="android:textColor">#fff</item>
         <item name="android:layout_marginBottom">5dp</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">18sp</item>
     </style>
     
 

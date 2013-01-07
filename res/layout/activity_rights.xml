@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     android:orientation="vertical"
     android:weightSum="1.0"
     tools:context=".RightsActivity" >
@@ -18,8 +19,8 @@
 
         <LinearLayout
             style="@style/KnowYourRightsHeaderImage"
-            android:orientation="vertical"
             android:onClick="generalClicked"
+            android:orientation="vertical"
             android:weightSum="1.0" >
 
             <ImageView
@@ -37,8 +38,8 @@
 
         <LinearLayout
             style="@style/KnowYourRightsHeaderImage"
-            android:orientation="vertical"
             android:onClick="carClicked"
+            android:orientation="vertical"
             android:weightSum="1.0" >
 
             <ImageView
@@ -56,8 +57,8 @@
 
         <LinearLayout
             style="@style/KnowYourRightsHeaderImage"
-            android:orientation="vertical"
             android:onClick="streetClicked"
+            android:orientation="vertical"
             android:weightSum="1.0" >
 
             <ImageView
@@ -75,8 +76,8 @@
 
         <LinearLayout
             style="@style/KnowYourRightsHeaderImage"
-            android:orientation="vertical"
             android:onClick="homeClicked"
+            android:orientation="vertical"
             android:weightSum="1.0" >
 
             <ImageView
@@ -94,8 +95,8 @@
 
         <LinearLayout
             style="@style/KnowYourRightsHeaderImage"
-            android:orientation="vertical"
             android:onClick="jailClicked"
+            android:orientation="vertical"
             android:weightSum="1.0" >
 
             <ImageView
@@ -119,10 +120,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="5dp"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:padding="5dp" >
 
-            <TextView 
+            <TextView
                 android:id="@+id/rights_content"
                 style="@style/KnowYourRightsContentText" />
         </LinearLayout>
