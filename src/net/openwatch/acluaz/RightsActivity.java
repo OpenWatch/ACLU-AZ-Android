@@ -1,33 +1,21 @@
 package net.openwatch.acluaz;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.HashMap;
-
-import net.openwatch.acluaz.constants.Constants;
-
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 
 import android.os.Bundle;
-import android.app.Activity;
-import android.content.Intent;
-import android.content.res.AssetFileDescriptor;
 import android.support.v4.app.NavUtils;
 import android.text.Html;
-import android.util.Log;
 import android.view.View;
-import android.widget.CompoundButton;
-import android.widget.CompoundButton.OnCheckedChangeListener;
-import android.widget.TextView;
+import android.view.animation.AnimationUtils;
+import android.widget.TextSwitcher;
+import android.widget.ViewSwitcher;
 
-public class RightsActivity extends SherlockActivity {
+public class RightsActivity extends SherlockActivity implements ViewSwitcher.ViewFactory {
 	private static final String TAG = "RightsActivity";
 
-	TextView rights_content;
+	TextSwitcher rights_content;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +23,12 @@ public class RightsActivity extends SherlockActivity {
 		setContentView(R.layout.activity_rights);
 		// Show the Up button in the action bar.
 		this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-		rights_content = (TextView) findViewById(R.id.rights_content);
+		rights_content = (TextSwitcher) findViewById(R.id.rights_content);
+		rights_content.setFactory(this);
+		rights_content.setInAnimation(AnimationUtils.loadAnimation(this,
+                android.R.anim.slide_in_left));
+		rights_content.setOutAnimation(AnimationUtils.loadAnimation(this,
+                android.R.anim.slide_out_right));
 	}
 
 	@Override
@@ -72,7 +65,12 @@ public class RightsActivity extends SherlockActivity {
 	}
 
 	public void jailClicked(View v) {
-		rights_content.setText(R.string.jail_rights);
+		rights_content.setText(Html.fromHtml(getString(R.string.jail_rights)));
+	}
+
+	@Override
+	public View makeView() {
+		return View.inflate(this, R.layout.rights_content_textview, null);
 	}
 
 }

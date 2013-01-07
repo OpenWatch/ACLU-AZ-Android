@@ -8,7 +8,7 @@ import java.util.UUID;
 public class Constants {
 	public static final String OW_URL = "http://www.openwatch.net";
 	
-	// Api endpoints and json respnose keys
+	// Api endpoints and json response keys
 	public static final String REPORT_SUBMIT_URL = "https://az.openwatch.net/submit/";
 	public static final String API_SUCCESS = "success";
 	public static final String API_REPORT_ID = "report_id";
@@ -57,6 +57,6 @@ public class Constants {
 	
 	static{
 		datetime_formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
-		user_datetime_formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
+		user_datetime_formatter.setTimeZone(TimeZone.getDefault());
 	}
 }

@@ -123,6 +123,7 @@ public class FormFragment extends SherlockFragment {
 			//String datetime = date + " " + time;
 			//Date date_obj = Constants.user_datetime_formatter.parse(datetime);
 			//String output_date = Constants.datetime_formatter.format(date_obj);
+			// Convert local timezone date & time strings to UTC datetime string
 			return Constants.datetime_formatter.format(Constants.user_datetime_formatter.parse(date + " " + time));
 		} catch (ParseException e) {
 			Log.e(TAG, "Error formatting user facing date");

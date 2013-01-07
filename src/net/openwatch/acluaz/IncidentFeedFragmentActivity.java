@@ -92,7 +92,7 @@ public class IncidentFeedFragmentActivity extends SherlockFragmentActivity {
             // Give some text to display if there is no data.  In a real
             // application this would come from a resource.
             //setEmptyText(getString(R.string.loading_incidents));
-
+            
             // We have a menu item to show in action bar.
             setHasOptionsMenu(true);
 
@@ -106,6 +106,16 @@ public class IncidentFeedFragmentActivity extends SherlockFragmentActivity {
             // Prepare the loader.  Either re-connect with an existing one,
             // or start a new one.
             getLoaderManager().initLoader(0, null, this);
+        }
+        
+        private void setEmptyText(boolean doShow){
+        	if(doShow){
+        		this.getView().findViewById(android.R.id.list).setVisibility(View.GONE);
+        		this.getView().findViewById(android.R.id.empty).setVisibility(View.VISIBLE);
+        	}else{
+        		this.getView().findViewById(android.R.id.list).setVisibility(View.VISIBLE);
+        		this.getView().findViewById(android.R.id.empty).setVisibility(View.GONE);
+        	}
         }
 
         @Override 
@@ -137,7 +147,10 @@ public class IncidentFeedFragmentActivity extends SherlockFragmentActivity {
             }
             
            if(cursor != null && cursor.getCount() == 0){
+        	   setEmptyText(true);
         		//setEmptyText(getString(R.string.no_incidents));
+           }else if(cursor != null && cursor.getCount() > 0){
+        	   setEmptyText(false);
            }
 			
 		}

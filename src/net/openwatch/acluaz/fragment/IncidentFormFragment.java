@@ -72,6 +72,8 @@ public class IncidentFormFragment extends FormFragment {
 	private void setDateAndTimeFields(){
 		Date now = new Date();
 		((EditText)this.getView().findViewById(R.id.date_input)).setText(Constants.date_formatter.format(now));
+		//TESTING
+		Log.i(TAG, "pre-populated current date: " + ((EditText)this.getView().findViewById(R.id.date_input)).getText().toString());
 		((EditText)this.getView().findViewById(R.id.time_input)).setText(Constants.time_formatter.format(now));
 	}
 

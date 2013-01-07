@@ -67,7 +67,7 @@ public class OWServiceRequests {
 	public static void postReport(Context app_context, JSONObject json, JsonHttpResponseHandler response_handler){
     	AsyncHttpClient http_client = HttpClient.setupHttpClient(app_context);
     	http_client.post(app_context, Constants.REPORT_SUBMIT_URL, jsonToSE(json), "application/json", response_handler);
-    	
+    	Log.i(TAG, "Posted report to server: " + json.toString());
     }
 	
 	public static StringEntity jsonToSE(JSONObject json){

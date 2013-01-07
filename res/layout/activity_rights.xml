@@ -123,9 +123,10 @@
             android:orientation="vertical"
             android:padding="5dp" >
 
-            <TextView
+            <TextSwitcher
                 android:id="@+id/rights_content"
-                style="@style/KnowYourRightsContentText" />
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
         </LinearLayout>
     </ScrollView>
 
