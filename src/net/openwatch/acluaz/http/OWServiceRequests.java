@@ -56,6 +56,11 @@ public class OWServiceRequests {
 				Log.e(TAG, "postReport failure " + response.toString());
 				e.printStackTrace();
 			}
+			
+			@Override
+			public void onFinish() {
+				Log.i(TAG, "onFinish");
+			}
 		};
 		
 		postReport(app_context, json, response_handler);
