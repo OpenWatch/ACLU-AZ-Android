@@ -4,12 +4,17 @@
     <string name="hello_world">"Hola mundo!"</string>
     <string name="menu_settings">"Ajustes"</string>
     
+    <!--  Toasts -->
+    <string name="toast_report_success">"Informe enviado con éxito"</string>
+
     <!-- Generic Dialog -->
+    <string name="dialog_submit">"Enviar"</string>
     <string name="dialog_ok">"¡OK!"</string>
+    <string name="dialog_cancel">"Cancelar"</string>
 
     <!-- MainActivity -->
     <string name="report_btn">"Informe"</string>
-    <string name="rights_btn">"Conozca sus derechos"</string>
+    <string name="rights_btn">"Conozca Sus Derechos"</string>
     <string name="title_activity_form">"FormActivity"</string>
     <!-- ActionBar Menu -->
     <string name="menu_view_reports">"Informes"</string>
@@ -21,7 +26,7 @@
     <string name="clear_personal_info_dialog_title">"Información Personal Clear?"</string>
     <string name="clear_personal_info_dialog_msg">"Esto borrará toda la información personal guardada para su uso en este formulario. Vas a tener que volver a entrar en el formulario de información personal la próxima vez que se presente un informe."</string>
     <string name="clear_personal_info_ok_btn">"Información Personal Clear"</string>
-    <string name="clear_personal_info_cancel_btn">"Cancelar"</string>
+
     <!-- Form Incomplete Dialog -->
     <string name="form_incomplete_dialog_title">"De forma incompleta,"</string>
     <string name="form_incomplete_dialog_msg">"Por favor, revise el formulario para campos highligted. Como mínimo, necesitamos su nombre completo, el lugar del incidente, la fecha y la descripción."</string>
@@ -29,6 +34,7 @@
     <string name="menu_clear_personal">"Información Personal Clear"</string>
     <string name="menu_submit_form">"Enviar"</string>
     <string name="menu_amend_form">"Enmienda"</string>
+    <string name="menu_about">"Información"</string>
 
     <!-- Personal Form Fragment -->
     <string name="first_name_label">"Primer Nombre"</string>
@@ -46,7 +52,7 @@
     <string name="agency_label">"Agencia"</string>
     <string name="agency_hint">"¿Qué agencia policial se entra en contacto con? Ex. La policía, sheriff, departamento de la seguridad pública, el ICE, la patrulla fronteriza."</string>
     <string name="location_label">"Ubicación"</string>
-    <string name="date_label">"Fecha y hora"</string>
+    <string name="date_label">"Fecha y Hora"</string>
     <string name="date_hint">"Fecha"</string>
     <string name="time_hint">"Tiempo"</string>
     <string name="narrative_label">"¿Qué ha pasado?"</string>
@@ -56,10 +62,13 @@
     <string name="gps_on_label">"Ubicación actual se enviará"</string>
     <string name="gps_off_label">"Ubicación actual no se enviará"</string>
     <!-- Location Switch for API 14+ -->
-    <string name="on">"encendido"</string>
+    <string name="on">"Activado"</string>
     <string name="off">"Apagado"</string>
     <!-- Form Errors -->
     <string name="required_field_error">"Este campo es obligatorio"</string>
+
+    <!-- Form Disclaimer -->
+    <string name="form_disclaimer">"Respetamos su privacidad y sólo utilizará la información de contacto que usted proporciona a usted con respecto a la queja que presentar hoy. Aparte de eso, nunca vamos a enviar correo electrónico no solicitado, o comparte información personal que usted envíe. Para obtener más información, consulte nuestra política de privacidad."</string>
 
     <!-- Incident ListView -->
     <string name="loading_incidents">"Incidentes Loading"</string>
@@ -72,9 +81,49 @@
     <string name="language">"Idioma"</string>
     <string name="english">"Inglés"</string>
     <string name="spanish">"Español"</string>
-    <string name="sb1070_infographic">"SB 1070 Referencia Rápida"</string>
-    <string name="sb1070_kyr">"SB 1070 Resumen"</string>
-    <string name="bust_card">"Policía de Contacto Referencia Rápida"</string>
+    <string name="always">"General"</string>
+    <string name="car">"Coche"</string>
+    <string name="home">"Casa"</string>
+    <string name="street">"Calle"</string>
+    <string name="jail">"Cárcel"</string>
     <string name="title_activity_pdfview">"PDFViewActivity"</string>
+    <string name="title_activity_about">"AboutActivity"</string>
+    <string name="general_rights">"
+       	 &lt;h1&gt; SB1070 Sección 2 (B): ¿Qué es &lt;/ h1&gt; La Sección 2(B) requiere que la policía le pregunte a alguien que ya ha detenido acerca de su estatus migratorio, si piensan que la persona pudiera estar indocumentada. Sin embargo, aún bajo la ley SB 1070, es ilegal que la policía pare a alguien, o lo detenga por mucho tiempo, si es solamente para investigar su estatus de inmigración.  &lt;br/&gt; &lt;br/&gt; 
+       	 Nunca debe presentar documentos falsos o decir al oficial que usted es ciudadano estadounidense si no es verdad. &lt;br/&gt; 
+       	 Si usted es detenido o arrestado, siempre tiene el derecho de permanecer callado y pedir hablar con un abogado. &lt;br/&gt; 
+       	 No tiene que decir nada acerca de su situación migratoria, de qué país es usted, cuando o como entro a los ee.uu. &lt;br/&gt; 
+       	 Prepare un plan de emergencia que incluye el número de teléfono de un abogado. Siempre lleve consigo ese número de teléfono. &lt;br/&gt; 
+       	 Para información adicional llame a la ACLU al 1-855-225-8291 (1-855-ACLUAZ-1) o 602-650-1854 en el Condado de Maricopa.
+    "</string>
+    <string name="car_rights">"
+        &lt;h1&gt; Cualquier Lugar del Vehículo &lt;/ h1&gt; 
+        Una vez que la policía expide una infracción de tránsito y la licencia ha sido devuelta, el oficial no puede continuar deteniendo al conductor o cuestionar a un pasajero a menos que la policía sospeche algun otro crimen 
+        &lt;h1&gt; Manejando un Vehículo &lt;/ h1&gt; 
+        Si usted no tiene licencia la policía le puede preguntar su nombre, fecha de nacimiento o por otro tipo de identificacion. &lt;br/&gt;&lt;br/&gt;
+        Los oficiales pueden darle una infracción de tránsito y dejarlo ir si usted no presenta una licencia de manejar, pero eso depende del criterio de la policía, lo cual quiere decir que ellos aún tienen la autoridad de arrestarlo. &lt;br/&gt;&lt;br/&gt;
+        Es mejor no mostrar identificación de otro país. Si tiene una licencia de conducir o documentos migratorios válidos, muéstrelos.
+        &lt;h1&gt; Pasajero en un Vehículo  &lt;/ h1&gt; 
+        No es un crimen que un pasajero no traiga identificación.&lt;br/&gt;&lt;br/&gt;
+        La policía puede pedirle a los pasajeros ver su identificación o hacerles preguntas relacionadas a la detención, sin embargo la policía no puede detenerlo por mucho tiempo o requerirle al pasajero que cumpla, a menos que el oficial sospeche un crimen. &lt;br/&gt; &lt;br /&gt; 
+        La ley de Arizona requiere solamente que le de a la polícia su \"nombre completo verdadero\" — no su fecha de nacimiento, domicilio, numero de seguro social ni otra información.
+	"</string>
+	<string name="street_rights">"En general la policía puede pedirle una identificación si ellos lo paran en la calle. Sin embargo, ellos no pueden exigir que usted presente una identificación a menos que ellos sospechen un crimen.  &lt;br/&gt;&lt;br/&gt; 
+	    Si no esta arrestado, debe preguntar si está en libertad de irse. Si usted no está en libertad de irse, debe pedir hablar con un abogado y permanecer callado.  &lt;br/&gt;&lt;br/&gt; 
+	    La ley de Arizona requiere solamente que le de a la polícia su \"nombre completo verdadero\" — no su fecha de nacimiento, domicilio, numero de seguro social ni otra información.
+	"</string>
+	<string name="home_rights">"Si la policía quiere entrar a su casa, deben tener una orden judicial &lt;br/&gt;&lt;br/&gt; 
+	    La orden debe especificar la descripción de la persona o los artículos que están buscando.&lt;br/&gt;&lt;br/&gt; 
+	    Si usted no quiere que la policía entre, no tiene que abrir la puerta hasta que la policía le muestre la orden judicial. Le puede pedir al oficial que pase la orden por debajo de la puerta. &lt;br/&gt;&lt;br/&gt;
+	    Si abre la puerta y le da permiso al policía entrar a su casa, se puede considerar que le ha dado su "consentimiento" para entrar Si la policía entra a su casa, todos dentro de la casa tienen el derecho de permanecer callados. 
+	"</string>
+	<string name="jail_rights">"Incluso en la carcel, usted tiene el derecho de permanecer callado y pedir hablar con un abogo. &lt;br/&gt;&lt;br/&gt; 
+	    Si usted es arrestado y llevado a la cárcel es posible que le harán preguntas acerca de su situación migratoria, de qué país es usted, cuando o como entro a los EE.UU. No tiene que contestar estas preguntas. El gobierno puede usar esta información para detenerlo o en un proceso de deportación. 
+	"</string>
+	
+	
+    <!-- About Activity -->
+    <string name="powered_by">"Desarrollado por"</string>
+    <string name="about_text">"SB 1070 exige a la policía preguntar a alguien que ya han dejado sobre su estatus migratorio, si piensan que la persona puede estar indocumentado. Sin embargo, aun bajo la ley SB 1070, es ilegal que la policía a detener a alguien por su raza, origen étnico o el idioma que hablan o detener a alguien durante mucho tiempo si es sólo para investigar su estatus migratorio. \ N \ nEs importante recordar que toda persona tiene los derechos fundamentales - entre ellos el derecho a no ser objeto de discriminación o perfilada por la policía -. si tiene papeles o no \ n \ nSe puede luchar contra la SB 1070 mediante la recopilación de ejemplos de personas que fueron detenidas y detenidos por la policía a causa de su raza y los casos en que se extendió la detención a fin de verificar el estado de inmigración. Si usted ha experimentado cualquiera de los dos, por favor díganos su historia."</string>
 
 </resources>

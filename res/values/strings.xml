@@ -100,7 +100,7 @@
     	For additional info call the ACLU at 1-855-225-8291 (1-855-ACLUAZ-1) or 602-650-1854 in Maricopa County.
     </string>
     <string name="car_rights">
-        &lt;h1>Anywhere in the car &lt;/h1>
+        &lt;h1>Anywhere in the Car &lt;/h1>
         Once a citation is given and the driver\'s license has been returned, the officer may not continue to detain the driver or question a passenger unless they suspect some other crime.
         
         &lt;h1>As a Driver &lt;/h1>
@@ -109,7 +109,7 @@
 		It is best not to show documents from another country. If you have a valid license or immigration document, show it.
 		
 		 &lt;h1>As a Passenger &lt;/h1>
-		It is not a crime for a passenger to be without identification. \n\n
+		It is not a crime for a passenger to be without identification.&lt;br/>&lt;br/>
 		The police can ask you for identification or other questions unrelated to the stop but they cannot stop you for a long time to do so OR require you to comply unless they suspect you have committed a crime.&lt;br/>&lt;br/>
 		Arizona law only requires that you give the police your "true full name", not date of birth, address, social security number or other information.
 	</string>

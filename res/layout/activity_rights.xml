@@ -18,15 +18,13 @@
         <!-- General -->
 
         <LinearLayout
-            style="@style/KnowYourRightsHeaderImage"
+            style="@style/KnowYourRightsHeaderLayout"
             android:onClick="generalClicked"
             android:orientation="vertical"
             android:weightSum="1.0" >
 
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight=".8"
+                style="@style/KnowYourRightsHeaderImage"
                 android:src="@drawable/stickman" />
 
             <net.openwatch.acluaz.view.AutoResizeTextView
@@ -37,15 +35,13 @@
         <!-- Car -->
 
         <LinearLayout
-            style="@style/KnowYourRightsHeaderImage"
+            style="@style/KnowYourRightsHeaderLayout"
             android:onClick="carClicked"
             android:orientation="vertical"
             android:weightSum="1.0" >
 
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight=".8"
+                style="@style/KnowYourRightsHeaderImage"
                 android:src="@drawable/driving" />
 
             <net.openwatch.acluaz.view.AutoResizeTextView
@@ -56,15 +52,13 @@
         <!-- Street -->
 
         <LinearLayout
-            style="@style/KnowYourRightsHeaderImage"
+            style="@style/KnowYourRightsHeaderLayout"
             android:onClick="streetClicked"
             android:orientation="vertical"
             android:weightSum="1.0" >
 
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight=".8"
+                style="@style/KnowYourRightsHeaderImage"
                 android:src="@drawable/street" />
 
             <net.openwatch.acluaz.view.AutoResizeTextView
@@ -75,15 +69,13 @@
         <!-- Home -->
 
         <LinearLayout
-            style="@style/KnowYourRightsHeaderImage"
+            style="@style/KnowYourRightsHeaderLayout"
             android:onClick="homeClicked"
             android:orientation="vertical"
             android:weightSum="1.0" >
 
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight=".8"
+                style="@style/KnowYourRightsHeaderImage"
                 android:src="@drawable/home" />
 
             <net.openwatch.acluaz.view.AutoResizeTextView
@@ -94,15 +86,13 @@
         <!-- Jail -->
 
         <LinearLayout
-            style="@style/KnowYourRightsHeaderImage"
+            style="@style/KnowYourRightsHeaderLayout"
             android:onClick="jailClicked"
             android:orientation="vertical"
             android:weightSum="1.0" >
 
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight=".8"
+                style="@style/KnowYourRightsHeaderImage"
                 android:src="@drawable/jail" />
 
             <net.openwatch.acluaz.view.AutoResizeTextView
@@ -112,7 +102,7 @@
     </LinearLayout>
 
     <ScrollView
-        android:id="@+id/list_container"
+        android:id="@+id/rights_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight=".8" >
