@@ -29,7 +29,7 @@
                 android:layout_weight=".8"
                 android:src="@drawable/stickman" />
 
-            <TextView
+            <net.openwatch.acluaz.view.AutoResizeTextView
                 style="@style/KnowYourRightsHeaderText"
                 android:text="@string/always" />
         </LinearLayout>
@@ -48,7 +48,7 @@
                 android:layout_weight=".8"
                 android:src="@drawable/driving" />
 
-            <TextView
+            <net.openwatch.acluaz.view.AutoResizeTextView
                 style="@style/KnowYourRightsHeaderText"
                 android:text="@string/car" />
         </LinearLayout>
@@ -67,7 +67,7 @@
                 android:layout_weight=".8"
                 android:src="@drawable/street" />
 
-            <TextView
+            <net.openwatch.acluaz.view.AutoResizeTextView
                 style="@style/KnowYourRightsHeaderText"
                 android:text="@string/street" />
         </LinearLayout>
@@ -86,7 +86,7 @@
                 android:layout_weight=".8"
                 android:src="@drawable/home" />
 
-            <TextView
+            <net.openwatch.acluaz.view.AutoResizeTextView
                 style="@style/KnowYourRightsHeaderText"
                 android:text="@string/home" />
         </LinearLayout>
@@ -105,7 +105,7 @@
                 android:layout_weight=".8"
                 android:src="@drawable/jail" />
 
-            <TextView
+            <net.openwatch.acluaz.view.AutoResizeTextView
                 style="@style/KnowYourRightsHeaderText"
                 android:text="@string/jail" />
         </LinearLayout>
