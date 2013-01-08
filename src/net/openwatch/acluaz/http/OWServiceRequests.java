@@ -86,7 +86,7 @@ public class OWServiceRequests {
             try{
                 HttpPost post = new HttpPost(Constants.REPORT_SUBMIT_URL);
                 Log.i(TAG, "POSTing JSON: " + report.toString());
-                StringEntity se = new StringEntity( report.toString());  
+                StringEntity se = new StringEntity( report.toString(), HTTP.UTF_8);  
                 se.setContentType(new BasicHeader(HTTP.CONTENT_TYPE, "application/json"));
                 post.setEntity(se);
                 response = client.execute(post);
