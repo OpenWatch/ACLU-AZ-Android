@@ -211,10 +211,12 @@ public class FormFragmentActivity extends SherlockFragmentActivity {
     		if (this.getIntent().hasExtra(Constants.INTERNAL_DB_ID)){
     			FormFragment.updateIncidentInDatabase(getApplicationContext(), json, this.getIntent().getExtras().getInt(Constants.INTERNAL_DB_ID));
     			json = FormFragment.addUuidToJson(getApplicationContext(), json, this.getIntent().getExtras().getInt(Constants.INTERNAL_DB_ID));
+    			//OWServiceRequests.postReport(getApplicationContext(), json, this.getIntent().getExtras().getInt(Constants.INTERNAL_DB_ID));
     			OWServiceRequests.postReport(getApplicationContext(), json, this.getIntent().getExtras().getInt(Constants.INTERNAL_DB_ID));
     		}else{
     			int db_id = FormFragment.insertIncidentInDatabase(getApplicationContext(), json);
     			json = FormFragment.addUuidToJson(getApplicationContext(), json, db_id);
+    			//OWServiceRequests.postReport(getApplicationContext(), json, db_id);
     			OWServiceRequests.postReport(getApplicationContext(), json, db_id);
     		}
     		did_submit = true;

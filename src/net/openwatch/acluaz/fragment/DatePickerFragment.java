@@ -9,11 +9,13 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.util.Log;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
 public class DatePickerFragment extends DialogFragment implements
 		DatePickerDialog.OnDateSetListener {
+	private static final String TAG = "DatePickerFragment";
 	
 	private int text_field_id = -1;
 	
@@ -45,8 +47,10 @@ public class DatePickerFragment extends DialogFragment implements
 		
 		Calendar c = Calendar.getInstance();
 		GregorianCalendar gc = new GregorianCalendar(year, month,day);
-		if(this.getActivity().findViewById(text_field_id) != null)
+		if(this.getActivity().findViewById(text_field_id) != null){
 			((TextView) this.getActivity().findViewById(text_field_id)).setText(Constants.date_formatter.format(gc.getTime()));
+			Log.i(TAG, "DatePicker set editText view");
+		}
 	}
 	
 	// By default, the app will crash if the

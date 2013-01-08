@@ -25,7 +25,7 @@ public class Incident extends Model {
 	
 	public CharField agency = new CharField();
 	public CharField location = new CharField();
-	public CharField datetime = new CharField();
+	public CharField date = new CharField();
 	public CharField description = new CharField();
 	public DoubleField device_lat = new DoubleField();
 	public DoubleField device_lon = new DoubleField();

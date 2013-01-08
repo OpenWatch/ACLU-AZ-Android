@@ -10,11 +10,13 @@ import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
 public class TimePickerFragment extends DialogFragment implements
 		TimePickerDialog.OnTimeSetListener {
+	private static final String TAG = "TimePickerFragment";
 
 	private int text_field_id = -1;
 
@@ -50,9 +52,11 @@ public class TimePickerFragment extends DialogFragment implements
 		GregorianCalendar gc = new GregorianCalendar(c.get(c.YEAR),
 				c.get(c.MONTH), c.get(c.DAY_OF_MONTH), hourOfDay, minute);
 
-		if (this.getActivity().findViewById(text_field_id) != null)
+		if (this.getActivity().findViewById(text_field_id) != null){
 			((TextView) this.getActivity().findViewById(text_field_id))
 					.setText(Constants.time_formatter.format(gc.getTime()));
+			Log.i(TAG, "TimePicker set editText view");
+		}
 
 	}
 

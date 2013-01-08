@@ -4,6 +4,3 @@
 [submodule "ActionBarSherlock"]
 	path = ActionBarSherlock
 	url = https://github.com/JakeWharton/ActionBarSherlock
-[submodule "android-async-http"]
-	path = android-async-http
-	url = git@github.com:loopj/android-async-http.git

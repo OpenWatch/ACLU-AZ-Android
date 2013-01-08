@@ -22,9 +22,6 @@
 	<string name="narrative_tag">description</string>
 	<string name="uuid_tag">uuid</string>
 	
-	<!-- JSON Keys exclsuive to db / transmission -->
-	<string name="datetime">date</string>	
-	
 	<!-- JSON Keys exclsuive to transmission -->
 	<string name="report_tag">report</string>	
 	<string name="user_tag">user</string>	

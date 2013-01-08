@@ -92,6 +92,8 @@ public class FormFragment extends SherlockFragment {
 						} catch (JSONException e) {
 							Log.e(TAG, "Error jsonifying last location");
 							e.printStackTrace();
+						} catch(NullPointerException e2){
+							Log.e(TAG, "No current or historical location info on this device");
 						}
 					}
 					
@@ -105,7 +107,7 @@ public class FormFragment extends SherlockFragment {
 					//TESTING
 					//String datetime = combineDateAndTime(json.getString(getString(R.string.date_tag)), json.getString(getString(R.string.time_tag)));
 					//Log.i(TAG,"datetime: " + datetime);
-					json.put(getString(R.string.datetime), combineDateAndTime(json.getString(getString(R.string.date_tag)), json.getString(getString(R.string.time_tag))));
+					json.put(getString(R.string.date_tag), combineDateAndTime(json.getString(getString(R.string.date_tag)), json.getString(getString(R.string.time_tag))));
 					Log.i(TAG, json.toString());
 					//json.remove(getString(R.string.date_tag));
 					json.remove(getString(R.string.time_tag));
@@ -198,8 +200,8 @@ public class FormFragment extends SherlockFragment {
 					incident.agency.set(report_json.getString(c.getString(R.string.agency_tag)));
 				if(report_json.has(c.getString(R.string.location_tag)))
 					incident.location.set(report_json.getString(c.getString(R.string.location_tag)));
-				if(report_json.has(c.getString(R.string.datetime)))
-					incident.datetime.set(report_json.getString(c.getString(R.string.datetime))); 
+				if(report_json.has(c.getString(R.string.date_tag)))
+					incident.date.set(report_json.getString(c.getString(R.string.date_tag))); 
 				if(report_json.has(c.getString(R.string.narrative_tag)))
 					incident.description.set(report_json.getString(c.getString(R.string.narrative_tag)));
 				if(report_json.has(c.getString(R.string.device_location_tag))){
@@ -364,7 +366,24 @@ public class FormFragment extends SherlockFragment {
 				loc.setLatitude(values.getAsDouble(DBConstants.DEVICE_LAT));
 				loc.setLongitude(values.getAsDouble(DBConstants.DEVICE_LON));
 				form_input.setTag(R.id.view_tag, loc);
-			} else{
+			} else if(entry.getKey().compareTo(getString(R.string.date_tag)) == 0){
+				form_input = container.findViewById(R.id.date_input);
+				if(form_input == null || entry.getValue() == null)
+					continue;
+				String date = (String) entry.getValue();
+				try {
+					((EditText)form_input).setText(Constants.date_formatter.format(Constants.datetime_formatter.parse(date)));
+					form_input = container.findViewById(R.id.time_input);
+					if(form_input == null)
+						continue;
+					((EditText)form_input).setText(Constants.time_formatter.format(Constants.datetime_formatter.parse(date)));
+				} catch (ParseException e) {
+					Log.e(TAG, "Error setting date time form fields from database datetime");
+					e.printStackTrace();
+				}
+				//entry.setValue( Constants.date_formatter.format(Constants.datetime_formatter.parse(date)) );
+				//setFormFieldValue(form_input, )
+			}else{
 				// If the column value is simply bound to the view
 				// with tag equal to column name...
 				form_input = container.findViewWithTag(entry.getKey());

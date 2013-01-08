@@ -10,6 +10,7 @@ public class Constants {
 	
 	// Api endpoints and json response keys
 	public static final String REPORT_SUBMIT_URL = "https://az.openwatch.net/submit/";
+	//public static final String REPORT_SUBMIT_URL = "http://192.168.1.7:8000/submit/";
 	public static final String API_SUCCESS = "success";
 	public static final String API_REPORT_ID = "report_id";
 	
