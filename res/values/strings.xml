@@ -4,6 +4,9 @@
     <string name="app_name">ACLU AZ</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
+    
+    <!--  Toasts -->
+    <string name="toast_report_success">Report sent successfully</string>
 
     <!-- Generic Dialog -->
     <string name="dialog_submit">Submit</string>

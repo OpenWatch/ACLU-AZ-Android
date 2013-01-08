@@ -82,7 +82,7 @@
             style="@style/WizardFormLabel"
             android:text="@string/date_label" />
 
-        <EditText
+        <net.openwatch.acluaz.view.ValidatedEditText
             android:id="@+id/date_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -90,7 +90,7 @@
             android:saveEnabled="false"
             android:tag="@string/date_tag" />
 
-        <EditText
+        <net.openwatch.acluaz.view.ValidatedEditText
             android:id="@+id/time_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

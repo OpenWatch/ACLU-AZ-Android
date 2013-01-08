@@ -1,6 +1,8 @@
 package net.openwatch.acluaz.http;
 
 import java.io.UnsupportedEncodingException;
+
+import net.openwatch.acluaz.R;
 import net.openwatch.acluaz.constants.Constants;
 import net.openwatch.acluaz.model.Incident;
 import net.openwatch.acluaz.sharedpreferences.SharedPreferencesManager;
@@ -11,6 +13,7 @@ import org.json.JSONObject;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -44,6 +47,7 @@ public class OWServiceRequests {
 						}
 						incident.save(app_context);
 						SharedPreferencesManager.clearPrefs(app_context, Constants.INCIDENT_PREFS);
+						showReportSubmittedToast(app_context);
 					}
 				} catch (JSONException e) {
 					Log.e(TAG, "Error parsing json response");
@@ -64,6 +68,13 @@ public class OWServiceRequests {
 		};
 		
 		postReport(app_context, json, response_handler);
+	}
+	
+	private static void showReportSubmittedToast(Context context){
+		int duration = Toast.LENGTH_SHORT;
+
+		Toast toast = Toast.makeText(context, context.getString(R.string.toast_report_success), duration);
+		toast.show();
 	}
 
 	/**

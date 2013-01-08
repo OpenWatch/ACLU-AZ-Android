@@ -1,7 +1,6 @@
 package net.openwatch.acluaz.fragment;
 
 import java.text.ParseException;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -17,9 +16,9 @@ import org.json.JSONObject;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.location.Location;
+import android.location.LocationManager;
 import android.os.AsyncTask;
 import com.actionbarsherlock.app.SherlockFragment;
 import android.util.Log;
@@ -57,7 +56,7 @@ public class FormFragment extends SherlockFragment {
 					if( ((EditText)view).getText().toString().compareTo("") == 0)
 						continue; // skip blank input
 					try {
-						//Log.i(TAG, "Mapping: " + view.getTag().toString() + " value: " + ((EditText)view).getText().toString());
+						Log.i(TAG, "Mapping: " + view.getTag().toString() + " value: " + ((EditText)view).getText().toString());
 						if(view.getTag().toString().compareTo(getString(R.string.zipcode_tag)) == 0 )
 							json.put(view.getTag().toString(), Integer.parseInt(((EditText)view).getText()
 										.toString()));
@@ -82,6 +81,17 @@ public class FormFragment extends SherlockFragment {
 								Log.e(TAG, "Error jsonifying toggle input");
 								e.printStackTrace();
 							}
+						}
+					}else if( ((String)view.getTag()).compareTo(getString(R.string.device_location_tag)) == 0 && view.getTag(R.id.view_tag) == null){
+						// no location tagged, get last known
+						LocationManager lm = (LocationManager) container.getContext().getSystemService(Context.LOCATION_SERVICE);
+						Location last = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+						try {
+							json.put(getString(R.string.device_lat), last.getLatitude());
+							json.put(getString(R.string.device_lon), last.getLongitude());
+						} catch (JSONException e) {
+							Log.e(TAG, "Error jsonifying last location");
+							e.printStackTrace();
 						}
 					}
 					
@@ -370,6 +380,7 @@ public class FormFragment extends SherlockFragment {
 			view = container.getChildAt(x);
 			
 			if (ValidatedEditText.class.isInstance(view)){
+				Log.i(TAG, "validating field: " +  ((EditText)view).getText().toString());
 				if( ((EditText)view).getText().toString().compareTo("") == 0){
 					view.requestFocus();
 					return false;

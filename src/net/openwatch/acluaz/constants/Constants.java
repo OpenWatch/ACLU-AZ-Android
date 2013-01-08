@@ -58,5 +58,7 @@ public class Constants {
 	static{
 		datetime_formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
 		user_datetime_formatter.setTimeZone(TimeZone.getDefault());
+		time_formatter.setTimeZone(TimeZone.getDefault());
+		date_formatter.setTimeZone(TimeZone.getDefault());
 	}
 }
