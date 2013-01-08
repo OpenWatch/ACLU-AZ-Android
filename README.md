@@ -3,7 +3,6 @@ ACLU AZ - Stop SB 1070
 
 Android app for reporting abuses of the Arizona SB 1070 law to the ACLU of Arizona.
 
-## Screenshots
 
 ![Screenshot](https://raw.github.com/OpenWatch/ACLU-AZ-Android/master/screenshots/home_nexus7.png)
 
@@ -18,7 +17,7 @@ When downloading the source make sure to clone the repository with:
 
 In Eclipse, Import an Existing Android Project from Source for each of the submodules (ActionBarSherlock, and androrm . Make sure each project is checked as a Library project (R-click project -> Properties -> Android List item -> Libraries pane), and that all three are added as library dependencies of the main project (Also in the Project Properties Libraries Pane       )).
 
-##### SECRETS.java 
+#### SECRETS.java 
 
 Create a file named `SECRETS.java` in /src/net/openwatch/acluaz with the following content:
 
@@ -26,12 +25,22 @@ Create a file named `SECRETS.java` in /src/net/openwatch/acluaz with the followi
 	package net.openwatch.acluaz;
 
 	public class SECRETS {
-		public static final String SSL_KEYSTORE_PASS = "your_keystore_passwo
+		public static final String SSL_KEYSTORE_PASS = "your_keystore_password"
+		public static final String BUGSENSE_API_KEY = "your_bugsense_api_key";
+	}
 See the **Developing** section for an explanation of ACLUAZ-Android's SSL trust scheme.rd";
 	}
 
+#### BugSense
+If you won't be using BugSense, comment out the following line of MainActivity:
 
-
+		@Override
+		protected void onCreate(Bundle savedInstanceState) {
+			super.onCreate(savedInstanceState);
+			//BugSenseHandler.initAndStartSession(getApplicationContext(), SECRETS.BUGSENSE_API_KEY);
+		setContentView(R.layout.activity_main);
+		this.getSupportActionBar().setDisplayShowHomeEnabled(false);
+	}
 ## Developing
 
 ACLUAZ-Android verifies ssl certificates against those bundled with the app (`AZHttpClient` is hardcoded to /res/raw/azkeystore in this implementation). 
