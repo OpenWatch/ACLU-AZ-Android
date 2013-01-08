@@ -25,7 +25,7 @@ Create a file named `SECRETS.java` in /src/net/openwatch/acluaz with the followi
 	package net.openwatch.acluaz;
 
 	public class SECRETS {
-		public static final String SSL_KEYSTORE_PASS = "your_keystore_password"
+		public static final String SSL_KEYSTORE_PASS = "your_keystore_password";
 		public static final String BUGSENSE_API_KEY = "your_bugsense_api_key";
 	}
 See the **Developing** section for an explanation of ACLUAZ-Android's SSL trust scheme.rd";
@@ -47,7 +47,7 @@ ACLUAZ-Android verifies ssl certificates against those bundled with the app (`AZ
 
 #### To package your server's ssl certificates:
 
- 1. Get your servers X509 format ssl certificates. You'll need the root and all intermediate certificates, but not your local cert. [In my experience this was easiest to do in Firefox](http://superuser.com/a/97203/185405)
+ 1. Get your server's X509 format ssl certificates. You'll need the root and all intermediate certificates, but not your local cert. [In my experience this was easiest to do in Firefox](http://superuser.com/a/97203/185405)
  2. [Generate a BKS format keystore with your certificates](http://blog.antoine.li/2010/10/22/android-trusting-ssl-certificates/)
  3. Place your keystore in /res/raw and update `AZHttpClient` with the appropriate filename
 
