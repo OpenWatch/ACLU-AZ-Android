@@ -88,15 +88,15 @@
     <string name="jail">"Cárcel"</string>
     <string name="title_activity_pdfview">"PDFViewActivity"</string>
     <string name="title_activity_about">"AboutActivity"</string>
-    <string name="general_rights">"
+    <string name="general_rights">
        	 &lt;h1&gt; SB1070 Sección 2 (B): ¿Qué es &lt;/ h1&gt; La Sección 2(B) requiere que la policía le pregunte a alguien que ya ha detenido acerca de su estatus migratorio, si piensan que la persona pudiera estar indocumentada. Sin embargo, aún bajo la ley SB 1070, es ilegal que la policía pare a alguien, o lo detenga por mucho tiempo, si es solamente para investigar su estatus de inmigración.  &lt;br/&gt; &lt;br/&gt; 
        	 Nunca debe presentar documentos falsos o decir al oficial que usted es ciudadano estadounidense si no es verdad. &lt;br/&gt; 
        	 Si usted es detenido o arrestado, siempre tiene el derecho de permanecer callado y pedir hablar con un abogado. &lt;br/&gt; 
        	 No tiene que decir nada acerca de su situación migratoria, de qué país es usted, cuando o como entro a los ee.uu. &lt;br/&gt; 
        	 Prepare un plan de emergencia que incluye el número de teléfono de un abogado. Siempre lleve consigo ese número de teléfono. &lt;br/&gt; 
        	 Para información adicional llame a la ACLU al 1-855-225-8291 (1-855-ACLUAZ-1) o 602-650-1854 en el Condado de Maricopa.
-    "</string>
-    <string name="car_rights">"
+    </string>
+    <string name="car_rights">
         &lt;h1&gt; Cualquier Lugar del Vehículo &lt;/ h1&gt; 
         Una vez que la policía expide una infracción de tránsito y la licencia ha sido devuelta, el oficial no puede continuar deteniendo al conductor o cuestionar a un pasajero a menos que la policía sospeche algun otro crimen 
         &lt;h1&gt; Manejando un Vehículo &lt;/ h1&gt; 
@@ -107,19 +107,19 @@
         No es un crimen que un pasajero no traiga identificación.&lt;br/&gt;&lt;br/&gt;
         La policía puede pedirle a los pasajeros ver su identificación o hacerles preguntas relacionadas a la detención, sin embargo la policía no puede detenerlo por mucho tiempo o requerirle al pasajero que cumpla, a menos que el oficial sospeche un crimen. &lt;br/&gt; &lt;br /&gt; 
         La ley de Arizona requiere solamente que le de a la polícia su \"nombre completo verdadero\" — no su fecha de nacimiento, domicilio, numero de seguro social ni otra información.
-	"</string>
-	<string name="street_rights">"En general la policía puede pedirle una identificación si ellos lo paran en la calle. Sin embargo, ellos no pueden exigir que usted presente una identificación a menos que ellos sospechen un crimen.  &lt;br/&gt;&lt;br/&gt; 
+	</string>
+	<string name="street_rights">En general la policía puede pedirle una identificación si ellos lo paran en la calle. Sin embargo, ellos no pueden exigir que usted presente una identificación a menos que ellos sospechen un crimen.  &lt;br/&gt;&lt;br/&gt; 
 	    Si no esta arrestado, debe preguntar si está en libertad de irse. Si usted no está en libertad de irse, debe pedir hablar con un abogado y permanecer callado.  &lt;br/&gt;&lt;br/&gt; 
 	    La ley de Arizona requiere solamente que le de a la polícia su \"nombre completo verdadero\" — no su fecha de nacimiento, domicilio, numero de seguro social ni otra información.
-	"</string>
-	<string name="home_rights">"Si la policía quiere entrar a su casa, deben tener una orden judicial &lt;br/&gt;&lt;br/&gt; 
+	</string>
+	<string name="home_rights">Si la policía quiere entrar a su casa, deben tener una orden judicial &lt;br/&gt;&lt;br/&gt; 
 	    La orden debe especificar la descripción de la persona o los artículos que están buscando.&lt;br/&gt;&lt;br/&gt; 
 	    Si usted no quiere que la policía entre, no tiene que abrir la puerta hasta que la policía le muestre la orden judicial. Le puede pedir al oficial que pase la orden por debajo de la puerta. &lt;br/&gt;&lt;br/&gt;
 	    Si abre la puerta y le da permiso al policía entrar a su casa, se puede considerar que le ha dado su "consentimiento" para entrar Si la policía entra a su casa, todos dentro de la casa tienen el derecho de permanecer callados. 
-	"</string>
-	<string name="jail_rights">"Incluso en la carcel, usted tiene el derecho de permanecer callado y pedir hablar con un abogo. &lt;br/&gt;&lt;br/&gt; 
+	</string>
+	<string name="jail_rights">Incluso en la carcel, usted tiene el derecho de permanecer callado y pedir hablar con un abogo. &lt;br/&gt;&lt;br/&gt; 
 	    Si usted es arrestado y llevado a la cárcel es posible que le harán preguntas acerca de su situación migratoria, de qué país es usted, cuando o como entro a los EE.UU. No tiene que contestar estas preguntas. El gobierno puede usar esta información para detenerlo o en un proceso de deportación. 
-	"</string>
+	</string>
 	
 	
     <!-- About Activity -->
