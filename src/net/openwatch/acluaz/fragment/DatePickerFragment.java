@@ -20,6 +20,12 @@ public class DatePickerFragment extends DialogFragment implements
 	public DatePickerFragment(int text_field_id){
 		this.text_field_id = text_field_id;
 	}
+	
+	 @Override
+	    public void onCreate(Bundle savedInstanceState) {
+	        super.onCreate(savedInstanceState);
+	        setRetainInstance(true);
+	 }
 
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -39,6 +45,16 @@ public class DatePickerFragment extends DialogFragment implements
 		
 		Calendar c = Calendar.getInstance();
 		GregorianCalendar gc = new GregorianCalendar(year, month,day);
-		((TextView) this.getActivity().findViewById(text_field_id)).setText(Constants.date_formatter.format(gc.getTime()));
+		if(this.getActivity().findViewById(text_field_id) != null)
+			((TextView) this.getActivity().findViewById(text_field_id)).setText(Constants.date_formatter.format(gc.getTime()));
+	}
+	
+	// By default, the app will crash if the
+	// hosting activity is destroyed while the dialogfragment is displayed i.e: during screen reotation
+	@Override
+	public void onDestroyView() {
+	  if (getDialog() != null && getRetainInstance())
+	    getDialog().setOnDismissListener(null);
+	  super.onDestroyView();
 	}
 }

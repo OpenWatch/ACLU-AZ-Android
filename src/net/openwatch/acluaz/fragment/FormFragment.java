@@ -380,9 +380,9 @@ public class FormFragment extends SherlockFragment {
 			view = container.getChildAt(x);
 			
 			if (ValidatedEditText.class.isInstance(view)){
-				Log.i(TAG, "validating field: " +  ((EditText)view).getText().toString());
+				//Log.i(TAG, "validating field: " +  ((EditText)view).getText().toString());
 				if( ((EditText)view).getText().toString().compareTo("") == 0){
-					view.requestFocus();
+					//view.requestFocus();
 					return false;
 				}
 			}
