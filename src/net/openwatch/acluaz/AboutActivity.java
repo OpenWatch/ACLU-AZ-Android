@@ -10,10 +10,16 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.support.v4.app.NavUtils;
 
 public class AboutActivity extends SherlockActivity {
+	private static final String TAG = "AboutActivity";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -52,5 +58,6 @@ public class AboutActivity extends SherlockActivity {
 		i.setData(Uri.parse(Constants.OW_URL));
 		startActivity(i);
 	}
+
 
 }

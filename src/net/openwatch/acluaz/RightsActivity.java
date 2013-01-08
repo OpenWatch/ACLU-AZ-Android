@@ -7,8 +7,12 @@ import com.actionbarsherlock.view.MenuItem;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.text.Html;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextSwitcher;
 import android.widget.ViewSwitcher;
@@ -105,5 +109,6 @@ public class RightsActivity extends SherlockActivity implements ViewSwitcher.Vie
 		if(rights_container != null)
 			rights_container.scrollTo(0, 0);
 	}
+	
 
 }

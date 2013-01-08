@@ -307,8 +307,26 @@ public class FormFragment extends SherlockFragment {
 
 			View form_input;
 			for (Map.Entry<String, ?> entry : keys.entrySet()) {
-				form_input = container.findViewWithTag(entry.getKey());
-				setFormFieldValue(form_input, entry);
+				if(entry.getKey().compareTo(getString(R.string.date_tag)) == 0){
+					form_input = container.findViewById(R.id.date_input);
+					if(form_input == null || entry.getValue() == null)
+						continue;
+					String date = (String) entry.getValue();
+					try {
+						((EditText)form_input).setText(Constants.date_formatter.format(Constants.datetime_formatter.parse(date)));
+						form_input = container.findViewById(R.id.time_input);
+						if(form_input == null)
+							continue;
+						((EditText)form_input).setText(Constants.time_formatter.format(Constants.datetime_formatter.parse(date)));
+					} catch (ParseException e) {
+						Log.e(TAG, "Error setting date time form fields from database datetime");
+						e.printStackTrace();
+					}
+
+				} else{
+					form_input = container.findViewWithTag(entry.getKey());
+					setFormFieldValue(form_input, entry);
+				}
 			}
 			return;
 		}
@@ -381,8 +399,7 @@ public class FormFragment extends SherlockFragment {
 					Log.e(TAG, "Error setting date time form fields from database datetime");
 					e.printStackTrace();
 				}
-				//entry.setValue( Constants.date_formatter.format(Constants.datetime_formatter.parse(date)) );
-				//setFormFieldValue(form_input, )
+
 			}else{
 				// If the column value is simply bound to the view
 				// with tag equal to column name...
