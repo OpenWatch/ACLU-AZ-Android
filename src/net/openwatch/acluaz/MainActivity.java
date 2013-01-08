@@ -3,6 +3,7 @@ package net.openwatch.acluaz;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
+import com.bugsense.trace.BugSenseHandler;
 
 import net.openwatch.acluaz.constants.Constants;
 import net.openwatch.acluaz.database.DatabaseManager;
@@ -16,6 +17,7 @@ public class MainActivity extends SherlockActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		BugSenseHandler.initAndStartSession(getApplicationContext(), SECRETS.BUGSENSE_API_KEY);
 		setContentView(R.layout.activity_main);
 		this.getSupportActionBar().setDisplayShowHomeEnabled(false);
 	}

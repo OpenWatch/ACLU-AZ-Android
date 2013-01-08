@@ -3,12 +3,16 @@ ACLU AZ - Stop SB 1070
 
 Android app for reporting abuses of the Arizona SB 1070 law to the ACLU of Arizona.
 
+## Screenshots
+
+![Screenshot](https://raw.github.com/OpenWatch/ACLU-AZ-Android/master/screenshots/home_nexus7.png)
+
 
 ## Downloading the Source
     
 When downloading the source make sure to clone the repository with:
 
-    $ git clgit@github.com:OpenWatch/ACLU-AZ-Android.git.git --recursive
+    $ git clone git@github.com:OpenWatch/ACLU-AZ-Android.git --recursive
     
 ## Building
 
