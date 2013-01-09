@@ -68,6 +68,6 @@ Copyright (C) 2013, [OpenWatch FPC](http://openwatch.net)
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-If you would like to relicense portions of this code to sell it on the App Store, 
+If you would like to relicense portions of this code for commercial use, 
 please contact us at [david@openwatch.net](mailto:david@openwatch.net).
 
