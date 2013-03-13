@@ -13,7 +13,7 @@
     <string name="dialog_cancel">"Cancelar"</string>
 
     <!-- MainActivity -->
-    <string name="report_btn">"Informe"</string>
+    <string name="report_btn">"Reporte Abuso"</string>
     <string name="rights_btn">"Conozca Sus Derechos"</string>
     <string name="title_activity_form">"FormActivity"</string>
     <!-- ActionBar Menu -->
@@ -65,10 +65,10 @@
     <string name="on">"Activado"</string>
     <string name="off">"Apagado"</string>
     <!-- Form Errors -->
-    <string name="required_field_error">"Este campo es obligatorio"</string>
+    <string name="required_field_error">"Este campo es requerido"</string>
 
     <!-- Form Disclaimer -->
-    <string name="form_disclaimer">"Respetamos su privacidad y sólo utilizará la información de contacto que usted proporciona a usted con respecto a la queja que presentar hoy. Aparte de eso, nunca vamos a enviar correo electrónico no solicitado, o comparte información personal que usted envíe. Para obtener más información, consulte nuestra política de privacidad."</string>
+    <string name="form_disclaimer">"Nosotros respetamos su privacidad y solamente usaremos la información de contacto que usted proporcione para contactarle referente a la queja que usted presentó hoy. Aparte de eso, nosotros nunca enviaremos un correo electrónico (e-mail) no solicitado, ni compartiremos información personal que usted presente. Para mayor información, vea nuestra declaración de privacidad."</string>
 
     <!-- Incident ListView -->
     <string name="loading_incidents">"Incidentes Loading"</string>
