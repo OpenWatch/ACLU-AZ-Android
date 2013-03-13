@@ -29,7 +29,7 @@
 
     <!-- Form Incomplete Dialog -->
     <string name="form_incomplete_dialog_title">"De forma incompleta,"</string>
-    <string name="form_incomplete_dialog_msg">"Por favor, revise el formulario para campos highligted. Como mínimo, necesitamos su nombre completo, el lugar del incidente, la fecha y la descripción."</string>
+    <string name="form_incomplete_dialog_msg">"Por favor, revise el formulario para campos highligted. Como mínimo, necesitamos su nombre completo, su código postal, el lugar del incidente, la fecha y la descripción."</string>
     <!-- ActionBar Menu -->
     <string name="menu_clear_personal">"Información Personal Clear"</string>
     <string name="menu_submit_form">"Enviar"</string>

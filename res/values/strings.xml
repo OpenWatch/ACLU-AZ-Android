@@ -30,7 +30,7 @@
 
     <!-- Form Incomplete Dialog -->
     <string name="form_incomplete_dialog_title">Form Incomplete</string>
-    <string name="form_incomplete_dialog_msg">Please check the form for highligted fields. At a minimum we need your full name, the incident location, date, and description.</string>
+    <string name="form_incomplete_dialog_msg">Please check the form for highligted fields. At a minimum we need your full name, your zipcode, the incident location, date, and description.</string>
     <!-- ActionBar Menu -->
     <string name="menu_clear_personal">Clear Personal Info</string>
     <string name="menu_submit_form">Submit</string>
