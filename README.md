@@ -28,8 +28,7 @@ Create a file named `SECRETS.java` in /src/net/openwatch/acluaz with the followi
 		public static final String SSL_KEYSTORE_PASS = "your_keystore_password";
 		public static final String BUGSENSE_API_KEY = "your_bugsense_api_key";
 	}
-See the **Developing** section for an explanation of ACLUAZ-Android's SSL trust scheme.rd";
-	}
+See the **Developing** section for an explanation of ACLUAZ-Android's SSL trust scheme.
 
 #### BugSense
 If you won't be using BugSense, comment out the following line of MainActivity:

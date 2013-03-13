@@ -1,5 +1,8 @@
 _STORE
 
+.idea/
+.settings/
+ACLU-AZ-Android.iml
 gen
 bin
 lint.xml
