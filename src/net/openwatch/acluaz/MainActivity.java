@@ -26,6 +26,7 @@ import net.openwatch.acluaz.constants.Constants;
 import net.openwatch.acluaz.database.DatabaseManager;
 import android.os.Bundle;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
@@ -34,6 +35,8 @@ import android.util.Log;
 import android.view.View;
 
 public class MainActivity extends SherlockActivity {
+	
+	public static Context context;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -124,10 +127,14 @@ public class MainActivity extends SherlockActivity {
     	}
     	return true;
     }
+	public void onPause(){
+		context = null;
+		super.onPause();
+	}
 	
 	public void onResume(){
 		super.onResume();
-		
+		context = this;
 		SharedPreferences profile = getSharedPreferences(Constants.APP_PREFS, 0);
 		boolean db_initialized = profile.getBoolean(Constants.DB_READY, false);
 	

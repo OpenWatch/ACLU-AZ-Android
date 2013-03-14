@@ -22,6 +22,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 
+import net.openwatch.acluaz.MainActivity;
 import net.openwatch.acluaz.R;
 import net.openwatch.acluaz.constants.Constants;
 import net.openwatch.acluaz.model.Incident;
@@ -56,15 +57,18 @@ public class OWServiceRequests {
 
 	private static final String TAG = "OWServiceRequests";
 
-	private static void showReportSubmittedDialog(Context context) {
-		AlertDialog.Builder builder = new AlertDialog.Builder(context);
-		builder.setTitle(R.string.form_success_title).setMessage(R.string.form_success).setPositiveButton(R.string.dialog_ok, new OnClickListener(){
+	private static void showReportSubmittedDialog() {
 
-			@Override
-			public void onClick(DialogInterface arg0, int arg1) {
-				arg0.dismiss();
-			}
-		}).show();
+		if(MainActivity.context != null){
+			AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.context);
+			builder.setTitle(R.string.form_success_title).setMessage(R.string.form_success).setPositiveButton(R.string.dialog_ok, new OnClickListener(){
+	
+				@Override
+				public void onClick(DialogInterface arg0, int arg1) {
+					arg0.dismiss();
+				}
+			}).show();
+		}
 	}
 
 	public static StringEntity jsonToSE(JSONObject json) {
@@ -147,8 +151,8 @@ public class OWServiceRequests {
 		
 		@Override
 		protected void onPostExecute(Void result) {
-			if(context != null && success){
-				showReportSubmittedDialog(context);
+			if(success){
+				showReportSubmittedDialog();
 			}
 	     }
 		
