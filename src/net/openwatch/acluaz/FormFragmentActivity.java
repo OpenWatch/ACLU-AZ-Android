@@ -310,8 +310,10 @@ public class FormFragmentActivity extends SherlockFragmentActivity {
 		if (!did_submit && !i.hasExtra(Constants.INTERNAL_DB_ID)) {
 			// save incident prefs
     		FormFragment incidentFrag = this.getIncidentFormFragment();
-    		incidentFrag.writeJsonToPrefs(Constants.INCIDENT_PREFS, incidentFrag.toJson((ViewGroup) incidentFrag.getView().findViewById(R.id.incident_form_container), null));
-		}
+    		try{
+    			incidentFrag.writeJsonToPrefs(Constants.INCIDENT_PREFS, incidentFrag.toJson((ViewGroup) incidentFrag.getView().findViewById(R.id.incident_form_container), null));
+    		}catch(NullPointerException e){}
+    	}
     	super.onPause();
     
     }
