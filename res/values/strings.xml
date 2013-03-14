@@ -51,10 +51,11 @@
     <string name="zipcode_label">Zipcode</string>
     <string name="email_label">Email</string>
     <string name="phone_label">Phone</string>
+    <string name="alt_phone_label">Alternative Phone</string>
 
     <!-- Incident Form Fragment -->
     <string name="agency_label">Agency</string>
-    <string name="agency_hint">What law enforcement agency did you come into contact with? Ex. Police, sheriff, department of public safety, ICE, border patrol.</string>
+    <string name="agency_hint">Ex. Police, sheriff, department of public safety, ICE, border patrol.</string>
     <string name="location_label">Location</string>
     <string name="date_label">Date and Time</string>
     <string name="date_hint">Date</string>

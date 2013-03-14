@@ -23,6 +23,7 @@
     style="@style/WizardPageContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="16dp"
     android:layout_weight="1" >
 
     <LinearLayout
@@ -154,6 +155,17 @@
             android:layout_height="wrap_content"
             android:inputType="phone"
             android:tag="@string/phone_tag" />
+        
+        <TextView
+            style="@style/WizardFormLabel"
+            android:text="@string/alt_phone_label" />
+
+        <EditText
+            android:id="@+id/alt_phone_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:tag="@string/alt_phone_tag" />
     </LinearLayout>
 
 </ScrollView>

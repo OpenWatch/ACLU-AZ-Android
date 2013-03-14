@@ -53,10 +53,11 @@
     <string name="zipcode_label">"Codigo Postal"</string>
     <string name="email_label">"Email"</string>
     <string name="phone_label">"Teléfono"</string>
+    <string name="alt_phone_label">"Teléfono Alternativo"</string>
 
     <!-- Incident Form Fragment -->
     <string name="agency_label">"Agencia"</string>
-    <string name="agency_hint">"¿Qué agencia policial se entra en contacto con? Ex. La policía, sheriff, departamento de la seguridad pública, el ICE, la patrulla fronteriza."</string>
+    <string name="agency_hint">"Ex. La policía, sheriff, departamento de la seguridad pública, el ICE, la patrulla fronteriza."</string>
     <string name="location_label">"Ubicación"</string>
     <string name="date_label">"Fecha y Hora"</string>
     <string name="date_hint">"Fecha"</string>

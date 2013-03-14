@@ -10,6 +10,7 @@
 	<string name="zipcode_tag">zip</string>
 	<string name="email_tag">email</string>
 	<string name="phone_tag">phone</string>
+	<string name="alt_phone_tag">phone</string>
 	
 	<!--  View tags corresponding to JSON keys for Incident Form -->
 	<string name="agency_tag">agency</string>
