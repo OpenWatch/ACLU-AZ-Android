@@ -21,6 +21,11 @@ import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.DialogInterface.OnClickListener;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.text.Html;
@@ -74,6 +79,26 @@ public class RightsActivity extends SherlockActivity implements ViewSwitcher.Vie
 		switch (item.getItemId()) {
 		case android.R.id.home:
 			NavUtils.navigateUpFromSameTask(this);
+			return true;
+		case R.id.menu_call:
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setTitle(getString(R.string.call_aclu_dialog_title))
+			.setPositiveButton(getString(R.string.call_aclu_dialog_call), new OnClickListener(){
+
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					String url = "tel:18552258291";
+				    Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse(url));          
+					startActivity(intent);
+				}	
+			}).setNegativeButton(getString(R.string.dialog_cancel), new OnClickListener(){
+
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					dialog.dismiss();
+				}
+			}).show();
+			
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

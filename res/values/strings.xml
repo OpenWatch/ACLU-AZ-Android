@@ -95,6 +95,8 @@
     <string name="jail">Jail</string>
     <string name="title_activity_pdfview">PDFViewActivity</string>
     <string name="title_activity_about">AboutActivity</string>
+    <string name="call_aclu_dialog_title">Call the ACLU-AZ?</string>
+    <string name="call_aclu_dialog_call">Call</string>
     <string name="general_rights">
        	 &lt;h1>SB1070 Section 2(B): What is it?&lt;/h1>
 		Section 2(B)requires the police to ask someone they have already stopped about their immigration status if they think the person may be undocumented. However, even under SB 1070, it is illegal for the police to stop someone, or to detain them for a long time, if it\'s only to investigate their immigration status.&lt;br/>&lt;br/>

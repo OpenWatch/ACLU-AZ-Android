@@ -16,7 +16,7 @@
     <string name="report_btn">"Reporte Abuso"</string>
     <string name="rights_btn">"Conozca Sus Derechos"</string>
     <string name="title_activity_form">"FormActivity"</string>
-    <string name="change_language">In English?</string>
+    <string name="change_language">In English</string>
     <string name="change_language_dialog_title">Change Language?</string>
     <string name="change_language_dialog_body">You may change your device language to view this app in English.</string>
     
@@ -98,6 +98,8 @@
     <string name="jail">"Cárcel"</string>
     <string name="title_activity_pdfview">"PDFViewActivity"</string>
     <string name="title_activity_about">"AboutActivity"</string>
+    <string name="call_aclu_dialog_title">¿Llame a la ACLU-AZ?</string>
+    <string name="call_aclu_dialog_call">Llamar</string>
     <string name="general_rights">
        	 &lt;h1&gt; SB1070 Sección 2 (B): ¿Qué es &lt;/ h1&gt; La Sección 2(B) requiere que la policía le pregunte a alguien que ya ha detenido acerca de su estatus migratorio, si piensan que la persona pudiera estar indocumentada. Sin embargo, aún bajo la ley SB 1070, es ilegal que la policía pare a alguien, o lo detenga por mucho tiempo, si es solamente para investigar su estatus de inmigración.  &lt;br/&gt; &lt;br/&gt; 
        	 Nunca debe presentar documentos falsos o decir al oficial que usted es ciudadano estadounidense si no es verdad. &lt;br/&gt; 
