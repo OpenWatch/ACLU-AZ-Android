@@ -28,6 +28,9 @@
     <string name="clear_personal_info_dialog_msg">This will delete all personal info saved for use on this form. You\'ll have to re-enter the personal info form the next time you file a report.</string>
     <string name="clear_personal_info_ok_btn">Clear Personal Info</string>
 
+    <!-- Pre-Form Disclaimer -->
+    <string name="pre_form_disclaimer">Note: This form does not give legal advice, and you should not rely on it as legal advice. This form is not an offer by the ACLU to represent you. You should not rely on the information you get from this site and should speak with a lawyer to get advice on your specific situation. We also cannot promise that the information on this site is complete, accurate, or up-to-date. For children under 13, this survey must be completed by your parent or guardian.</string>
+    
     <!-- Form Incomplete Dialog -->
     <string name="form_incomplete_dialog_title">Form Incomplete</string>
     <string name="form_incomplete_dialog_msg">Please check the form for highligted fields. At a minimum we need your full name, your zipcode, the incident location, date, and description.</string>
@@ -69,7 +72,7 @@
     <string name="required_field_error">This field is required</string>
 
     <!-- Form Disclaimer -->
-    <string name="form_disclaimer">We respect your privacy and will only use the contact information you provide to contact you regarding the complaint you submit today. Other than that, we will never send unsolicited email, or share personal information you submit. For further information, see our privacy statement.</string>
+    <string name="form_disclaimer">Thanks for sharing your story. We\'ll keep the specific details of your story confidential unless we contact you and get your permission to share it.</string>
 
     <!-- Incident ListView -->
     <string name="loading_incidents">Loading Incidents</string>

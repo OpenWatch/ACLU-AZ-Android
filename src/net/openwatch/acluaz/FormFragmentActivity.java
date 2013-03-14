@@ -134,6 +134,16 @@ public class FormFragmentActivity extends SherlockFragmentActivity {
 			}
         	
         }, true);
+        
+        AlertDialog.Builder builder = new AlertDialog.Builder(FormFragmentActivity.this);
+		builder.setMessage(getString(R.string.pre_form_disclaimer)).setPositiveButton(getString(R.string.dialog_ok), new OnClickListener(){
+
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.dismiss();
+			}
+			
+		}).show();
     }
     
     @Override

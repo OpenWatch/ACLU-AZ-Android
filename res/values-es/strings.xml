@@ -27,6 +27,9 @@
     <string name="clear_personal_info_dialog_msg">"Esto borrará toda la información personal guardada para su uso en este formulario. Vas a tener que volver a entrar en el formulario de información personal la próxima vez que se presente un informe."</string>
     <string name="clear_personal_info_ok_btn">"Información Personal Clear"</string>
 
+    <!-- Pre-Form Disclaimer -->
+    <string name="pre_form_disclaimer">Gracias por compartir su historia. Nosotros mantendremos los detalles específicos de su historia confidenciales, a menos que nosotros lo contactemos y obtengamos su permiso para compartir.</string>
+    
     <!-- Form Incomplete Dialog -->
     <string name="form_incomplete_dialog_title">"De forma incompleta,"</string>
     <string name="form_incomplete_dialog_msg">"Por favor, revise el formulario para campos highligted. Como mínimo, necesitamos su nombre completo, su código postal, el lugar del incidente, la fecha y la descripción."</string>
@@ -58,7 +61,7 @@
     <string name="narrative_label">"¿Qué ha pasado?"</string>
     <string name="narrative_hint">"Por favor, cuéntenos sobre su experiencia con la discriminación racial arresto o detención bajo la ley SB 1070. "</string>
     <!-- Location Toggle Button for API < 14 -->
-    <string name="gps_label">"Enviar ubicación actual"</string>
+    <string name="gps_label">"Lugar Actual se Enviara"</string>
     <string name="gps_on_label">"Ubicación actual se enviará"</string>
     <string name="gps_off_label">"Ubicación actual no se enviará"</string>
     <!-- Location Switch for API 14+ -->
