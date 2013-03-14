@@ -36,6 +36,7 @@
         <!-- Car -->
 
         <LinearLayout
+            android:id="@+id/car_rights_header"
             style="@style/KnowYourRightsHeaderLayout"
             android:onClick="carClicked"
             android:orientation="vertical"
@@ -53,6 +54,7 @@
         <!-- Street -->
 
         <LinearLayout
+            android:id="@+id/street_rights_header"
             style="@style/KnowYourRightsHeaderLayout"
             android:onClick="streetClicked"
             android:orientation="vertical"
@@ -70,6 +72,7 @@
         <!-- Home -->
 
         <LinearLayout
+            android:id="@+id/home_rights_header"
             style="@style/KnowYourRightsHeaderLayout"
             android:onClick="homeClicked"
             android:orientation="vertical"
@@ -87,6 +90,7 @@
         <!-- Jail -->
 
         <LinearLayout
+            android:id="@+id/jail_rights_header"
             style="@style/KnowYourRightsHeaderLayout"
             android:onClick="jailClicked"
             android:orientation="vertical"

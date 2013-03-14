@@ -44,6 +44,12 @@ public class RightsActivity extends SherlockActivity implements ViewSwitcher.Vie
 
 	TextSwitcher rights_content;
 	ScrollView rights_container;
+	// Header layouts
+	View general;
+	View car;
+	View street;
+	View home;
+	View jail;
 	
 	enum STATE { NONE, GENERAL, CAR, STREET, HOME, JAIL };
 	
@@ -64,7 +70,14 @@ public class RightsActivity extends SherlockActivity implements ViewSwitcher.Vie
 		
 		rights_container = (ScrollView) findViewById(R.id.rights_container);
 		
-		generalClicked(findViewById(R.id.general_rights_header));
+		general = findViewById(R.id.general_rights_header);
+		car = findViewById(R.id.car_rights_header);
+		street = findViewById(R.id.street_rights_header);
+		home = findViewById(R.id.home_rights_header);
+		jail = findViewById(R.id.jail_rights_header);
+		
+		
+		generalClicked(general);
 	}
 
 	@Override
@@ -109,6 +122,7 @@ public class RightsActivity extends SherlockActivity implements ViewSwitcher.Vie
 			scrollUpTextContainer();
 			rights_content.setText(Html.fromHtml(getString(R.string.general_rights)));
 			state = STATE.GENERAL;
+			colorAppropriateHeader();
 		}
 	}
 
@@ -117,6 +131,7 @@ public class RightsActivity extends SherlockActivity implements ViewSwitcher.Vie
 			scrollUpTextContainer();
 			rights_content.setText(Html.fromHtml(getString(R.string.car_rights)));
 			state = STATE.CAR;
+			colorAppropriateHeader();
 		}
 	}
 
@@ -125,6 +140,7 @@ public class RightsActivity extends SherlockActivity implements ViewSwitcher.Vie
 			scrollUpTextContainer();
 			rights_content.setText(Html.fromHtml(getString(R.string.street_rights)));
 			state = STATE.STREET;
+			colorAppropriateHeader();
 		}
 	}
 
@@ -133,6 +149,7 @@ public class RightsActivity extends SherlockActivity implements ViewSwitcher.Vie
 			scrollUpTextContainer();
 			rights_content.setText(Html.fromHtml(getString(R.string.home_rights)));
 			state = STATE.HOME;
+			colorAppropriateHeader();
 		}
 	}
 
@@ -141,6 +158,28 @@ public class RightsActivity extends SherlockActivity implements ViewSwitcher.Vie
 			scrollUpTextContainer();
 			rights_content.setText(Html.fromHtml(getString(R.string.jail_rights)));
 			state = STATE.JAIL;
+			colorAppropriateHeader();
+		}
+	}
+	
+	private void colorAppropriateHeader(){
+		general.setEnabled(true);car.setEnabled(true);home.setEnabled(true);street.setEnabled(true);jail.setEnabled(true);
+		switch(state){
+			case GENERAL:
+				general.setEnabled(false);
+				break;
+			case CAR:
+				car.setEnabled(false);
+				break;
+			case HOME:
+				home.setEnabled(false);
+				break;
+			case STREET:
+				street.setEnabled(false);
+				break;
+			case JAIL:
+				jail.setEnabled(false);
+				break;
 		}
 	}
 
