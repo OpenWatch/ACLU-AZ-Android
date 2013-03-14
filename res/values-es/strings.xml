@@ -32,8 +32,7 @@
     <string name="clear_personal_info_ok_btn">"Información Personal Clear"</string>
 
     <!-- Pre-Form Disclaimer -->
-    <string name="pre_form_disclaimer">Gracias por compartir su historia. Nosotros mantendremos los detalles específicos de su historia confidenciales, a menos que nosotros lo contactemos y obtengamos su permiso para compartir.</string>
-      
+    <string name="pre_form_disclaimer">Nota: Este formulario no provee asesoría legal, y no debe tomarlo como asesoría legal. Este formulario no es una oferta de parte de la ACLU para representarlo. Usted no debe depender de la información que usted obtenga en este sitio y debe consultar a un abogado para obtener asesoría respecto a su situación específica. Tampoco podemos prometer que la información en este sitio sea completa, exacta o actualizada. Para los niños menores de 13 años, este formulario debe ser completado por tu padre/madre o tutor legal.</string>
     <!-- Form Incomplete Dialog -->
     <string name="form_incomplete_dialog_title">"De forma incompleta,"</string>
     <string name="form_incomplete_dialog_msg">"Por favor, revise el formulario para campos highligted. Como mínimo, necesitamos su nombre completo, su código postal, el lugar del incidente, la fecha y la descripción."</string>
