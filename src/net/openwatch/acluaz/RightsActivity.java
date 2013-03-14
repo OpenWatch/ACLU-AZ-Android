@@ -58,6 +58,8 @@ public class RightsActivity extends SherlockActivity implements ViewSwitcher.Vie
                 android.R.anim.slide_out_right));
 		
 		rights_container = (ScrollView) findViewById(R.id.rights_container);
+		
+		generalClicked(findViewById(R.id.general_rights_header));
 	}
 
 	@Override

@@ -18,6 +18,7 @@
         <!-- General -->
 
         <LinearLayout
+            android:id="@+id/general_rights_header"
             style="@style/KnowYourRightsHeaderLayout"
             android:onClick="generalClicked"
             android:orientation="vertical"

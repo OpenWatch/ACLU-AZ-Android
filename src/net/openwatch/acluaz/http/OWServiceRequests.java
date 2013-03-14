@@ -37,7 +37,10 @@ import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.os.AsyncTask;
 import android.os.Looper;
 import android.util.Log;
@@ -53,12 +56,16 @@ public class OWServiceRequests {
 
 	private static final String TAG = "OWServiceRequests";
 
-	private static void showReportSubmittedToast(Context context) {
-		int duration = Toast.LENGTH_SHORT;
+	private static void showReportSubmittedDialog(Context context) {
+		AlertDialog.Builder builder = new AlertDialog.Builder(context);
+		builder.setTitle(R.string.form_success_title).setMessage(R.string.form_success).setPositiveButton(R.string.dialog_ok, new OnClickListener(){
 
-		Toast toast = Toast.makeText(context,
-				context.getString(R.string.toast_report_success), duration);
-		toast.show();
+			@Override
+			public void onClick(DialogInterface arg0, int arg1) {
+				arg0.dismiss();
+			}
+			
+		}).show();
 	}
 
 	public static StringEntity jsonToSE(JSONObject json) {
@@ -142,7 +149,7 @@ public class OWServiceRequests {
 		@Override
 		protected void onPostExecute(Void result) {
 			if(context != null && success){
-				showReportSubmittedToast(context);
+				showReportSubmittedDialog(context);
 			}
 	     }
 		

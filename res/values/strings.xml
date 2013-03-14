@@ -4,9 +4,6 @@
     <string name="app_name">Stop 1070</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
-    
-    <!--  Toasts -->
-    <string name="toast_report_success">Report sent successfully</string>
 
     <!-- Generic Dialog -->
     <string name="dialog_submit">Submit</string>
@@ -72,7 +69,10 @@
     <string name="required_field_error">This field is required</string>
 
     <!-- Form Disclaimer -->
-    <string name="form_disclaimer">Thanks for sharing your story. We\'ll keep the specific details of your story confidential unless we contact you and get your permission to share it.</string>
+    <string name="form_disclaimer">We respect your privacy and will only use the contact information you provide to contact you regarding the complaint you submit today. Other than that, we will never send unsolicited email, or share personal information you submit. For further information, see our privacy statement.</string>
+    <!-- Form Success -->
+    <string name="form_success_title">Report Submitted!</string>
+    <string name="form_success">Thanks for sharing your story. We\'ll keep the specific details of your story confidential unless we contact you and get your permission to share it.</string>
 
     <!-- Incident ListView -->
     <string name="loading_incidents">Loading Incidents</string>

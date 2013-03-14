@@ -29,7 +29,7 @@
 
     <!-- Pre-Form Disclaimer -->
     <string name="pre_form_disclaimer">Gracias por compartir su historia. Nosotros mantendremos los detalles específicos de su historia confidenciales, a menos que nosotros lo contactemos y obtengamos su permiso para compartir.</string>
-    
+      
     <!-- Form Incomplete Dialog -->
     <string name="form_incomplete_dialog_title">"De forma incompleta,"</string>
     <string name="form_incomplete_dialog_msg">"Por favor, revise el formulario para campos highligted. Como mínimo, necesitamos su nombre completo, su código postal, el lugar del incidente, la fecha y la descripción."</string>
@@ -72,7 +72,10 @@
 
     <!-- Form Disclaimer -->
     <string name="form_disclaimer">"Nosotros respetamos su privacidad y solamente usaremos la información de contacto que usted proporcione para contactarle referente a la queja que usted presentó hoy. Aparte de eso, nosotros nunca enviaremos un correo electrónico (e-mail) no solicitado, ni compartiremos información personal que usted presente. Para mayor información, vea nuestra declaración de privacidad."</string>
-
+	<!-- Form Success -->
+	<string name="form_success_title">Informe Enviado</string>
+    <string name="form_success">"Gracias por compartir su historia. Nosotros mantendremos los detalles específicos de su historia confidenciales, a menos que nosotros lo contactemos y obtengamos su permiso para compartir."</string>
+    
     <!-- Incident ListView -->
     <string name="loading_incidents">"Incidentes Loading"</string>
     <string name="no_incidents">"No se produjeron incidentes Guardado"</string>
