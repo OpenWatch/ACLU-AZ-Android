@@ -25,8 +25,12 @@ import com.bugsense.trace.BugSenseHandler;
 import net.openwatch.acluaz.constants.Constants;
 import net.openwatch.acluaz.database.DatabaseManager;
 import android.os.Bundle;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.View;
 
 public class MainActivity extends SherlockActivity {
@@ -54,6 +58,32 @@ public class MainActivity extends SherlockActivity {
 	public void onRightsBtnClicked(View v){
 		Intent i = new Intent(this, RightsActivity.class);
 		startActivity(i);
+	}
+	
+	public void changeLanguage(View v){
+		Log.i("changeLanguage", "clicked");
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle(getString(R.string.change_language_dialog_title))
+		.setMessage(getString(R.string.change_language_dialog_body))
+		.setPositiveButton(getString(R.string.dialog_ok), new OnClickListener(){
+
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				Intent intent = new Intent(Intent.ACTION_MAIN);
+				intent.setClassName("com.android.settings", "com.android.settings.LanguageSettings");            
+				startActivity(intent);
+			}
+			
+		}).setNegativeButton("Cancel", new OnClickListener(){
+
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.dismiss();
+			}
+				
+			
+		}).show();
+		
 	}
 	
 	@Override

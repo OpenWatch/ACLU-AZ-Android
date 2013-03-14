@@ -47,9 +47,22 @@
         android:onClick="onRightsBtnClicked"
         android:text="@string/rights_btn" />
 
-    <View
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.15" />
+        android:gravity="center"
+        android:layout_weight="0.15" >
+        
+         <TextView
+	        android:id="@+id/change_language"
+	        android:onClick="changeLanguage"
+	        android:clickable="true"
+	        android:gravity="center"
+	        android:textColor="@color/off_white"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:text="@string/change_language"/>
+        
+    </LinearLayout>
 
 </LinearLayout>

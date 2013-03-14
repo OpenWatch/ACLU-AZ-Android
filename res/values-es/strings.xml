@@ -16,6 +16,10 @@
     <string name="report_btn">"Reporte Abuso"</string>
     <string name="rights_btn">"Conozca Sus Derechos"</string>
     <string name="title_activity_form">"FormActivity"</string>
+    <string name="change_language">In English?</string>
+    <string name="change_language_dialog_title">Change Language?</string>
+    <string name="change_language_dialog_body">You may change your device language to view this app in English.</string>
+    
     <!-- ActionBar Menu -->
     <string name="menu_view_reports">"Informes"</string>
 

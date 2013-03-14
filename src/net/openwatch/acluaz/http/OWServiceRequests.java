@@ -64,7 +64,6 @@ public class OWServiceRequests {
 			public void onClick(DialogInterface arg0, int arg1) {
 				arg0.dismiss();
 			}
-			
 		}).show();
 	}
 

@@ -14,6 +14,9 @@
     <string name="report_btn">Report</string>
     <string name="rights_btn">Know Your Rights</string>
     <string name="title_activity_form">FormActivity</string>
+    <string name="change_language">En Español</string>
+    <string name="change_language_dialog_title">Cambiar el Idioma</string>
+    <string name="change_language_dialog_body">Usted puede cambiar el idioma del dispositivo para ver esta aplicación en Inglés.</string>
     <!-- ActionBar Menu -->
     <string name="menu_view_reports">Reports</string>
 
